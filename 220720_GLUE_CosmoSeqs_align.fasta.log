@@ -1180,3 +1180,119 @@ Generating 1000 samples for ultrafast bootstrap (seed: 403495)...
 NOTE: 522 MB RAM (0 GB) is required!
 Estimate model parameters (epsilon = 0.100)
 Thoroughly optimizing +I+G parameters from 10 start values...
+Init pinv, alpha: 0.000, 1.000 / Estimate: 0.000, 0.359 / LogL: -222534.599
+Init pinv, alpha: 0.054, 1.000 / Estimate: 0.433, 1.592 / LogL: -221872.403
+Init pinv, alpha: 0.107, 1.000 / Estimate: 0.433, 1.593 / LogL: -221872.467
+Init pinv, alpha: 0.161, 1.000 / Estimate: 0.433, 1.591 / LogL: -221872.500
+Init pinv, alpha: 0.214, 1.000 / Estimate: 0.433, 1.592 / LogL: -221872.575
+Init pinv, alpha: 0.268, 1.000 / Estimate: 0.433, 1.591 / LogL: -221872.687
+Init pinv, alpha: 0.321, 1.000 / Estimate: 0.433, 1.591 / LogL: -221872.799
+Init pinv, alpha: 0.375, 1.000 / Estimate: 0.433, 1.592 / LogL: -221872.923
+Init pinv, alpha: 0.428, 1.000 / Estimate: 0.433, 1.591 / LogL: -221873.088
+Init pinv, alpha: 0.482, 1.000 / Estimate: 0.434, 1.604 / LogL: -221873.231
+Optimal pinv,alpha: 0.433, 1.592 / LogL: -221872.403
+
+Parameters optimization took 984.729 sec
+Computing ML distances based on estimated model parameters... 24.270 sec
+Computing BIONJ tree...
+0.253 seconds
+Log-likelihood of BIONJ tree: -222669.208
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 50.484 second
+Computing log-likelihood of 98 initial trees ... 70.369 seconds
+Current best score: -221854.994
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -221816.439
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 6: -221816.244
+Iteration 10 / LogL: -221843.295 / Time: 0h:22m:30s
+Iteration 20 / LogL: -221839.097 / Time: 0h:25m:43s
+Finish initializing candidate tree set (20)
+Current best tree score: -221816.244 / CPU time: 528.299
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 21: -221807.976
+Iteration 30 / LogL: -221821.225 / Time: 0h:29m:36s (1h:32m:53s left)
+Iteration 40 / LogL: -221819.139 / Time: 0h:33m:28s (1h:9m:30s left)
+Iteration 50 / LogL: -221826.366 / Time: 0h:37m:13s (0h:53m:54s left)
+Log-likelihood cutoff on original alignment: -221907.037
+Iteration 60 / LogL: -221811.822 / Time: 0h:41m:18s (0h:42m:41s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 62: -221807.908
+Iteration 70 / LogL: -221821.576 / Time: 0h:45m:6s (1h:0m:8s left)
+BETTER TREE FOUND at iteration 76: -221807.906
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 77: -221807.328
+Iteration 80 / LogL: -221818.255 / Time: 0h:49m:1s (1h:0m:11s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 90: -221806.658
+Iteration 90 / LogL: -221806.658 / Time: 0h:52m:54s (0h:59m:26s left)
+Iteration 100 / LogL: -221850.735 / Time: 0h:56m:45s (0h:51m:35s left)
+Log-likelihood cutoff on original alignment: -221898.088
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.996
+Iteration 110 / LogL: -221813.541 / Time: 1h:0m:36s (0h:50m:2s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 113: -221803.409
+Iteration 120 / LogL: -221803.524 / Time: 1h:4m:29s (0h:50m:23s left)
+Iteration 130 / LogL: -221902.275 / Time: 1h:8m:4s (0h:43m:47s left)
+Iteration 140 / LogL: -221805.339 / Time: 1h:13m:8s (0h:38m:24s left)
+Iteration 150 / LogL: -221815.859 / Time: 1h:17m:8s (0h:32m:36s left)
+Log-likelihood cutoff on original alignment: -221898.088
+Iteration 160 / LogL: -221803.795 / Time: 1h:21m:5s (0h:27m:1s left)
+Iteration 170 / LogL: -221804.777 / Time: 1h:24m:56s (0h:21m:36s left)
+Iteration 180 / LogL: -221819.647 / Time: 1h:28m:42s (0h:16m:21s left)
+Iteration 190 / LogL: -221812.166 / Time: 1h:53m:39s (0h:13m:49s left)
+Iteration 200 / LogL: -221803.975 / Time: 1h:57m:37s (0h:7m:40s left)
+Log-likelihood cutoff on original alignment: -221898.088
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.999
+Iteration 210 / LogL: -221821.665 / Time: 2h:1m:46s (0h:52m:25s left)
+TREE SEARCH COMPLETED AFTER 214 ITERATIONS / Time: 2h:3m:29s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -221803.409
+Optimal log-likelihood: -221803.407
+Rate parameters:  A-C: 1.33707  A-G: 7.99845  A-T: 0.46253  C-G: 0.15652  C-T: 9.80782  G-T: 1.00000
+Base frequencies:  A: 0.284  C: 0.221  G: 0.233  T: 0.262
+Proportion of invariable sites: 0.434
+Gamma shape alpha: 1.603
+Parameters optimization took 1 rounds (5.511 sec)
+BEST SCORE FOUND : -221803.407
+Creating bootstrap support values...
+Split supports printed to NEXUS file /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.splits.nex
+Total tree length: 3.193
+
+Total number of iterations: 214
+CPU time used for tree search: 5010.879 sec (1h:23m:30s)
+Wall-clock time used for tree search: 6393.860 sec (1h:46m:33s)
+Total CPU time used: 6031.730 sec (1h:40m:31s)
+Total wall-clock time used: 7417.218 sec (2h:3m:37s)
+
+Computing bootstrap consensus tree...
+Reading input file /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.splits.nex...
+565 taxa and 2783 splits.
+Consensus tree written to /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.contree
+Reading input trees file /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.contree
+Log-likelihood of consensus tree: -221804.950
+
+Analysis results written to: 
+  IQ-TREE report:                /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.iqtree
+  Maximum-likelihood tree:       /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.treefile
+  Likelihood distances:          /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.splits.nex
+  Consensus tree:                /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.contree
+  Screen log file:               /Users/kathryncampbell/Documents/GitHub/Lineages/220720_GLUE_CosmoSeqs_align.fasta.log
+
+Date and Time: Wed Jul 22 18:25:05 2020
