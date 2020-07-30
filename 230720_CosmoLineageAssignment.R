@@ -18,6 +18,14 @@ library(caper)
 library(ggtree)
 library(stringr)
 
+
+
+
+
+#############################################
+#            IMPORT THE DATA                #
+#############################################
+
 #Import the tree
 Cosmotree<-read_annotated(file="Trees/230720_Cosmo_copy.nex.txt")
 
@@ -35,10 +43,24 @@ Cosmoalign<-read.alignment("Sequences/220720_GLUE_CosmoSeqs_align.fasta", format
 Cosmoalign$nam<-sub("(?<=\\.).*$", "", Cosmotree$tip.label, perl = T)
 Cosmoalign$nam<-gsub("\\.", "", Cosmotree$tip.label, perl = T)
 
-#Plot the tree
+
+
+
+#############################################
+#            PLOT THE TREE                  #
+#############################################
+
 # NEED TO COME BACK AND MAKE THIS NICER
 ggtree(Cosmotree) +
   geom_nodelab()
+
+
+
+
+
+#############################################
+#            BOOTSTRAP SUPPORT              #
+#############################################
 
 #Identify nodes with a bootstrap of over 70
 nodes_70<-which(Cosmotree$node.comment > 70 | Cosmotree$node.comment == 100); nodes_70
@@ -61,19 +83,29 @@ nodes_5<-node_data[(which(node_data[,2]>=5)),]
 # Only carry forwards nodes which have more than 5 tips descended from it
 # This has been identified as the definition for a cluster in previous studies
 
-#Count the number of n bases and - in each sequence
 
+
+
+
+#############################################
+#            95% COVERAGE WGS               #
+#############################################
+
+# Make a dataframe ready to fill with info about number of gaps and N bases
 m<-matrix(ncol=5, nrow=567)
 seq_data<-data.frame(m)
 names(seq_data)<-c("ID", "N", "-", "Length_before", "Length_after")
 seq_data$ID<-Cosmoalign$nam
 seq_data$Length_before<-nchar(Cosmoalign$seq[[1]])
+# Add a column with the length of the alignment
 
 for (i in 1:567) {
   seq_data$N[i]<-str_count(Cosmoalign$seq[[i]], pattern = 'n')
   seq_data$`-`[i]<-str_count(Cosmoalign$seq[[i]], pattern = '-')
   seq_data$Length_after[i]<-(seq_data$Length_before[i] - seq_data$N[i] - seq_data$`-`[i])
 }
+# For each sequence, count the number of n bases and the number of gaps
+# Calculate the length after removing these 
 
 seq_data$ID[which(seq_data$Length_after < (seq_data$Length_before * 0.95))]
 # Seqs with less than 95% coverage  =  "KY210300" "KX148205" "MK760768" "KF154998" "DQ875050" "LC325820" "DQ099525" "LT839616" 
