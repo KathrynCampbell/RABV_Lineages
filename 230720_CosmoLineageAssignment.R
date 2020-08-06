@@ -169,3 +169,59 @@ nodes_new
 
 nodes_5<-nodes_new[(which(nodes_new[,2]>=5)),]
 # Redo this to remove any that now have less than 5, and write over the old nodes_5 so this is updated with the new tip numbers
+
+
+
+
+
+#############################################
+#         DIFFERENCE FROM ANCESTOR          #
+#############################################
+
+rm(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20)
+
+nodes_5<-nodes_new[(which(nodes_new[,2]<=250)),]
+
+help("geom_cladelabel")
+
+ggtree(Cosmotree) + 
+  geom_cladelabel(647, "647") +
+  geom_cladelabel(651, "651", offset = 0.005) +
+  geom_cladelabel(655, "655", offset = 0.005) +
+  geom_cladelabel(667, "667", offset = 0.005) +
+  geom_cladelabel(675, "675", offset = 0.005) +
+  geom_cladelabel(717, "717", offset = 0.005) +
+  geom_cladelabel(736, "736", offset = 0.005) +
+  geom_cladelabel(756, "756", offset = 0.005)
+
+tree<-ggtree(Cosmotree) +
+  xlim(0, 0.1)
+
+tree %<+% Cosmometa +
+  geom_tippoint(aes(colour = (alignment.name)))
+
+nodes_5<-nodes_5[order(nodes_5$`n tips`),]
+nodes_5<-nodes_5[(which(nodes_5[,2]>=5)),]
+
+m<-matrix(ncol=2, nrow=567)
+tip_nodes<-data.frame(m)
+names(tip_nodes)<-c("ID", "n_clades")
+tip_nodes$ID<-Cosmotree$tip.label
+
+for (i in (1:567)) {
+  tip_nodes[i,2]<-
+    length(
+      intersect(
+        Ancestors(Cosmotree, c(which(Cosmotree$tip.label == tip_nodes[i,1]))),
+        nodes_5[,1]
+      )
+    )
+}
+
+tip_nodes<-tip_nodes[order(tip_nodes$n_clades),]
+
+tip_nodes[which(tip_nodes$n_clades == 1),1]
+
+intersect(Ancestors(Cosmotree, c(which(Cosmotree$tip.label ==  'KF154998'))), nodes_5[,1])
+
+ # 576 (base), 1088, 1098
