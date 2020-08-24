@@ -38,6 +38,8 @@ Cosmometa<-read.csv("Sequences/220720_GLUE_CosmoMeta.csv")
 
 #Import the alignment
 Cosmoalign<-read.alignment("Sequences/220720_GLUE_CosmoSeqs_align.fasta", format = "fasta")
+alignment_matrix<-as.matrix.alignment(Cosmoalign)
+# Need it as a matrix for later analyses
 
 #Sequence names got messed up in MAFFT, need to fix these
 Cosmoalign$nam<-sub("(?<=\\.).*$", "", Cosmotree$tip.label, perl = T)
@@ -179,49 +181,84 @@ nodes_5<-nodes_new[(which(nodes_new[,2]>=5)),]
 #############################################
 
 rm(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20)
+rm(nodes_new)
+rm(m)
+# Get rid of some things clogging up the environment that won't be needed again
 
-nodes_5<-nodes_new[(which(nodes_new[,2]<=250)),]
 
-help("geom_cladelabel")
+seq_data$Year<-NA
+# Add another column to the seq data ready to fill in dates
 
-ggtree(Cosmotree) + 
-  geom_cladelabel(647, "647") +
-  geom_cladelabel(651, "651", offset = 0.005) +
-  geom_cladelabel(655, "655", offset = 0.005) +
-  geom_cladelabel(667, "667", offset = 0.005) +
-  geom_cladelabel(675, "675", offset = 0.005) +
-  geom_cladelabel(717, "717", offset = 0.005) +
-  geom_cladelabel(736, "736", offset = 0.005) +
-  geom_cladelabel(756, "756", offset = 0.005)
+for (i in 1:567) {
+  seq_data$Year[i]<-Cosmometa$sequence.latest_collection_year[which(Cosmometa$sequence.sequenceID == seq_data$ID[i])]
+}
+# Add the collection year of each sequence to the table
+# Use latest, as exact collection not always filled in
 
-tree<-ggtree(Cosmotree) +
-  xlim(0, 0.1)
+nodes_5$diff<-NA
+# Add a column in nodes_5 to count the number of nucleotide differences each cluster has from the old seq
 
-tree %<+% Cosmometa +
-  geom_tippoint(aes(colour = (alignment.name)))
-
-nodes_5<-nodes_5[order(nodes_5$`n tips`),]
-nodes_5<-nodes_5[(which(nodes_5[,2]>=5)),]
-
-m<-matrix(ncol=2, nrow=567)
-tip_nodes<-data.frame(m)
-names(tip_nodes)<-c("ID", "n_clades")
-tip_nodes$ID<-Cosmotree$tip.label
-
-for (i in (1:567)) {
-  tip_nodes[i,2]<-
-    length(
-      intersect(
-        Ancestors(Cosmotree, c(which(Cosmotree$tip.label == tip_nodes[i,1]))),
-        nodes_5[,1]
-      )
-    )
+for (i in c(1:222)) {
+  old<-which(row.names(alignment_matrix) %in% (
+    seq_data$ID[
+      which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))[
+        which((seq_data$Year[
+          which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]) == min(
+            seq_data$Year[which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]))
+      ]
+    ]
+  ))
+  old<-old[1]
+  
+  tips<-which(row.names(alignment_matrix) %in% clade.members((nodes_5[i,1]), Cosmotree, include.nodes = F, tip.labels = T))
+  tips<-tips[-c(which(tips == old))]
+  x<-which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
+  
+  for (j in tips[-c(1)]) {
+    x<-x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
+    print(x)
+    nodes_5$diff[i]<-length(x)
+  }
 }
 
-tip_nodes<-tip_nodes[order(tip_nodes$n_clades),]
+# For each node of interest, find all the tips
+# Make a note of the differences between the oldest seq in the each cluster/lineage and one of the seqs in the lineage
+# Which differences between the old seq and each seq are shared between all the seqs in the lineage
+# E.g. which lineages show one or more shared nucleotides differences from the ancestor
+# Count these differences and add them to the table to be analysed further (may just be n's)
 
-tip_nodes[which(tip_nodes$n_clades == 1),1]
+nodes_diff<-nodes_5[(which(nodes_5[,3]!=0)),]
+# Get rid of the ones with no differences straight away 
 
-intersect(Ancestors(Cosmotree, c(which(Cosmotree$tip.label ==  'KF154998'))), nodes_5[,1])
+# Test the ones with only a few differences to check these aren't just n's
 
- # 576 (base), 1088, 1098
+  old<-which(row.names(alignment_matrix) %in% (
+    seq_data$ID[
+      which(seq_data$ID %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))[
+        which((seq_data$Year[
+          which(seq_data$ID %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))]) == min(
+            seq_data$Year[which(seq_data$ID %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))]))
+      ]
+    ]
+  ))
+  old<-old[1]
+  
+  tips<-which(row.names(alignment_matrix) %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))
+  tips<-tips[-c(which(tips == old))]
+  x<-which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
+  
+  for (j in tips[-c(1)]) {
+    x<-x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
+    print(x)
+    nodes_5$diff[i]<-length(x)
+  }
+
+tips
+old
+alignment_matrix[171, 76]
+alignment_matrix[175, 76]
+# Checked 2; looked fine. Worked fine in previous scripts.
+
+
+
+      
