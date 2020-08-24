@@ -38,12 +38,14 @@ Cosmometa<-read.csv("Sequences/220720_GLUE_CosmoMeta.csv")
 
 #Import the alignment
 Cosmoalign<-read.alignment("Sequences/220720_GLUE_CosmoSeqs_align.fasta", format = "fasta")
-alignment_matrix<-as.matrix.alignment(Cosmoalign)
-# Need it as a matrix for later analyses
 
 #Sequence names got messed up in MAFFT, need to fix these
 Cosmoalign$nam<-sub("(?<=\\.).*$", "", Cosmotree$tip.label, perl = T)
 Cosmoalign$nam<-gsub("\\.", "", Cosmotree$tip.label, perl = T)
+
+alignment_matrix<-as.matrix.alignment(Cosmoalign)
+# Need it as a matrix for later analyses
+
 
 
 
@@ -261,4 +263,111 @@ alignment_matrix[175, 76]
 
 
 
-      
+#############################################
+#         OVERLAPPING TIPS REMOVAL          #
+#############################################
+
+nodes_diff$overlaps<-NA
+for (i in c(1:208)) {
+  nodes_diff$overlaps[i]<-length(which((allDescendants(Cosmotree)[[(nodes_diff[i,1])]]) %in% nodes_diff[,1]))
+}
+# Add a column to nodes_diff and for each node, count how many of the other nodes of interest are descended from it
+
+nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
+# Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
+
+nodes_diff$cluster<-c(1:208)
+# Add a column called cluster and label the clusters 1 to 58
+
+m<-matrix(nrow = 567, ncol = 2)
+lineage_assignments<-data.frame(m)
+names(lineage_assignments)<-c("tip", "cluster")
+lineage_assignments$tip<-Cosmotree$tip.label
+# Create a data frame for lineage assignments. Add the tip labels, and a column ready to add the lineage they're assigned to
+
+for (i in c(1:208)) {
+  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+}
+# For each sequence, see if it's a member of a lineage. If it is, put the number of the cluster in it's lineage assignment
+# Do this in order of the node with the most overlaps to the least, to ensure the assignment is at the lowest possible level
+# E.g. if a sequence is in clusters 1-7, it will appear as 7 
+
+summary<-lineage_assignments %>%
+  group_by(cluster) %>%
+  summarise(n=n()); summary
+# Count the number of sequences assigned to each lineage
+
+nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
+# If any lineages have less than 5 sequences in them, remove them as an option from the nodes_diff table
+
+nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
+nodes_diff$cluster<-c(1:94)
+for (i in c(1:94)) {
+  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+}
+# Reorder the nodes, rename the clusters to reflect the smaller 
+
+summary<-lineage_assignments %>%
+  group_by(cluster) %>%
+  summarise(n=n()); summary
+
+nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
+
+nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
+nodes_diff$cluster<-c(1:76)
+for (i in c(1:76)) {
+  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+}
+# Repeat the previous step as there are still some with less than 5
+
+summary<-lineage_assignments %>%
+  group_by(cluster) %>%
+  summarise(n=n()); summary
+
+nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
+
+nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
+nodes_diff$cluster<-c(1:75)
+for (i in c(1:75)) {
+  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+}
+# And again
+# Last one; none left now! There's a weird residual cluster 121, 158, 157... sort this later!
+
+
+
+
+#############################################
+#              PLOT THE TREE                #
+#############################################
+lineage_assignments$cluster<-as.factor(lineage_assignments$cluster)
+
+tree<-ggtree(Cosmotree) %<+% lineage_assignments +
+  geom_tippoint(aes(colour = (cluster)))
+# initial plot of the tree; need to see this to understand the lineage names
+
+for (i in 1:5) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.006*i, offset.text = 0)
+}
+for (i in 6:16) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.018+0.003*i, offset.text = 0)
+}
+for (i in 17:26) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0037*i, offset.text = 0)
+}
+for (i in 27:75) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1, offset.text = 0)
+}
+
+tree
+
+lineage_assignments$previous<-NA
+
+for (i in 1:567) {
+  lineage_assignments$previous[i]<-
+    Cosmometa$alignment.displayName[which(Cosmometa$sequence.sequenceID == lineage_assignments$tip[i])]
+}
