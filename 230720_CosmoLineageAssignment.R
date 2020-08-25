@@ -346,21 +346,63 @@ tree<-ggtree(Cosmotree) %<+% lineage_assignments +
   geom_tippoint(aes(colour = (cluster)))
 # initial plot of the tree; need to see this to understand the lineage names
 
+nodes_diff$cluster[15]<-"AF1a_A1"
+nodes_diff$cluster[5]<-"AF1b_A1"
+nodes_diff$cluster[73]<-"AF4_A1"
+nodes_diff$cluster[75]<-"AM2a_A1"
+nodes_diff$cluster[72]<-"AM3a_A1"
+nodes_diff$cluster[16]<-"CA1_A1"
+nodes_diff$cluster[71]<-"CA2_A1"
+nodes_diff$cluster[58]<-"CE_A1"
+nodes_diff$cluster[62]<-"EE_A1"
+nodes_diff$cluster[6]<-"ME1a_A1"
+nodes_diff$cluster[13]<-"ME2_A1"
+nodes_diff$cluster[63]<-"NEE_A1"
+nodes_diff$cluster[60]<-"WE_A1"
+
 for (i in 1:5) {
   tree<-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.006*i, offset.text = 0)
 }
-for (i in 6:16) {
+for (i in 6) {
   tree<-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.018+0.003*i, offset.text = 0)
 }
-for (i in 17:26) {
+for (i in 7:10) {
   tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0037*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.008+0.003*i, offset.text = 0)
 }
-for (i in 27:75) {
+for (i in 11) {
   tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.014, offset.text = 0)
+}
+for (i in 14) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.008+0.003*i, offset.text = 0)
+}
+for (i in c(12, 13, 15, 16, 17, 18, 21, 23,24)) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0025*i, offset.text = 0)
+}
+for (i in c(19,20)) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0027*i, offset.text = 0)
+}
+for (i in c(22, 25)) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0017*i, offset.text = 0)
+}
+for (i in 26) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.015, offset.text = 0)
+}
+for (i in 27:46) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.07, offset.text = 0)
+}
+for (i in 47:75) {
+  tree<-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.057, offset.text = 0)
 }
 
 tree
