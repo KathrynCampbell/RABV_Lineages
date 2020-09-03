@@ -5,116 +5,105 @@
 #'---
 
 rm(list = ls())
+
+# Packages installed without problem
 library(seqinr)
 library(ape)
-library(phytools)
-library(treeio)
 library(dplyr)
 library(TreeTools)
 library(adephylo)
 library(phangorn)
 library(phylotate)
 library(caper)
-library(ggtree)
 library(stringr)
 library(pracma)
 library(ggrepel)
 
-
-
+# Difficult packages
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+library(phytools)
+library(treeio)
+library(ggtree)
 
 
 #############################################
 #            IMPORT THE DATA                #
 #############################################
 
-#Import the tree
-Cosmotree<-read_annotated(file="Trees/230720_Cosmo_copy.nex.txt")
+# Import the tree
+Cosmotree <- read_annotated(file="Trees/230720_Cosmo_copy.nex.txt")
 
-#Sequence names got messed up in MAFFT, need to fix these
-Cosmotree$tip.label<-sub("(?<=\\.).*$", "", Cosmotree$tip.label, perl = T)
-Cosmotree$tip.label<-gsub("\\.", "", Cosmotree$tip.label, perl = T)
+# Sequence names got messed up in MAFFT, need to fix these
+Cosmotree$tip.label <- sub("(?<=\\.).*$", "", Cosmotree$tip.label, perl = T)
+Cosmotree$tip.label <- gsub("\\.", "", Cosmotree$tip.label, perl = T)
 
-#Import the metadata
-Cosmometa<-read.csv("Sequences/220720_GLUE_CosmoMeta.csv")
+# Import the metadata
+Cosmometa <- read.csv("Sequences/220720_GLUE_CosmoMeta.csv")
 
-#Import the alignment
-Cosmoalign<-read.alignment("Sequences/220720_GLUE_CosmoSeqs_align.fasta", format = "fasta")
+# Import the alignment
+Cosmoalign <- read.alignment("Sequences/220720_GLUE_CosmoSeqs_align.fasta", format = "fasta")
 
-#Sequence names got messed up in MAFFT, need to fix these
-Cosmoalign$nam<-sub("(?<=\\.).*$", "", Cosmotree$tip.label, perl = T)
-Cosmoalign$nam<-gsub("\\.", "", Cosmotree$tip.label, perl = T)
+# Sequence names got messed up in MAFFT, need to fix these
+Cosmoalign$nam <- sub("(?<=\\.).*$", "", Cosmotree$tip.label, perl = T) # SHOULD THESE NOT BE Cosmoalign????
+Cosmoalign$nam <- gsub("\\.", "", Cosmotree$tip.label, perl = T)
 
-alignment_matrix<-as.matrix.alignment(Cosmoalign)
+alignment_matrix <- as.matrix.alignment(Cosmoalign)
 # Need it as a matrix for later analyses
-
-
-
-
 
 #############################################
 #            PLOT THE TREE                  #
 #############################################
-
 # NEED TO COME BACK AND MAKE THIS NICER
-ggtree(Cosmotree) +
-  geom_nodelab()
-
-
-
-
+ggtree(Cosmotree) + geom_nodelab()
 
 #############################################
 #            BOOTSTRAP SUPPORT              #
 #############################################
-
-#Identify nodes with a bootstrap of over 70
+# Identify nodes with a bootstrap of over 70
 nodes_70<-which(Cosmotree$node.comment > 70 | Cosmotree$node.comment == 100); nodes_70
 
-m<-matrix(ncol=2, nrow=length(nodes_70))
-node_data<-data.frame(m)
-node_data[,1]<-nodes_70
-names(node_data)<-c("Node", "n tips")
+m <- matrix(ncol=2, nrow=length(nodes_70))
+node_data <- data.frame(m)
+node_data[,1] <- nodes_70
+names(node_data) <- c("Node", "n tips")
+
 # Make a dataframe ready for values to be put in
 # Fill the first column with the numbers of the nodes identified in the previous steps
-
 for(i in 1:(length(nodes_70))) {
-  node_data[i,2]<-length(Descendants(Cosmotree, (nodes_70[i]), type = c("tips"))[[1]])
+  node_data[i,2] <- length(Descendants(Cosmotree, (nodes_70[i]), type = c("tips"))[[1]])
 }
 
 View(node_data)
 # For each node identified in the previous step, count the number of tips descended from that node
 
-nodes_5<-node_data[(which(node_data[,2]>=5)),]
+nodes_5 <- node_data[ (which(node_data[,2]>=5)), ]
 # Only carry forwards nodes which have more than 5 tips descended from it
 # This has been identified as the definition for a cluster in previous studies
-
-
-
-
 
 #############################################
 #            95% COVERAGE WGS               #
 #############################################
-
 # Make a dataframe ready to fill with info about number of gaps and N bases
-m<-matrix(ncol=5, nrow=length(Cosmoalign$seq))
-seq_data<-data.frame(m)
-names(seq_data)<-c("ID", "N", "-", "Length_before", "Length_after")
-seq_data$ID<-Cosmoalign$nam
-seq_data$Length_before<-nchar(Cosmoalign$seq[[1]])
+m <- matrix(ncol=5, nrow=length(Cosmoalign$seq))
+seq_data <- data.frame(m)
+names(seq_data) <- c("ID", "N", "-", "Length_before", "Length_after")
+seq_data$ID <- Cosmoalign$nam
+seq_data$Length_before <- nchar(Cosmoalign$seq[[1]])
 # Add a column with the length of the alignment
 
 for (i in 1:(length(Cosmoalign$seq))) {
-  seq_data$N[i]<-str_count(Cosmoalign$seq[[i]], pattern = 'n')
-  seq_data$`-`[i]<-str_count(Cosmoalign$seq[[i]], pattern = '-')
-  seq_data$Length_after[i]<-(seq_data$Length_before[i] - seq_data$N[i] - seq_data$`-`[i])
+  seq_data$N[i] <- str_count(Cosmoalign$seq[[i]], pattern = 'n')
+  seq_data$`-`[i] <- str_count(Cosmoalign$seq[[i]], pattern = '-')
+  seq_data$Length_after[i] <- (seq_data$Length_before[i] - seq_data$N[i] - seq_data$`-`[i])
 }
 # For each sequence, count the number of n bases and the number of gaps
 # Calculate the length after removing these 
 
 nodes_remove<-Ancestors(Cosmotree, 
-                        (which(Cosmotree$tip.label %in% (seq_data$ID[which(seq_data$Length_after < (seq_data$Length_before * 0.95))]))), 
+                        (which(Cosmotree$tip.label 
+                               %in% (seq_data$ID[which(seq_data$Length_after < (seq_data$Length_before * 0.95))])
+                               )), 
                         'all')
 # Identify seqs with less than 95% coverage and corresponding to tip numbers
 # List the ancestor nodes for each of these tip numbers
