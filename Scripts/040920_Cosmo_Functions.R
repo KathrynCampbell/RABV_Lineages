@@ -22,9 +22,9 @@ library(ggrepel)
 # Difficult packages
 # if (!requireNamespace("BiocManager", quietly = TRUE))
 #   install.packages("BiocManager")
-# library(phytools)
-# library(treeio)
-# library(ggtree)
+library(phytools)
+library(treeio)
+library(ggtree)
 
 source("R/bootstrap_support.r")
 source("R/sequence_data.r")
@@ -113,33 +113,6 @@ nodes_diff <- ancestor_difference(nodes = nodes_5,
                                   sequence.data = seq_data,
                                   tree = Cosmotree)
 
-# Test the ones with only a few differences to check these aren't just n's
-  old<-which(row.names(alignment_matrix) %in% (
-    seq_data$ID[
-      which(seq_data$ID %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))[
-        which((seq_data$Year[
-          which(seq_data$ID %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))]) == min(
-            seq_data$Year[which(seq_data$ID %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))]))
-      ]
-    ]
-  ))
-  old<-old[1]
-  
-  tips<-which(row.names(alignment_matrix) %in% clade.members(573, Cosmotree, include.nodes = F, tip.labels = T))
-  tips<-tips[-c(which(tips == old))]
-  x<-which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
-  
-  for (j in tips[-c(1)]) {
-    x<-x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
-    print(x)
-    nodes_5$diff[i]<-length(x)
-  }
-
-tips
-old
-alignment_matrix[171, 76]
-alignment_matrix[175, 76]
-# Checked 2; looked fine. Worked fine in previous scripts.
 
 #############################################
 #         OVERLAPPING TIPS REMOVAL          #
@@ -150,17 +123,18 @@ for (i in c(1:(length(nodes_diff$Node)))) {
 }
 # Add a column to nodes_diff and for each node, count how many of the other nodes of interest are descended from it
 
-nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
-# Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
-
-nodes_diff$cluster<-c(1:(length(nodes_diff$Node)))
-# Add a column called cluster and label the clusters 1 to 58
-
 m <- matrix(nrow = length(Cosmoalign$seq), ncol = 2)
 lineage_assignments<-data.frame(m)
 names(lineage_assignments)<-c("tip", "cluster")
 lineage_assignments$tip<-Cosmotree$tip.label
 # Create a data frame for lineage assignments. Add the tip labels, and a column ready to add the lineage they're assigned to
+
+nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
+# Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
+
+nodes_diff$cluster<-c(1:(length(nodes_diff$Node)))
+# Add a column called cluster and label the clusters
+
 
 for (i in c(1:(length(nodes_diff$Node)))) {
   lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
@@ -169,49 +143,49 @@ for (i in c(1:(length(nodes_diff$Node)))) {
 # Do this in order of the node with the most overlaps to the least, to ensure the assignment is at the lowest possible level
 # E.g. if a sequence is in clusters 1-7, it will appear as 7 
 
-summary <-lineage_assignments %>%
-  group_by(cluster) %>%
-  summarise(n=n()); summary
+m <- matrix(nrow = length(nodes_diff$Node), ncol = 2)
+summary <- data.frame(m)
+names(summary) <- c("cluster", "count")
+summary$cluster <- nodes_diff$cluster
+            
+for (i in 1:(length(summary$cluster))) {
+  summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
+}
 # Count the number of sequences assigned to each lineage
 
-nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
+nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 5))])),]
 # If any lineages have less than 5 sequences in them, remove them as an option from the nodes_diff table
 
-# MAKE SOME SORT OF REPEAT UNTIL LOOP HERE
-nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
-nodes_diff$cluster <-c(1:94)
-for (i in c(1:94)) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+min <- min(summary$count)
+
+while (min < 5){
+  nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
+  nodes_diff$cluster <-c(1:(length(nodes_diff$Node)))
+  lineage_assignments$cluster <- NA
+  for (i in c(1:(length(nodes_diff$Node)))) {
+    lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+  }
+  m <- matrix(nrow = length(nodes_diff$Node), ncol = 2)
+  summary <- data.frame(m)
+  names(summary) <- c("cluster", "count")
+  summary$cluster <- nodes_diff$cluster
+
+  for (i in 1:(length(summary$cluster))) {
+    summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
+  }
+  
+  min <- min(summary$count)
+
+  if (min == 5) {
+    print("done")
+  } else {
+    nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 5))])), ]
+  }
 }
-# Reorder the nodes, rename the clusters to reflect the smaller 
 
-summary<-lineage_assignments %>%
-  group_by(cluster) %>%
-  summarise(n=n()); summary
 
-nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
 
-nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
-nodes_diff$cluster<-c(1:76)
-for (i in c(1:76)) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
-}
-# Repeat the previous step as there are still some with less than 5
-
-summary<-lineage_assignments %>%
-  group_by(cluster) %>%
-  summarise(n=n()); summary
-
-nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
-
-nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
-nodes_diff$cluster<-c(1:75)
-for (i in c(1:75)) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
-}
-# And again
-# Last one; none left now! There's a weird residual cluster 121, 158, 157... sort this later!
-
+# Repeat the above steps until there are no clusters with less than 5 sequences left 
 
 #############################################
 #              PLOT THE TREE                #
@@ -247,49 +221,9 @@ nodes_diff$cluster[13]<-"ME2_A1"
 nodes_diff$cluster[63]<-"NEE_A1"
 nodes_diff$cluster[60]<-"WE_A1"
 
-for (i in 1:5) {
+for (i in 1:57) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.006*i, offset.text = 0)
-}
-for (i in 6) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.018+0.003*i, offset.text = 0)
-}
-for (i in 7:10) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.008+0.003*i, offset.text = 0)
-}
-for (i in 11) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.014, offset.text = 0)
-}
-for (i in 14) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.008+0.003*i, offset.text = 0)
-}
-for (i in c(12, 13, 15, 16, 17, 18, 21, 23,24)) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0025*i, offset.text = 0)
-}
-for (i in c(19,20)) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0027*i, offset.text = 0)
-}
-for (i in c(22, 25)) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0017*i, offset.text = 0)
-}
-for (i in 26) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.015, offset.text = 0)
-}
-for (i in 27:46) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.07, offset.text = 0)
-}
-for (i in 47:75) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.057, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.006, offset.text = 0)
 }
 # The clade bars all need to be offset by a different amount so can't see a way to automate this
 
