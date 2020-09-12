@@ -6,7 +6,12 @@
 
 rm(list = ls())
 
-# Packages installed without problem
+# load packages
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# BiocManager::install("treeio")
+# BiocManager::install("ggtree")
+
 library(seqinr)
 library(ape)
 library(dplyr)
@@ -18,14 +23,9 @@ library(caper)
 library(stringr)
 library(pracma)
 library(ggrepel)
-
-# Difficult packages
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
-# library(phytools)
-# library(treeio)
-# library(ggtree)
-
+library(phytools)
+library(treeio)
+library(ggtree)
 
 #############################################
 #            IMPORT THE DATA                #
@@ -60,24 +60,24 @@ ggtree(Cosmotree) + geom_nodelab()
 #############################################
 #            BOOTSTRAP SUPPORT              #
 #############################################
-# Identify nodes with a bootstrap of over 70
-nodes_70 <- which(Cosmotree$node.comment > 70 | Cosmotree$node.comment == 100)
-nodes_70
+# Identify nodes with a bootstrap of over 70 (why would the first ~570 nodes be NA?)
+nodes_70 <- which(Cosmotree$node.comment > 70 | Cosmotree$node.comment == 100); nodes_70
 
-m <- matrix(ncol=2, nrow=length(nodes_70))
-node_data <- data.frame(m)
-node_data[,1] <- nodes_70
-names(node_data) <- c("Node", "n_tips")
+# m <- matrix(ncol=2, nrow=length(nodes_70))
+# node_data <- data.frame(m)
+# node_data[,1] <- nodes_70
+# names(node_data) <- c("Node", "n_tips")
+node_data <- data.frame(Node = nodes_70, n_tips = NA) # Alternative
 
 # Make a dataframe ready for values to be put in
 # Fill the first column with the numbers of the nodes identified in the previous steps
-for(i in 1:(length(nodes_70))) {
-  node_data[i,2] <- length(Descendants(Cosmotree, (nodes_70[i]), type = c("tips"))[[1]])
+for(i in 1:length(nodes_70)) {
+  node_data[i,2] <- length(Descendants(Cosmotree, nodes_70[i], type = "tips")[[1]])
 }
 View(node_data)
-# For each node identified in the previous step, count the number of tips descended from that node
 
-nodes_5 <- node_data[ (which(node_data[,2]>=5)), ]
+# For each node identified in the previous step, count the number of tips descended from that node
+nodes_5 <- node_data[(which(node_data[,2]>=5)),]
 # Only carry forwards nodes which have more than 5 tips descended from it
 # This has been identified as the definition for a cluster in previous studies
 
@@ -90,14 +90,16 @@ seq_data <- data.frame(m)
 names(seq_data) <- c("ID", "N", "-", "Length_before", "Length_after")
 seq_data$ID <- Cosmoalign$nam
 seq_data$Length_before <- nchar(Cosmoalign$seq[[1]])
+# seq_data <- data.frame(ID = Cosmoalign$nam, N = NA, "-" = NA,
+#                        Length_before = nchar(Cosmoalign$seq[[1]]), Length_after = NA) # Alternative
 # Add a column with the length of the alignment
 
-for (i in 1:(length(Cosmoalign$seq))) {
+for (i in 1:length(Cosmoalign$seq)) {
   seq_data$N[i] <- str_count(Cosmoalign$seq[[i]], pattern = 'n')
   seq_data$`-`[i] <- str_count(Cosmoalign$seq[[i]], pattern = '-')
   seq_data$Length_after[i] <- (seq_data$Length_before[i] - seq_data$N[i] - seq_data$`-`[i])
 }
-# For each sequence, count the number of n bases and the number of gaps
+# For each sequence, count the number of n bases and gaps
 # Calculate the length after removing these 
 
 nodes_remove <- Ancestors(Cosmotree, 
@@ -112,7 +114,6 @@ removes <- nodes_remove[[1]]
 for (i in 2:(length(nodes_remove))) {
   removes <- c(removes, nodes_remove[[i]])
 }
-
 remove_counts <- data.frame(table(removes))
 # Make a table to count the number the removed sequences descended from each node (e.g. for the deeper nodes, all 10 are descended)
 
@@ -133,49 +134,21 @@ for (i in new_remove$Node) {
 }
 # Take away the number of removed tips from the previous total number of tips calculated for each node
 
-nodes_new
-# Works!!! Checked a few manually 
+nodes_new # Works!!! Checked a few manually 
 
-nodes_5 <- nodes_new[(which(nodes_new[,2] >= 5)),]
-# Redo this to remove any that now have less than 5, and write over the old nodes_5 so this is updated with the new tip numbers
+nodes_5 <- nodes_new[(which(nodes_new[,2] >= 5)),] # Redo this to remove any that now have less than 5, and write over the old nodes_5 so this is updated with the new tip numbers
+
 
 #############################################
 #         DIFFERENCE FROM ANCESTOR          #
 #############################################
-seq_data$Year <- NA
-# Add another column to the seq data ready to fill in dates
-
+seq_data$Year <- NA # Add another column to the seq data ready to fill in dates
+# Add collection year of each sequence to the table (Use latest, as exact collection not always filled in)
 for (i in 1:length(Cosmoalign$seq)) {
   seq_data$Year[i] <- Cosmometa$sequence.latest_collection_year[which(Cosmometa$sequence.sequenceID == seq_data$ID[i])]
-}
-# Add the collection year of each sequence to the table
-# Use latest, as exact collection not always filled in
+} 
 
-nodes_5$diff <- NA
-# Add a column in nodes_5 to count the number of nucleotide differences each cluster has from the old seq
-
-for (i in c(1:(length(nodes_5$Node)))) {
-  old<-which(row.names(alignment_matrix) %in% (
-    seq_data$ID[
-      which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))[
-        which((seq_data$Year[
-          which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]) == min(
-            seq_data$Year[which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]))
-      ]
-    ]
-  ))
-  old<-old[1]
-  
-  tips <- which(row.names(alignment_matrix) %in% clade.members((nodes_5[i,1]), Cosmotree, include.nodes = F, tip.labels = T))
-  tips <- tips[-c(which(tips == old))]
-  x <- which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
-  
-  for (j in tips[-c(1)]) {
-    x<-x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
-    print(x)
-    nodes_5$diff[i] <- length(x)
-  }
-}
+nodes_5$diff <- NA # Add a column in nodes_5 to count the number of nucleotide differences each cluster has from the old seq
 
 # For each node of interest, find all the tips
 # Make a note of the differences between the oldest seq in the each cluster/lineage and one of the seqs in the lineage
@@ -183,8 +156,52 @@ for (i in c(1:(length(nodes_5$Node)))) {
 # E.g. which lineages show one or more shared nucleotides differences from the ancestor
 # Count these differences and add them to the table to be analysed further (may just be n's)
 
-nodes_diff <- nodes_5[(which(nodes_5[,3]!=0)),]
-# Get rid of the ones with no differences straight away 
+# THE CODE BELOW IS A BIT HARD TO READ:
+# Perhaps define clade.members and associated sequences on each loop?
+for (i in 1:length(nodes_5$Node)) {
+  cm <- clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T)
+  seq_cm <- which(seq_data$ID %in% cm)
+  
+  old <- which(row.names(alignment_matrix) %in% (
+    seq_data$ID[seq_cm[which(seq_data$Year[seq_cm] == min(seq_data$Year[seq_cm]))]] # This row is still a little confusing!
+  ))
+  old <- old[1]
+  
+  tips <- which(row.names(alignment_matrix) %in% cm)
+  tips <- tips[-c(which(tips == old))]
+  x <- which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
+  
+  for (j in tips[-c(1)]) {
+    x <- x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
+    print(x)
+    nodes_5$diff[i] <- length(x)
+  }
+}
+
+# DELETE THIS IF YOU THINK CODE ABOVE WORKS!?
+# for (i in 1:length(nodes_5$Node)) {
+#   old <- which(row.names(alignment_matrix) %in% (
+#     seq_data$ID[
+#       which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))[
+#         which((seq_data$Year[
+#           which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]) == min(
+#             seq_data$Year[which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]))
+#       ]
+#     ]
+#   ))
+#   old<-old[1]
+#   
+#   tips <- which(row.names(alignment_matrix) %in% clade.members((nodes_5[i,1]), Cosmotree, include.nodes = F, tip.labels = T))
+#   tips <- tips[-c(which(tips == old))]
+#   x <- which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
+#   
+#   for (j in tips[-c(1)]) {
+#     x <- x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
+#     print(x)
+#     nodes_5$diff[i] <- length(x)
+#   }
+# }
+nodes_diff <- nodes_5[(which(nodes_5[,3]!=0)),] # Get rid of the ones with no differences straight away 
 
 # Test the ones with only a few differences to check these aren't just n's
   old<-which(row.names(alignment_matrix) %in% (
@@ -217,28 +234,28 @@ alignment_matrix[175, 76]
 #############################################
 #         OVERLAPPING TIPS REMOVAL          #
 #############################################
-nodes_diff$overlaps <- NA
-for (i in c(1:(length(nodes_diff$Node)))) {
-  nodes_diff$overlaps[i]<-length(which((allDescendants(Cosmotree)[[(nodes_diff[i,1])]]) %in% nodes_diff[,1]))
-}
 # Add a column to nodes_diff and for each node, count how many of the other nodes of interest are descended from it
-
-nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
+nodes_diff$overlaps <- NA 
+for (i in 1:length(nodes_diff$Node)) {
+  nodes_diff$overlaps[i] <- length(which((allDescendants(Cosmotree)[[(nodes_diff[i,1])]]) %in% nodes_diff[,1]))
+} 
 # Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
+nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
 
-nodes_diff$cluster<-c(1:(length(nodes_diff$Node)))
 # Add a column called cluster and label the clusters 1 to 58
+nodes_diff$cluster <- c(1:(length(nodes_diff$Node)))
 
-m <- matrix(nrow = length(Cosmoalign$seq), ncol = 2)
-lineage_assignments<-data.frame(m)
-names(lineage_assignments)<-c("tip", "cluster")
-lineage_assignments$tip<-Cosmotree$tip.label
 # Create a data frame for lineage assignments. Add the tip labels, and a column ready to add the lineage they're assigned to
+# m <- matrix(nrow = length(Cosmoalign$seq), ncol = 2)
+# lineage_assignments <- data.frame(m)
+# names(lineage_assignments)<-c("tip", "cluster")
+# lineage_assignments$tip <- Cosmotree$tip.label
+lineage_assignments <- data.frame(tip = Cosmotree$tip.label, cluster = NA) # Alternative
 
-for (i in c(1:(length(nodes_diff$Node)))) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+for (i in 1:(length(nodes_diff$Node))) {
+  lineage_assignments[which(lineage_assignments[,1] %in% clade.members(nodes_diff[i,1], Cosmotree, include.nodes = F, tip.labels = T)), 2] <- nodes_diff[i,5]
 }
-# For each sequence, see if it's a member of a lineage. If it is, put the number of the cluster in it's lineage assignment
+# For each sequence, see if it's a member of a lineage. If yes, put the number of the cluster in it's lineage assignment
 # Do this in order of the node with the most overlaps to the least, to ensure the assignment is at the lowest possible level
 # E.g. if a sequence is in clusters 1-7, it will appear as 7 
 
@@ -247,7 +264,7 @@ summary <-lineage_assignments %>%
   summarise(n=n()); summary
 # Count the number of sequences assigned to each lineage
 
-nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
+nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[which(summary$n < 5)])),]
 # If any lineages have less than 5 sequences in them, remove them as an option from the nodes_diff table
 
 # MAKE SOME SORT OF REPEAT UNTIL LOOP HERE
@@ -265,9 +282,11 @@ summary<-lineage_assignments %>%
 nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
 
 nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
-nodes_diff$cluster<-c(1:76)
-for (i in c(1:76)) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+nodes_diff$cluster <- 1:nrow(nodes_diff) # If you get in the habit of using the names rather than hard coding numbers this can help avoid errors!
+# I've revised the code below to further illustrate
+for (i in nodes_diff$cluster) {
+  index <- which(lineage_assignments[,"tip"] %in% clade.members(nodes_diff[i,"Node"], Cosmotree, include.nodes = F, tip.labels = T))
+  lineage_assignments[index,"cluster"] <- nodes_diff[i,"cluster"]
 }
 # Repeat the previous step as there are still some with less than 5
 
@@ -294,8 +313,7 @@ lineage_assignments$cluster <- as.factor(lineage_assignments$cluster)
 tree<-ggtree(Cosmotree) %<+% lineage_assignments +
   geom_tippoint(aes(colour = (cluster)))
 # initial plot of the tree; need to see this to understand the lineage names
-
-lineage_assignments$previous<-NA
+lineage_assignments$previous <- NA
 for (i in 1:567) {
   lineage_assignments$previous[i]<-
     Cosmometa$alignment.displayName[which(Cosmometa$sequence.sequenceID == lineage_assignments$tip[i])]
@@ -454,9 +472,8 @@ nodes_diff$cluster[75]<-"AM2a_A1"
 
 # Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
 
-lineage_assignments$new_cluster<-NA
+lineage_assignments$new_cluster <- NA
 # For some reason it won't just overwrite the 'cluster' column like in the other scripts, so do this instead
-
 for (i in 1:75) {
   lineage_assignments$new_cluster[which(lineage_assignments$cluster == i)] <- nodes_diff$cluster[i]
 }
