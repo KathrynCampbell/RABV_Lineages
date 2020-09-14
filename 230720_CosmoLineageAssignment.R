@@ -63,20 +63,15 @@ ggtree(Cosmotree) + geom_nodelab()
 # Identify nodes with a bootstrap of over 70 (why would the first ~570 nodes be NA?)
 nodes_70 <- which(Cosmotree$node.comment > 70 | Cosmotree$node.comment == 100); nodes_70
 
-# m <- matrix(ncol=2, nrow=length(nodes_70))
-# node_data <- data.frame(m)
-# node_data[,1] <- nodes_70
-# names(node_data) <- c("Node", "n_tips")
-node_data <- data.frame(Node = nodes_70, n_tips = NA) # Alternative
-
+node_data <- data.frame(Node = nodes_70, n_tips = NA)
 # Make a dataframe ready for values to be put in
 # Fill the first column with the numbers of the nodes identified in the previous steps
+
 for(i in 1:length(nodes_70)) {
   node_data[i,2] <- length(Descendants(Cosmotree, nodes_70[i], type = "tips")[[1]])
 }
-View(node_data)
-
 # For each node identified in the previous step, count the number of tips descended from that node
+
 nodes_5 <- node_data[(which(node_data[,2]>=5)),]
 # Only carry forwards nodes which have more than 5 tips descended from it
 # This has been identified as the definition for a cluster in previous studies
@@ -84,15 +79,10 @@ nodes_5 <- node_data[(which(node_data[,2]>=5)),]
 #############################################
 #            95% COVERAGE WGS               #
 #############################################
-# Make a dataframe ready to fill with info about number of gaps and N bases
-m <- matrix(ncol=5, nrow=length(Cosmoalign$seq))
-seq_data <- data.frame(m)
-names(seq_data) <- c("ID", "N", "-", "Length_before", "Length_after")
-seq_data$ID <- Cosmoalign$nam
-seq_data$Length_before <- nchar(Cosmoalign$seq[[1]])
-# seq_data <- data.frame(ID = Cosmoalign$nam, N = NA, "-" = NA,
-#                        Length_before = nchar(Cosmoalign$seq[[1]]), Length_after = NA) # Alternative
-# Add a column with the length of the alignment
+# Make a dataframe ready to fill with info about number of gaps and N bases, and length of the alignment and sequence
+seq_data <- data.frame(ID = Cosmoalign$nam, N = NA, "-" = NA,
+                       Length_before = nchar(Cosmoalign$seq[[1]]), Length_after = NA)
+
 
 for (i in 1:length(Cosmoalign$seq)) {
   seq_data$N[i] <- str_count(Cosmoalign$seq[[i]], pattern = 'n')
@@ -156,8 +146,6 @@ nodes_5$diff <- NA # Add a column in nodes_5 to count the number of nucleotide d
 # E.g. which lineages show one or more shared nucleotides differences from the ancestor
 # Count these differences and add them to the table to be analysed further (may just be n's)
 
-# THE CODE BELOW IS A BIT HARD TO READ:
-# Perhaps define clade.members and associated sequences on each loop?
 for (i in 1:length(nodes_5$Node)) {
   cm <- clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T)
   seq_cm <- which(seq_data$ID %in% cm)
@@ -178,29 +166,6 @@ for (i in 1:length(nodes_5$Node)) {
   }
 }
 
-# DELETE THIS IF YOU THINK CODE ABOVE WORKS!?
-# for (i in 1:length(nodes_5$Node)) {
-#   old <- which(row.names(alignment_matrix) %in% (
-#     seq_data$ID[
-#       which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))[
-#         which((seq_data$Year[
-#           which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]) == min(
-#             seq_data$Year[which(seq_data$ID %in% clade.members(nodes_5[i,1], Cosmotree, include.nodes = F, tip.labels = T))]))
-#       ]
-#     ]
-#   ))
-#   old<-old[1]
-#   
-#   tips <- which(row.names(alignment_matrix) %in% clade.members((nodes_5[i,1]), Cosmotree, include.nodes = F, tip.labels = T))
-#   tips <- tips[-c(which(tips == old))]
-#   x <- which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
-#   
-#   for (j in tips[-c(1)]) {
-#     x <- x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
-#     print(x)
-#     nodes_5$diff[i] <- length(x)
-#   }
-# }
 nodes_diff <- nodes_5[(which(nodes_5[,3]!=0)),] # Get rid of the ones with no differences straight away 
 
 # Test the ones with only a few differences to check these aren't just n's
@@ -246,11 +211,7 @@ nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
 nodes_diff$cluster <- c(1:(length(nodes_diff$Node)))
 
 # Create a data frame for lineage assignments. Add the tip labels, and a column ready to add the lineage they're assigned to
-# m <- matrix(nrow = length(Cosmoalign$seq), ncol = 2)
-# lineage_assignments <- data.frame(m)
-# names(lineage_assignments)<-c("tip", "cluster")
-# lineage_assignments$tip <- Cosmotree$tip.label
-lineage_assignments <- data.frame(tip = Cosmotree$tip.label, cluster = NA) # Alternative
+lineage_assignments <- data.frame(tip = Cosmotree$tip.label, cluster = NA) 
 
 for (i in 1:(length(nodes_diff$Node))) {
   lineage_assignments[which(lineage_assignments[,1] %in% clade.members(nodes_diff[i,1], Cosmotree, include.nodes = F, tip.labels = T)), 2] <- nodes_diff[i,5]
