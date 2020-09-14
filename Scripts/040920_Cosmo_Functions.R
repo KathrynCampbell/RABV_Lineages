@@ -6,7 +6,12 @@
 
 rm(list = ls())
 
-# Packages installed without problem
+# load packages
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# BiocManager::install("treeio")
+# BiocManager::install("ggtree")
+
 library(seqinr)
 library(ape)
 library(dplyr)
@@ -18,10 +23,6 @@ library(caper)
 library(stringr)
 library(pracma)
 library(ggrepel)
-
-# Difficult packages
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
 library(phytools)
 library(treeio)
 library(ggtree)
@@ -117,58 +118,49 @@ nodes_diff <- ancestor_difference(nodes = nodes_5,
 #############################################
 #         OVERLAPPING TIPS REMOVAL          #
 #############################################
-nodes_diff$overlaps <- NA
-for (i in c(1:(length(nodes_diff$Node)))) {
-  nodes_diff$overlaps[i]<-length(which((allDescendants(Cosmotree)[[(nodes_diff[i,1])]]) %in% nodes_diff[,1]))
-}
 # Add a column to nodes_diff and for each node, count how many of the other nodes of interest are descended from it
+nodes_diff$overlaps <- NA 
+for (i in 1:length(nodes_diff$Node)) {
+  nodes_diff$overlaps[i] <- length(which((allDescendants(Cosmotree)[[(nodes_diff[i,1])]]) %in% nodes_diff[,1]))
+} 
 
-m <- matrix(nrow = length(Cosmoalign$seq), ncol = 2)
-lineage_assignments<-data.frame(m)
-names(lineage_assignments)<-c("tip", "cluster")
-lineage_assignments$tip<-Cosmotree$tip.label
 # Create a data frame for lineage assignments. Add the tip labels, and a column ready to add the lineage they're assigned to
+lineage_assignments <- data.frame(tip = Cosmotree$tip.label, cluster = NA) 
 
-nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
 # Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
+nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
 
-nodes_diff$cluster<-c(1:(length(nodes_diff$Node)))
 # Add a column called cluster and label the clusters
+nodes_diff$cluster <- c(1:(length(nodes_diff$Node)))
 
 
-for (i in c(1:(length(nodes_diff$Node)))) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+for (i in 1:(length(nodes_diff$Node))) {
+  lineage_assignments[which(lineage_assignments[,1] %in% clade.members(nodes_diff[i,1], Cosmotree, include.nodes = F, tip.labels = T)), 2] <- nodes_diff[i,5]
 }
-# For each sequence, see if it's a member of a lineage. If it is, put the number of the cluster in it's lineage assignment
+# For each sequence, see if it's a member of a lineage. If yes, put the number of the cluster in it's lineage assignment
 # Do this in order of the node with the most overlaps to the least, to ensure the assignment is at the lowest possible level
 # E.g. if a sequence is in clusters 1-7, it will appear as 7 
 
-m <- matrix(nrow = length(nodes_diff$Node), ncol = 2)
-summary <- data.frame(m)
-names(summary) <- c("cluster", "count")
-summary$cluster <- nodes_diff$cluster
+summary <- data.frame(cluster = nodes_diff$cluster, count = NA)
             
 for (i in 1:(length(summary$cluster))) {
   summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
 }
 # Count the number of sequences assigned to each lineage
 
-nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 5))])),]
-# If any lineages have less than 5 sequences in them, remove them as an option from the nodes_diff table
+nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])),]
+# If any lineages have no sequences in them, remove them as an option from the nodes_diff table
 
 min <- min(summary$count)
 
-while (min < 5){
+while (min == 0){
   nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
   nodes_diff$cluster <-c(1:(length(nodes_diff$Node)))
   lineage_assignments$cluster <- NA
   for (i in c(1:(length(nodes_diff$Node)))) {
     lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
   }
-  m <- matrix(nrow = length(nodes_diff$Node), ncol = 2)
-  summary <- data.frame(m)
-  names(summary) <- c("cluster", "count")
-  summary$cluster <- nodes_diff$cluster
+  summary <- data.frame(cluster = nodes_diff$cluster, count = NA)
 
   for (i in 1:(length(summary$cluster))) {
     summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
@@ -176,16 +168,13 @@ while (min < 5){
   
   min <- min(summary$count)
 
-  if (min == 5) {
+  if (min != 0) {
     print("done")
   } else {
-    nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 5))])), ]
+    nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])), ]
   }
 }
-
-
-
-# Repeat the above steps until there are no clusters with less than 5 sequences left 
+# Repeat the above steps until there are no clusters with 0 sequences left 
 
 #############################################
 #              PLOT THE TREE                #

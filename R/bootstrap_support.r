@@ -15,15 +15,12 @@ bootstrap_support <- function(tree) {
   # Identify nodes with a bootstrap of over 70
   nodes_70 <- which(tree$node.comment > 70 | tree$node.comment == 100)
   
-  m <- matrix(ncol=2, nrow=length(nodes_70))
-  node_data <- data.frame(m)
-  node_data[,1] <- nodes_70
-  names(node_data) <- c("Node", "n_tips")
-  
+  node_data <- data.frame(Node = nodes_70, n_tips = NA)
   # Make a dataframe ready for values to be put in
   # Fill the first column with the numbers of the nodes identified in the previous steps
-  for(i in 1:(length(nodes_70))) {
-    node_data[i,2] <- length(Descendants(tree, (nodes_70[i]), type = c("tips"))[[1]])
+  
+  for(i in 1:length(nodes_70)) {
+    node_data[i,2] <- length(Descendants(tree, nodes_70[i], type = "tips")[[1]])
   }
   # For each node identified in the previous step, count the number of tips descended from that node
   

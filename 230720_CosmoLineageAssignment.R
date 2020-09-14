@@ -204,14 +204,16 @@ nodes_diff$overlaps <- NA
 for (i in 1:length(nodes_diff$Node)) {
   nodes_diff$overlaps[i] <- length(which((allDescendants(Cosmotree)[[(nodes_diff[i,1])]]) %in% nodes_diff[,1]))
 } 
-# Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
-nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
-
-# Add a column called cluster and label the clusters 1 to 58
-nodes_diff$cluster <- c(1:(length(nodes_diff$Node)))
 
 # Create a data frame for lineage assignments. Add the tip labels, and a column ready to add the lineage they're assigned to
 lineage_assignments <- data.frame(tip = Cosmotree$tip.label, cluster = NA) 
+
+# Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
+nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
+
+# Add a column called cluster and label the clusters
+nodes_diff$cluster <- c(1:(length(nodes_diff$Node)))
+
 
 for (i in 1:(length(nodes_diff$Node))) {
   lineage_assignments[which(lineage_assignments[,1] %in% clade.members(nodes_diff[i,1], Cosmotree, include.nodes = F, tip.labels = T)), 2] <- nodes_diff[i,5]
@@ -220,51 +222,40 @@ for (i in 1:(length(nodes_diff$Node))) {
 # Do this in order of the node with the most overlaps to the least, to ensure the assignment is at the lowest possible level
 # E.g. if a sequence is in clusters 1-7, it will appear as 7 
 
-summary <-lineage_assignments %>%
-  group_by(cluster) %>%
-  summarise(n=n()); summary
+summary <- data.frame(cluster = nodes_diff$cluster, count = NA)
+
+for (i in 1:(length(summary$cluster))) {
+  summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
+}
 # Count the number of sequences assigned to each lineage
 
-nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[which(summary$n < 5)])),]
-# If any lineages have less than 5 sequences in them, remove them as an option from the nodes_diff table
+nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])),]
+# If any lineages have no sequences in them, remove them as an option from the nodes_diff table
 
-# MAKE SOME SORT OF REPEAT UNTIL LOOP HERE
-nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
-nodes_diff$cluster <-c(1:94)
-for (i in c(1:94)) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+min <- min(summary$count)
+
+while (min == 0){
+  nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
+  nodes_diff$cluster <-c(1:(length(nodes_diff$Node)))
+  lineage_assignments$cluster <- NA
+  for (i in c(1:(length(nodes_diff$Node)))) {
+    lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
+  }
+  summary <- data.frame(cluster = nodes_diff$cluster, count = NA)
+  
+  for (i in 1:(length(summary$cluster))) {
+    summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
+  }
+  
+  min <- min(summary$count)
+  
+  if (min != 0) {
+    print("done")
+  } else {
+    nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])), ]
+  }
 }
-# Reorder the nodes, rename the clusters to reflect the smaller 
-
-summary<-lineage_assignments %>%
-  group_by(cluster) %>%
-  summarise(n=n()); summary
-
-nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
-
-nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
-nodes_diff$cluster <- 1:nrow(nodes_diff) # If you get in the habit of using the names rather than hard coding numbers this can help avoid errors!
-# I've revised the code below to further illustrate
-for (i in nodes_diff$cluster) {
-  index <- which(lineage_assignments[,"tip"] %in% clade.members(nodes_diff[i,"Node"], Cosmotree, include.nodes = F, tip.labels = T))
-  lineage_assignments[index,"cluster"] <- nodes_diff[i,"cluster"]
-}
-# Repeat the previous step as there are still some with less than 5
-
-summary<-lineage_assignments %>%
-  group_by(cluster) %>%
-  summarise(n=n()); summary
-
-nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$n < 5))])),]
-
-nodes_diff<-nodes_diff[order(-nodes_diff$overlaps),]
-nodes_diff$cluster<-c(1:75)
-for (i in c(1:75)) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
-}
-# And again
-# Last one; none left now! There's a weird residual cluster 121, 158, 157... sort this later!
-
+# Repeat the above steps until there are no clusters with 0 sequences left 
 
 #############################################
 #              PLOT THE TREE                #

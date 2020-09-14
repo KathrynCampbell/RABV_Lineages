@@ -24,7 +24,6 @@ remove_nodes <- function(tree, sequence.data, nodes) {
   for (i in 2:(length(nodes_remove))) {
     removes <- c(removes, nodes_remove[[i]])
   }
-  
   remove_counts <- data.frame(table(removes))
   # Make a table to count the number the removed sequences descended from each node (e.g. for the deeper nodes, all 10 are descended)
   
@@ -45,8 +44,7 @@ remove_nodes <- function(tree, sequence.data, nodes) {
   }
   # Take away the number of removed tips from the previous total number of tips calculated for each node
   
-  nodes_5 <- nodes_new[(which(nodes_new[,2] >= 5)),]
-  # Redo this to remove any that now have less than 5, and write over the old nodes_5 so this is updated with the new tip numbers
+  nodes_5 <- nodes_new[(which(nodes_new[,2] >= 5)),] # Redo this to remove any that now have less than 5, and write over the old nodes_5 so this is updated with the new tip numbers
   
   nodes_5
 }

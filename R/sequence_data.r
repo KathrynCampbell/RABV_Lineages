@@ -13,13 +13,9 @@
 
 
 sequence_data <- function(alignment) {
-  # Make a dataframe ready to fill with info about number of gaps and N bases
-  m <- matrix(ncol=5, nrow=length(alignment$seq))
-  seq_data <- data.frame(m)
-  names(seq_data) <- c("ID", "N", "-", "Length_before", "Length_after")
-  seq_data$ID <- alignment$nam
-  seq_data$Length_before <- nchar(alignment$seq[[1]])
-  # Add a column with the length of the alignment
+  # Make a dataframe ready to fill with info about number of gaps and N bases, and length of the alignment and sequence
+  seq_data <- data.frame(ID = alignment$nam, N = NA, "-" = NA,
+                         Length_before = nchar(alignment$seq[[1]]), Length_after = NA)
   
   for (i in 1:(length(alignment$seq))) {
     seq_data$N[i] <- str_count(alignment$seq[[i]], pattern = 'n')
