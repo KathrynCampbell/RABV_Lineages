@@ -271,6 +271,26 @@ for (i in 1:567) {
 tree<-ggtree(Cosmotree)
 # initial plot of the tree; need to see this to understand the lineage names
 
+nodes_diff$cluster[54]<-"AF1a_A1"
+nodes_diff$cluster[84]<-"AF1a_B1"
+nodes_diff$cluster[85]<-"AF1a_C1"
+nodes_diff$cluster[4]<-"AF1b_A1"
+nodes_diff$cluster[65]<-"AF4_A1"
+nodes_diff$cluster[115]<-"AM2a_A1"
+nodes_diff$cluster[112]<-"AM3a_A1"
+nodes_diff$cluster[30]<-"CA1_A1"
+nodes_diff$cluster[105]<-"CA1_B1"
+nodes_diff$cluster[106]<-"CA1_C1"
+nodes_diff$cluster[22]<-"CA2_A1"
+nodes_diff$cluster[58]<-"CE_A1"
+nodes_diff$cluster[99]<-"CE_B1"
+nodes_diff$cluster[44]<-"EE_A1"
+nodes_diff$cluster[7]<-"ME1a_A1"
+nodes_diff$cluster[20]<-"ME2_A1"
+nodes_diff$cluster[62]<-"ME2_A1"
+nodes_diff$cluster[25]<-"NEE_A1"
+nodes_diff$cluster[100]<-"WE_A1"
+nodes_diff$cluster[101]<-"WE_A1"
 # Look at the previous lineage assigned to each sequence
 # Gone through by hand and identified which previous lineages are present in each new cluster - probably a way to do this in R
 # The first time a previous lineage appears in a cluster on it's own, write it down and check that everything descended from it is in that previous lineage
