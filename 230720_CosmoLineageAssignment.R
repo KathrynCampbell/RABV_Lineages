@@ -279,31 +279,39 @@ tree<-ggtree(Cosmotree)
 
 for (i in c(1:6, 8)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.019*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.01*i, offset.text = 0)
 }
 for (i in c(7, 9:16)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.02+0.015*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.027+0.01*i, offset.text = 0)
 }
 for (i in c(17:20, 22)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.06+0.015*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.061+0.01*i, offset.text = 0)
 }
 for (i in c(21, 23:28)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.25+0.02*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.1+0.01*i, offset.text = 0)
 }
-for (i in c(29:31, 33, 36)) {
+for (i in c(29:31)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.25+0.012*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.23+0.01*i, offset.text = 0)
+}
+for (i in c(33, 36)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.3+0.01*i, offset.text = 0)
 }
 for (i in c(40:42, 48:51, 58:62)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1+0.002*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.005+0.002*i, offset.text = 0)
 }
-for (i in c(32, 34, 35, 37:39, 43:47, 52:57, 63:171)) {
+for (i in c(43, 74:85, 105:122, 150:171)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.3+0.002*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.08+0.001*i, offset.text = 0)
+}
+for (i in c(32, 34, 35, 37:39, 44:47, 52:57, 63:73, 86:104, 123:149)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.155+0.001*i, offset.text = 0)
 }
 tree
 # Plot with everything on it!
