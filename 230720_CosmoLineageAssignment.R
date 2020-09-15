@@ -229,12 +229,12 @@ for (i in 1:(length(summary$cluster))) {
 }
 # Count the number of sequences assigned to each lineage
 
-nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])),]
+nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 2))])),]
 # If any lineages have no sequences in them, remove them as an option from the nodes_diff table
 
 min <- min(summary$count)
 
-while (min == 0){
+while (min < 2){
   nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
   nodes_diff$cluster <-c(1:(length(nodes_diff$Node)))
   lineage_assignments$cluster <- NA
@@ -249,10 +249,10 @@ while (min == 0){
   
   min <- min(summary$count)
   
-  if (min != 0) {
+  if (min == 2) {
     print("done")
   } else {
-    nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])), ]
+    nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 2))])), ]
   }
 }
 # Repeat the above steps until there are no clusters with 0 sequences left 
@@ -277,41 +277,45 @@ tree<-ggtree(Cosmotree)
 # If so, assign that cluster as the previous lineage (seen below), and then assign further from here
 # Many previous lineages are missing from this (not in a cluster on their own)
 
-for (i in c(1:6, 8)) {
+for (i in c(1:8)) {
   tree <-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.01*i, offset.text = 0)
 }
-for (i in c(7, 9:16)) {
+for (i in c(67:115)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.027+0.01*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.15, offset.text = 0)
 }
-for (i in c(17:20, 22)) {
+for (i in c(48:66)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.061+0.01*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.14, offset.text = 0)
 }
-for (i in c(21, 23:28)) {
+for (i in c(38:47)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.12, offset.text = 0)
+}
+for (i in c(18, 19, 24)) {
   tree <-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.1+0.01*i, offset.text = 0)
 }
-for (i in c(29:31)) {
+for (i in c(9:17)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.23+0.01*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.04+0.01*i, offset.text = 0)
 }
-for (i in c(33, 36)) {
+for (i in c(20:23)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.3+0.01*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.06, offset.text = 0)
 }
-for (i in c(40:42, 48:51, 58:62)) {
+for (i in c(25, 26)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.005+0.002*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.07, offset.text = 0)
 }
-for (i in c(43, 74:85, 105:122, 150:171)) {
+for (i in c(27:30, 32, 33, 36, 37)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.08+0.001*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1, offset.text = 0)
 }
-for (i in c(32, 34, 35, 37:39, 44:47, 52:57, 63:73, 86:104, 123:149)) {
+for (i in c(31, 34, 35)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.155+0.001*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.11, offset.text = 0)
 }
 tree
 # Plot with everything on it!
