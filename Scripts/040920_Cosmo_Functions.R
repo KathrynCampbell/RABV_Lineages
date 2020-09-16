@@ -31,6 +31,7 @@ source("R/bootstrap_support.r")
 source("R/sequence_data.r")
 source("R/remove_nodes.r")
 source("R/ancestor_difference.r")
+source("R/assign_lineages.r")
 
 
 #############################################
@@ -116,106 +117,100 @@ nodes_diff <- ancestor_difference(nodes = nodes_5,
 
 
 #############################################
-#         OVERLAPPING TIPS REMOVAL          #
+#              ASSIGN LINEAGES              #
 #############################################
-# Add a column to nodes_diff and for each node, count how many of the other nodes of interest are descended from it
-nodes_diff$overlaps <- NA 
-for (i in 1:length(nodes_diff$Node)) {
-  nodes_diff$overlaps[i] <- length(which((allDescendants(Cosmotree)[[(nodes_diff[i,1])]]) %in% nodes_diff[,1]))
-} 
-
-# Create a data frame for lineage assignments. Add the tip labels, and a column ready to add the lineage they're assigned to
-lineage_assignments <- data.frame(tip = Cosmotree$tip.label, cluster = NA) 
-
-# Order the nodes of interest by the number of times they overlap the other nodes of interest (descending)
-nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
-
-# Add a column called cluster and label the clusters
-nodes_diff$cluster <- c(1:(length(nodes_diff$Node)))
-
-
-for (i in 1:(length(nodes_diff$Node))) {
-  lineage_assignments[which(lineage_assignments[,1] %in% clade.members(nodes_diff[i,1], Cosmotree, include.nodes = F, tip.labels = T)), 2] <- nodes_diff[i,5]
-}
+# Function in assign_lineages.r
 # For each sequence, see if it's a member of a lineage. If yes, put the number of the cluster in it's lineage assignment
 # Do this in order of the node with the most overlaps to the least, to ensure the assignment is at the lowest possible level
 # E.g. if a sequence is in clusters 1-7, it will appear as 7 
+# Count the number of sequences assigned to each lineage, remove any with only 1 sequence as an option
+# Reassign the lineages and repeat until no lineages with only 1 seq 
+# Returns a dataframe listing each tip and it's lineage assignment, and a data frame with information about each node of interest
 
-summary <- data.frame(cluster = nodes_diff$cluster, count = NA)
-            
-for (i in 1:(length(summary$cluster))) {
-  summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
-}
-# Count the number of sequences assigned to each lineage
+lineage_assignments <- assign_lineages(tree = Cosmotree, nodes = nodes_diff)[[1]]
+nodes_diff <- assign_lineages(tree = Cosmotree, nodes = nodes_diff)[[2]]
 
-nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])),]
-# If any lineages have no sequences in them, remove them as an option from the nodes_diff table
-
-min <- min(summary$count)
-
-while (min == 0){
-  nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
-  nodes_diff$cluster <-c(1:(length(nodes_diff$Node)))
-  lineage_assignments$cluster <- NA
-  for (i in c(1:(length(nodes_diff$Node)))) {
-    lineage_assignments[which(lineage_assignments[,1] %in% clade.members((nodes_diff[i,1]), Cosmotree, include.nodes = F, tip.labels = T)),2]<-nodes_diff[i,5]
-  }
-  summary <- data.frame(cluster = nodes_diff$cluster, count = NA)
-
-  for (i in 1:(length(summary$cluster))) {
-    summary$count[i] <- length(which(lineage_assignments$cluster == summary$cluster[i]))
-  }
-  
-  min <- min(summary$count)
-
-  if (min != 0) {
-    print("done")
-  } else {
-    nodes_diff<-nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count == 0))])), ]
-  }
-}
-# Repeat the above steps until there are no clusters with 0 sequences left 
 
 #############################################
 #              PLOT THE TREE                #
 #############################################
 lineage_assignments$cluster <- as.factor(lineage_assignments$cluster)
 
-tree<-ggtree(Cosmotree) %<+% lineage_assignments +
-  geom_tippoint(aes(colour = (cluster)))
-# initial plot of the tree; need to see this to understand the lineage names
-
-lineage_assignments$previous<-NA
+lineage_assignments$previous <- NA
 for (i in 1:567) {
   lineage_assignments$previous[i]<-
     Cosmometa$alignment.displayName[which(Cosmometa$sequence.sequenceID == lineage_assignments$tip[i])]
 }
+
+tree<-ggtree(Cosmotree)
+# initial plot of the tree; need to see this to understand the lineage names
+
+nodes_diff$cluster[54]<-"AF1a_A1"
+nodes_diff$cluster[84]<-"AF1a_B1"
+nodes_diff$cluster[85]<-"AF1a_C1"
+nodes_diff$cluster[4]<-"AF1b_A1"
+nodes_diff$cluster[65]<-"AF4_A1"
+nodes_diff$cluster[115]<-"AM2a_A1"
+nodes_diff$cluster[112]<-"AM3a_A1"
+nodes_diff$cluster[30]<-"CA1_A1"
+nodes_diff$cluster[105]<-"CA1_B1"
+nodes_diff$cluster[106]<-"CA1_C1"
+nodes_diff$cluster[22]<-"CA2_A1"
+nodes_diff$cluster[58]<-"CE_A1"
+nodes_diff$cluster[99]<-"CE_B1"
+nodes_diff$cluster[44]<-"EE_A1"
+nodes_diff$cluster[7]<-"ME1a_A1"
+nodes_diff$cluster[20]<-"ME2_A1"
+nodes_diff$cluster[62]<-"ME2_B1"
+nodes_diff$cluster[25]<-"NEE_A1"
+nodes_diff$cluster[100]<-"WE_A1"
+nodes_diff$cluster[101]<-"WE_A1"
 # Look at the previous lineage assigned to each sequence
 # Gone through by hand and identified which previous lineages are present in each new cluster - probably a way to do this in R
 # The first time a previous lineage appears in a cluster on it's own, write it down and check that everything descended from it is in that previous lineage
 # If so, assign that cluster as the previous lineage (seen below), and then assign further from here
 # Many previous lineages are missing from this (not in a cluster on their own)
 
-nodes_diff$cluster[15]<-"AF1a_A1"
-nodes_diff$cluster[5]<-"AF1b_A1"
-nodes_diff$cluster[73]<-"AF4_A1"
-nodes_diff$cluster[75]<-"AM2a_A1"
-nodes_diff$cluster[72]<-"AM3a_A1"
-nodes_diff$cluster[16]<-"CA1_A1"
-nodes_diff$cluster[71]<-"CA2_A1"
-nodes_diff$cluster[58]<-"CE_A1"
-nodes_diff$cluster[62]<-"EE_A1"
-nodes_diff$cluster[6]<-"ME1a_A1"
-nodes_diff$cluster[13]<-"ME2_A1"
-nodes_diff$cluster[63]<-"NEE_A1"
-nodes_diff$cluster[60]<-"WE_A1"
-
-for (i in 1:57) {
+for (i in c(1:8)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.006, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.01*i, offset.text = 0)
 }
-# The clade bars all need to be offset by a different amount so can't see a way to automate this
-
+for (i in c(67:115)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.15, offset.text = 0)
+}
+for (i in c(48:66)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.14, offset.text = 0)
+}
+for (i in c(38:47)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.12, offset.text = 0)
+}
+for (i in c(18, 19, 24)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.1+0.01*i, offset.text = 0)
+}
+for (i in c(9:17)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.04+0.01*i, offset.text = 0)
+}
+for (i in c(20:23)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.06, offset.text = 0)
+}
+for (i in c(25, 26)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.07, offset.text = 0)
+}
+for (i in c(27:30, 32, 33, 36, 37)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1, offset.text = 0)
+}
+for (i in c(31, 34, 35)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.11, offset.text = 0)
+}
 tree
 # Plot with everything on it!
 
@@ -226,88 +221,129 @@ tree
 #############################################
 
 # Just doing this by eye currently, must be a better way
-nodes_diff$cluster[1]<-c("A1")
-nodes_diff$cluster[2]<-"B1"
-nodes_diff$cluster[3]<-"A1.1"
-nodes_diff$cluster[4]<-"A1.1.1"
-nodes_diff$cluster[5]<-"AF1b_A1"
-nodes_diff$cluster[6]<-"ME1a_A1"
-nodes_diff$cluster[7]<-"AF1b_B1"
-nodes_diff$cluster[8]<-"C1"
-nodes_diff$cluster[9]<-"AF1b_B1.1"
-nodes_diff$cluster[10]<-"C1.1"
-nodes_diff$cluster[11]<-"B1.1"
-nodes_diff$cluster[12]<-"D1"
-nodes_diff$cluster[13]<-"ME2_A1"
-nodes_diff$cluster[14]<-"AF1b_B1.1.1"
-nodes_diff$cluster[15]<-"AF1a_A1"
-nodes_diff$cluster[16]<-"CA1_A1"
-nodes_diff$cluster[17]<-"AF1b_A1.1"
-nodes_diff$cluster[18]<-"AF1b_A1.2"
-nodes_diff$cluster[19]<-"AF1b_A1.2.1"
-nodes_diff$cluster[20]<-"AF1b_C1"
+nodes_diff$cluster[1]<-"A1"
+nodes_diff$cluster[2]<-"A1.1"
+nodes_diff$cluster[3]<-"A1.2"
+nodes_diff$cluster[4]<-"AF1b_A1"
+nodes_diff$cluster[5]<-"A1.1.1"
+nodes_diff$cluster[6]<-"A1.1.2"
+nodes_diff$cluster[7]<-"ME1a_A1"
+nodes_diff$cluster[8]<-"ME1a_A1.1"
+nodes_diff$cluster[9]<-"AF1b_A1.1"
+nodes_diff$cluster[10]<-"AF1b_A1.2"
+nodes_diff$cluster[11]<-"AF1b_A1.2.1"
+nodes_diff$cluster[12]<-"AF1b_B1"
+nodes_diff$cluster[13]<-"ME1a_A1.1.1"
+nodes_diff$cluster[14]<-"ME1a_B1"
+nodes_diff$cluster[15]<-"ME1a_B1.1"
+nodes_diff$cluster[16]<-"ME1a_B1.1.1"
+nodes_diff$cluster[17]<-"ME1a_C1"
+nodes_diff$cluster[18]<-"B1"
+nodes_diff$cluster[19]<-"B1.1"
+nodes_diff$cluster[20]<-"ME2_A1"
 nodes_diff$cluster[21]<-"AF1b_A1.1.1"
-nodes_diff$cluster[22]<-"B1.2"
-nodes_diff$cluster[23]<-"AF1b_D1"
-nodes_diff$cluster[24]<-"AF1b_E1"
-nodes_diff$cluster[25]<-"AF1b_A1.3"
-nodes_diff$cluster[26]<-"E1"
-nodes_diff$cluster[27]<-"AF1b_D1.1"
-nodes_diff$cluster[28]<-"AF1b_A1.1.2"
-nodes_diff$cluster[29]<-"AF1b_E1.1"
-nodes_diff$cluster[30]<-"AF1b_F1"
-nodes_diff$cluster[31]<-"AF1b_A1.2.2"
-nodes_diff$cluster[32]<-"AF1b_A1.3.1"
-nodes_diff$cluster[33]<-"AF1b_A1.4"
-nodes_diff$cluster[34]<-"AF1b_A1.5"
-nodes_diff$cluster[35]<-"B1.3"
-nodes_diff$cluster[36]<-"AF1b_C1.1"
-nodes_diff$cluster[37]<-"AF1b_G1"
-nodes_diff$cluster[38]<-"AF1b_B1.1.2"
-nodes_diff$cluster[39]<-"AF1b_B1.1.3"
-nodes_diff$cluster[40]<-"AF1b_B1.2"
-nodes_diff$cluster[41]<-"AF1b_H1"
-nodes_diff$cluster[42]<-"AF1b_I1"
-nodes_diff$cluster[43]<-"AF1b_J1"
-nodes_diff$cluster[44]<-"AF1a_A1.1"
-nodes_diff$cluster[45]<-"AF1a_A1.2"
-nodes_diff$cluster[46]<-"AF1a_A1.3"
-nodes_diff$cluster[47]<-"B1.1.1"
-nodes_diff$cluster[48]<-"ME1a_A1.1"
-nodes_diff$cluster[49]<-"ME1a_A1.2"
-nodes_diff$cluster[50]<-"ME1a_A1.3"
-nodes_diff$cluster[51]<-"ME1a_A1.4"
-nodes_diff$cluster[52]<-"ME1a_A1.5"
-nodes_diff$cluster[53]<-"ME1a_A1.6"
-nodes_diff$cluster[54]<-"ME1a_A1.7"
-nodes_diff$cluster[55]<-"ME1a_A1.8"
-nodes_diff$cluster[56]<-"ME1a_A1.9"
-nodes_diff$cluster[57]<-"ME1a_A1.10"
+nodes_diff$cluster[22]<-"CA2_A1"
+nodes_diff$cluster[23]<-"AF1b_A1.3"
+nodes_diff$cluster[24]<-"ME1a_C1.1"
+nodes_diff$cluster[25]<-"NEE_A1"
+nodes_diff$cluster[26]<-"CA2_A1.1"
+nodes_diff$cluster[27]<-"AF1b_A1.1.2"
+nodes_diff$cluster[28]<-"AF1b_B1.1"
+nodes_diff$cluster[29]<-"NEE_A1.1"
+nodes_diff$cluster[30]<-"CA1_A1"
+nodes_diff$cluster[31]<-"AF1b_C1"
+nodes_diff$cluster[32]<-"AF1b_B1.2"
+nodes_diff$cluster[33]<-"AF1b_B1.3"
+nodes_diff$cluster[34]<-"AF1b_B1.1.1"
+nodes_diff$cluster[35]<-"CA1_A1.1"
+nodes_diff$cluster[36]<-"ME2_A1.1"
+nodes_diff$cluster[37]<-"CA2_A1.1.1"
+nodes_diff$cluster[38]<-"AF1b_C1.1"
+nodes_diff$cluster[39]<-"AF1b_B1.4"
+nodes_diff$cluster[40]<-"AF1b_D1"
+nodes_diff$cluster[41]<-"C1"
+nodes_diff$cluster[42]<-"ME1a_A1.1.2"
+nodes_diff$cluster[43]<-"ME1a_A1.1.3"
+nodes_diff$cluster[44]<-"EE_A1"
+nodes_diff$cluster[45]<-"NEE_A1.1.1"
+nodes_diff$cluster[46]<-"D1"
+nodes_diff$cluster[47]<-"E1"
+nodes_diff$cluster[48]<-"AF1b_C1.1.1"
+nodes_diff$cluster[49]<-"AF1b_E1"
+nodes_diff$cluster[50]<-"AF1b_A1.1.3"
+nodes_diff$cluster[51]<-"AF1b_A1.3.1"
+nodes_diff$cluster[52]<-"AF1b_B1.3.1"
+nodes_diff$cluster[53]<-"AF1b_A1.2.2"
+nodes_diff$cluster[54]<-"AF1a_A1"
+nodes_diff$cluster[55]<-"C1.1"
+nodes_diff$cluster[56]<-"ME1a_C1.2"
+nodes_diff$cluster[57]<-"ME1a_A1.1.4"
 nodes_diff$cluster[58]<-"CE_A1"
-nodes_diff$cluster[59]<-"C1.1.1"
-nodes_diff$cluster[60]<-"WE_A1"
-nodes_diff$cluster[61]<-"C1.1.2"
-nodes_diff$cluster[62]<-"EE_A1"
-nodes_diff$cluster[63]<-"NEE_A1"
-nodes_diff$cluster[64]<-"CA1_A1.1"
-nodes_diff$cluster[65]<-"CA1_A1.2"
-nodes_diff$cluster[66]<-"D1.1"
-nodes_diff$cluster[67]<-"ME2_A1.1"
-nodes_diff$cluster[68]<-"ME2_A1.2"
-nodes_diff$cluster[69]<-"A1.1.2"
-nodes_diff$cluster[70]<-"A1.1.3"
-nodes_diff$cluster[71]<-"CA2_A1"
-nodes_diff$cluster[72]<-"AM3a_A1"
-nodes_diff$cluster[73]<-"AF4_A1"
-nodes_diff$cluster[74]<-"E1.1"
-nodes_diff$cluster[75]<-"AM2a_A1"
+nodes_diff$cluster[59]<-"EE_A1.1"
+nodes_diff$cluster[60]<-"NEE_B1"
+nodes_diff$cluster[61]<-"CA1_A1.1.1"
+nodes_diff$cluster[62]<-"ME2_B1"
+nodes_diff$cluster[63]<-"CA2_B1"
+nodes_diff$cluster[64]<-"D1.1"
+nodes_diff$cluster[65]<-"AF4_A1"
+nodes_diff$cluster[66]<-"E1.1"
+nodes_diff$cluster[67]<-"AF1b_F1"
+nodes_diff$cluster[68]<-"AF1b_A1.1.4"
+nodes_diff$cluster[69]<-"AF1b_E1.1"
+nodes_diff$cluster[70]<-"AF1b_G1"
+nodes_diff$cluster[71]<-"AF1b_H1"
+nodes_diff$cluster[72]<-"AF1b_I1"
+nodes_diff$cluster[73]<-"AF1b_A1.1.5"
+nodes_diff$cluster[74]<-"AF1b_J1"
+nodes_diff$cluster[75]<-"AF1b_A1.4"
+nodes_diff$cluster[76]<-"AF1b_B1.2.1"
+nodes_diff$cluster[77]<-"AF1b_K1"
+nodes_diff$cluster[78]<-"AF1b_B1.4.1"
+nodes_diff$cluster[79]<-"AF1b_D1.1"
+nodes_diff$cluster[80]<-"AF1b_L1"
+nodes_diff$cluster[81]<-"AF1b_A1.5"
+nodes_diff$cluster[82]<-"AF1b_A1.6"
+nodes_diff$cluster[83]<-"AF1b_A1.7"
+nodes_diff$cluster[84]<-"AF1a_B1"
+nodes_diff$cluster[85]<-"AF1a_C1"
+nodes_diff$cluster[86]<-"AF1a_A1.1"
+nodes_diff$cluster[87]<-"C1.1.1"
+nodes_diff$cluster[88]<-"ME1a_C1.1.1"
+nodes_diff$cluster[89]<-"ME1a_C1.1.2"
+nodes_diff$cluster[90]<-"ME1a_C1.1.3"
+nodes_diff$cluster[91]<-"ME1a_C1.3"
+nodes_diff$cluster[92]<-"ME1a_C1.4"
+nodes_diff$cluster[93]<-"ME1a_C1.2.1"
+nodes_diff$cluster[94]<-"ME1a_D1"
+nodes_diff$cluster[95]<-"ME1a_A1.1.5"
+nodes_diff$cluster[96]<-"ME1a_E1"
+nodes_diff$cluster[97]<-"ME1a_F1"
+nodes_diff$cluster[98]<-"CE_A1.1"
+nodes_diff$cluster[99]<-"CE_B1"
+nodes_diff$cluster[100]<-"WE_A1"
+nodes_diff$cluster[101]<-"WE_A1"
+nodes_diff$cluster[102]<-"EE_A1.1.1"
+nodes_diff$cluster[103]<-"NEE_B1.1"
+nodes_diff$cluster[104]<-"CA1_D1"
+nodes_diff$cluster[105]<-"CA1_B1"
+nodes_diff$cluster[106]<-"CA1_C1"
+nodes_diff$cluster[107]<-"ME2_A1.1.1"
+nodes_diff$cluster[108]<-"ME2_A1.2"
+nodes_diff$cluster[109]<-"ME2_A1.3"
+nodes_diff$cluster[110]<-"ME2_B1.1"
+nodes_diff$cluster[111]<-"CA2_B1.1"
+nodes_diff$cluster[112]<-"AM3a_A1"
+nodes_diff$cluster[113]<-"AF4_A1.1"
+nodes_diff$cluster[114]<-"E1.1.1"
+nodes_diff$cluster[115]<-"AM2a_A1"
+
+
 
 # Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
 
-lineage_assignments$new_cluster<-NA
+lineage_assignments$new_cluster <- NA
 # For some reason it won't just overwrite the 'cluster' column like in the other scripts, so do this instead
-
-for (i in 1:75) {
+for (i in 1:length(nodes_diff$cluster)) {
   lineage_assignments$new_cluster[which(lineage_assignments$cluster == i)] <- nodes_diff$cluster[i]
 }
 # Rename the lineages in the sequence assignment table
@@ -323,54 +359,51 @@ attach(Cosmotree)
 # Make a nice figure to save! Similar to before but with text sizes, legend etc
 tree<-ggtree(Cosmotree) %<+% lineage_assignments +
   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
-  theme(legend.position = c(0.17, 0.83),
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20)) +
+  theme(legend.position = c(0.12, 0.83),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8)) +
   guides(colour=guide_legend(override.aes=list(alpha=1, size=5)))
 
-for (i in 1:5) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.006*i, offset.text = 0)
+
+for (i in c(1:8)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.01*i, offset.text = 0)
 }
-for (i in 6) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.018+0.003*i, offset.text = 0)
+for (i in c(67:115)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.15, offset.text = 0)
 }
-for (i in 7:10) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.008+0.003*i, offset.text = 0)
+for (i in c(48:66)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.14, offset.text = 0)
 }
-for (i in 11) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.014, offset.text = 0)
+for (i in c(38:47)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.12, offset.text = 0)
 }
-for (i in 14) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.008+0.003*i, offset.text = 0)
+for (i in c(18, 19, 24)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.1+0.01*i, offset.text = 0)
 }
-for (i in c(12, 13, 15, 16, 17, 18, 21, 23,24)) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0025*i, offset.text = 0)
+for (i in c(9:17)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.04+0.01*i, offset.text = 0)
 }
-for (i in c(19,20)) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0027*i, offset.text = 0)
+for (i in c(20:23)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.06, offset.text = 0)
 }
-for (i in c(22, 25)) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.0017*i, offset.text = 0)
-}
-for (i in 26) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.015, offset.text = 0)
-}
-for (i in 27:46) {
-  tree<-tree +
+for (i in c(25, 26)) {
+  tree <-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.07, offset.text = 0)
 }
-for (i in 47:75) {
-  tree<-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.05, offset.text = 0)
+for (i in c(27:30, 32, 33, 36, 37)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1, offset.text = 0)
+}
+for (i in c(31, 34, 35)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.11, offset.text = 0)
 }
 # The clade bars all need to be offset by a different amount so can't see a way to automate this
 
