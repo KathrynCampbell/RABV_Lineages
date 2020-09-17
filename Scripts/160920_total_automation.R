@@ -111,15 +111,28 @@ node_data <- lineage_assignment(tree, min.support = 70, max.support = 100, align
 #############################################
 #'========================================================================================================
 #' Plot an initial tree to colour each tip according to it's lineage assignment
-#' Add clade bars to show where each lineage falls on the tree
+#' Add clade bars to show where each lineage falls on the tree by editing the commented out section
 #' This will be very messy and need some manual editing (especially of 'offset') - but will give and initial idea!
 #' It may take a little while
 #'=========================================================================================================
 
 sequence_data$cluster <- as.factor(sequence_data$cluster)
 
-plot_tree<-ggtree(tree) %<+% sequence_data  +
-  geom_tippoint(na.rm = T, aes(colour = (cluster)))
+attach(tree)
+
+plot_tree<-ggtree(tree) %<+% sequence_data +
+  geom_tippoint(na.rm = T, aes(colour = (cluster))) +
+  theme(legend.position = c(0.12, 0.83),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8)) +
+  guides(colour=guide_legend(override.aes=list(alpha=1, size=5)))
+
+
+# for (i in c(1:length(sequence_data$ID))) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.01*i)
+# }
+
 
 plot_tree
 
