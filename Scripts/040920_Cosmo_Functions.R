@@ -142,8 +142,6 @@ for (i in 1:567) {
     Cosmometa$alignment.displayName[which(Cosmometa$sequence.sequenceID == lineage_assignments$tip[i])]
 }
 
-tree<-ggtree(Cosmotree)
-# initial plot of the tree; need to see this to understand the lineage names
 
 nodes_diff$cluster[54]<-"AF1a_A1"
 nodes_diff$cluster[84]<-"AF1a_B1"
@@ -171,45 +169,217 @@ nodes_diff$cluster[101]<-"WE_A1"
 # If so, assign that cluster as the previous lineage (seen below), and then assign further from here
 # Many previous lineages are missing from this (not in a cluster on their own)
 
-for (i in c(1:8)) {
+tree<-ggtree(Cosmotree)
+# initial plot of the tree; need to see this to understand the lineage names
+
+# Plot each clade bar
+# ---------------------------------------------------------------------------------------------
+# GROUP 1
+for (i in c(1)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.01*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.01, offset.text = 0)
 }
-for (i in c(67:115)) {
+for (i in c(46, 47)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.15, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.012, offset.text = 0)
 }
-for (i in c(48:66)) {
+for (i in c(65)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.14, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.023, offset.text = 0)
 }
-for (i in c(38:47)) {
+for (i in c(115)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.12, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.023, offset.text = 0)
 }
-for (i in c(18, 19, 24)) {
+
+# GROUP 2
+for (i in c(2)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.1+0.01*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.03, offset.text = 0)
 }
-for (i in c(9:17)) {
+for (i in c(84)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = -0.04+0.01*i, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.028, offset.text = 0)
 }
-for (i in c(20:23)) {
+for (i in c(3)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.026, offset.text = 0)
+}
+for (i in c(22)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.039, offset.text = 0)
+}
+for (i in c(85)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.037, offset.text = 0)
+}
+for (i in c(54)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.042, offset.text = 0)
+}
+for (i in c(41, 64)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.015, offset.text = 0)
+}
+for (i in c(113, 66)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.028, offset.text = 0)
+}
+
+# GROUP 3
+for (i in c(4)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.032, offset.text = 0)
+}
+for (i in c(109,26)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.046, offset.text = 0)
+}
+for (i in c(86,62)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.052, offset.text = 0)
+}
+for (i in c(6, 20)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.041, offset.text = 0)
+}
+for (i in c(5, 112, 114)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.036, offset.text = 0)
+}
+for (i in c(55)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.021, offset.text = 0)
+}
+
+#  GROUP 4
+for (i in c(99, 109, 37)) {
   tree <-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.06, offset.text = 0)
 }
-for (i in c(25, 26)) {
+for (i in c(9, 10, 82)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.045, offset.text = 0)
+}
+for (i in c(23, 81, 83, 25)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.05, offset.text = 0)
+}
+for (i in c(7, 58, 18, 36, 108)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.053, offset.text = 0)
+}
+for (i in c(87)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.032, offset.text = 0)
+}
+for (i in c(100, 101, 44)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.056, offset.text = 0)
+}
+
+#  GROUP 5
+for (i in c(53, 59, 63)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.075, offset.text = 0)
+}
+for (i in c(27, 68, 50, 51, 8, 19, 107)) {
   tree <-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.07, offset.text = 0)
 }
-for (i in c(27:30, 32, 33, 36, 37)) {
+for (i in c(21, 11, 29)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.065, offset.text = 0)
+}
+for (i in c(73, 75, 98)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.07, offset.text = 0)
+}
+
+#  GROUP 6
+for (i in c(31,70,72,73,74,75,13,42,43,95,45,105,106)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.095, offset.text = 0)
+}
+for (i in c(49, 71, 12)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.091, offset.text = 0)
+}
+for (i in c(53, 102, 30)) {
   tree <-tree +
     geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1, offset.text = 0)
 }
-for (i in c(31, 34, 35)) {
+for (i in c(87,64)) {
   tree <-tree +
-    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.11, offset.text = 0)
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.078, offset.text = 0)
+}
+for (i in c(86, 110)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.105, offset.text = 0)
+}
+for (i in c(57,111)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.1, offset.text = 0)
+}
+
+#  GROUP 7
+for (i in c(38,69,32,33,14,94,60)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.12, offset.text = 0)
+}
+for (i in c(39, 28)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.115, offset.text = 0)
+}
+for (i in c(80,97,35)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.124, offset.text = 0)
+}
+
+#  GROUP 8
+for (i in c(48,76,52,78,15,103)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.145, offset.text = 0)
+}
+for (i in c(34)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.135, offset.text = 0)
+}
+for (i in c(61)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.15, offset.text = 0)
+}
+
+#  GROUP 9
+for (i in c(48,16,104)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.17, offset.text = 0)
+}
+for (i in c(77)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.175, offset.text = 0)
+}
+for (i in c(40)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.165, offset.text = 0)
+}
+
+#  GROUP 10
+for (i in c(67,79,17)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.19, offset.text = 0)
+}
+
+#  GROUP 11
+for (i in c(24,91,92)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.2, offset.text = 0)
+}
+
+#  GROUP 12
+for (i in c(88,89,90,93)) {
+  tree <-tree +
+    geom_cladelabel(nodes_diff$Node[i], nodes_diff$cluster[i], offset = 0.215, offset.text = 0)
 }
 tree
 # Plot with everything on it!
