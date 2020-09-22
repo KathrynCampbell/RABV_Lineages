@@ -106,43 +106,268 @@ alignment$nam <- gsub("\\.", "", tree$tip.label, perl = T)
 sequence_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata)[[2]]
 node_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata)[[1]]
 
-#############################################
-#              PLOT THE TREE                #
-#############################################
-#'========================================================================================================
-#' Plot an initial tree to colour each tip according to it's lineage assignment
-#' Add clade bars to show where each lineage falls on the tree by editing the commented out section
-#' This will be very messy and need some manual editing (especially of 'offset') - but will give and initial idea!
-#' It may take a little while
-#'=========================================================================================================
-
-# sequence_data$cluster <- as.factor(sequence_data$cluster)
-# 
-# attach(tree)
-# 
-# plot_tree<-ggtree(tree) %<+% sequence_data +
-#   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
-#   theme(legend.position = c(0.12, 0.83),
-#         legend.text = element_text(size = 8),
-#         legend.title = element_text(size = 8)) +
-#   guides(colour=guide_legend(override.aes=list(alpha=1, size=5)))
-# 
-# 
-# # for (i in c(1:length(sequence_data$ID))) {
-# #   plot_tree <-plot_tree +
-# #     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.01*i)
-# # }
-# 
-# 
-# plot_tree
-#
 #---------------------------------------------------------------------------------------
 #
 # Everything above this is part of the lineage assignment script
-# Everything below is added extras specific to the cosmopolitan lineages - not essential
-# but helps to make it neat, and with informative naming
+# Everything below is added extras specific to the cosmopolitan lineages - 
+# Makes a plot with informative naming
 #
-#---------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+#############################################
+#              PLOT THE TREE                #
+#############################################
+# Need to do an initial rough plot to understand names and positions etc
+#
+sequence_data$previous <- NA
+for (i in 1:length(sequence_data$ID)) {
+  sequence_data$previous[i]<-
+    metadata$alignment.displayName[which(metadata$ID == sequence_data$ID[i])]
+}
+# 
+# #---------------------------------
+# node_data$cluster[54]<-"AF1a_A1"
+# node_data$cluster[84]<-"AF1a_B1"
+# node_data$cluster[85]<-"AF1a_C1"
+# node_data$cluster[4]<-"AF1b_A1"
+# node_data$cluster[65]<-"AF4_A1"
+# node_data$cluster[115]<-"AM2a_A1"
+# node_data$cluster[112]<-"AM3a_A1"
+# node_data$cluster[30]<-"CA1_A1"
+# node_data$cluster[105]<-"CA1_B1"
+# node_data$cluster[106]<-"CA1_C1"
+# node_data$cluster[22]<-"CA2_A1"
+# node_data$cluster[58]<-"CE_A1"
+# node_data$cluster[99]<-"CE_B1"
+# node_data$cluster[44]<-"EE_A1"
+# node_data$cluster[7]<-"ME1a_A1"
+# node_data$cluster[20]<-"ME2_A1"
+# node_data$cluster[62]<-"ME2_B1"
+# node_data$cluster[25]<-"NEE_A1"
+# node_data$cluster[100]<-"WE_A1"
+# node_data$cluster[101]<-"WE_A1"
+# #---------------------------------
+# # Look at the previous lineage assigned to each sequence
+# # Gone through by hand and identified which previous lineages are present in each new cluster - probably a way to do this in R
+# # The first time a previous lineage appears in a cluster on it's own, write it down and check that everything descended from it is in that previous lineage
+# # If so, assign that cluster as the previous lineage (seen below), and then assign further from here
+# # Many previous lineages are missing from this (not in a cluster on their own)
+# 
+# plot_tree<-ggtree(tree)
+# # initial plot of the tree; need to see this to understand the lineage names
+# 
+# # Plot each clade bar
+# # ---------------------------------------------------------------------------------------------
+# # GROUP 1
+# for (i in c(1)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.01, offset.text = 0)
+# }
+# for (i in c(46, 47)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.012, offset.text = 0)
+# }
+# for (i in c(65)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.023, offset.text = 0)
+# }
+# for (i in c(115)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.023, offset.text = 0)
+# }
+# 
+# # GROUP 2
+# for (i in c(2)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.03, offset.text = 0)
+# }
+# for (i in c(84)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.028, offset.text = 0)
+# }
+# for (i in c(3)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.026, offset.text = 0)
+# }
+# for (i in c(22)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.039, offset.text = 0)
+# }
+# for (i in c(85)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.037, offset.text = 0)
+# }
+# for (i in c(54)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.042, offset.text = 0)
+# }
+# for (i in c(41, 64)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.015, offset.text = 0)
+# }
+# for (i in c(113, 66)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.028, offset.text = 0)
+# }
+# 
+# # GROUP 3
+# for (i in c(4)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.032, offset.text = 0)
+# }
+# for (i in c(109,26)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.046, offset.text = 0)
+# }
+# for (i in c(86,62)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.052, offset.text = 0)
+# }
+# for (i in c(6, 20)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.041, offset.text = 0)
+# }
+# for (i in c(5, 112, 114)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.036, offset.text = 0)
+# }
+# for (i in c(55)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.021, offset.text = 0)
+# }
+# 
+# #  GROUP 4
+# for (i in c(99, 109, 37)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.06, offset.text = 0)
+# }
+# for (i in c(9, 10, 82)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.045, offset.text = 0)
+# }
+# for (i in c(23, 81, 83, 25)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.05, offset.text = 0)
+# }
+# for (i in c(7, 58, 18, 36, 108)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.053, offset.text = 0)
+# }
+# for (i in c(87)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.032, offset.text = 0)
+# }
+# for (i in c(100, 101, 44)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.056, offset.text = 0)
+# }
+# 
+# #  GROUP 5
+# for (i in c(53, 59, 63)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.075, offset.text = 0)
+# }
+# for (i in c(27, 68, 50, 51, 8, 19, 107)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.07, offset.text = 0)
+# }
+# for (i in c(21, 11, 29)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.065, offset.text = 0)
+# }
+# for (i in c(73, 75, 98)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.07, offset.text = 0)
+# }
+# 
+# #  GROUP 6
+# for (i in c(31,70,72,73,74,75,13,42,43,95,45,105,106)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.095, offset.text = 0)
+# }
+# for (i in c(49, 71, 12)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.091, offset.text = 0)
+# }
+# for (i in c(53, 102, 30)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.1, offset.text = 0)
+# }
+# for (i in c(87,64)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.078, offset.text = 0)
+# }
+# for (i in c(86, 110)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.105, offset.text = 0)
+# }
+# for (i in c(57,111)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.1, offset.text = 0)
+# }
+# 
+# #  GROUP 7
+# for (i in c(38,69,32,33,14,94,60)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.12, offset.text = 0)
+# }
+# for (i in c(39, 28)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.115, offset.text = 0)
+# }
+# for (i in c(80,97,35)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.124, offset.text = 0)
+# }
+# 
+# #  GROUP 8
+# for (i in c(48,76,52,78,15,103)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.145, offset.text = 0)
+# }
+# for (i in c(34)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.135, offset.text = 0)
+# }
+# for (i in c(61)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.15, offset.text = 0)
+# }
+# 
+# #  GROUP 9
+# for (i in c(48,16,104)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.17, offset.text = 0)
+# }
+# for (i in c(77)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.175, offset.text = 0)
+# }
+# for (i in c(40)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.165, offset.text = 0)
+# }
+# 
+# #  GROUP 10
+# for (i in c(67,79,17)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.19, offset.text = 0)
+# }
+# 
+# #  GROUP 11
+# for (i in c(24,91,92)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.2, offset.text = 0)
+# }
+# 
+# #  GROUP 12
+# for (i in c(88,89,90,93)) {
+#   plot_tree <-plot_tree +
+#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.215, offset.text = 0)
+# }
+# #-------------------------------------------------------------------------------
+# plot_tree
+# # Plot with everything on it!
+
 
 #############################################
 #         RENAME THE LINEAGES               #
@@ -505,3 +730,6 @@ ggsave("figures/Lineageplot_tree.png",
        plot = last_plot(),
        height = 15, width = 30)
 # Save it
+
+write.csv(sequence_data, "Outputs/sequence_data_cosmo.csv")
+write.csv(node_data, "Outputs/node_data.csv")

@@ -754,3 +754,6 @@ ggsave("figures/LineageTree.png",
        plot = last_plot(),
        height = 15, width = 30)
 # Save it
+
+write.csv(sequence_data, "Outputs/sequence_data_cosmo.csv")
+write.csv(node_data, "Outputs/node_data.csv")
