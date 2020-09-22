@@ -756,4 +756,4 @@ ggsave("figures/LineageTree.png",
 # Save it
 
 write.csv(sequence_data, "Outputs/sequence_data_cosmo.csv")
-write.csv(node_data, "Outputs/node_data.csv")
+write.csv(node_data, "Outputs/node_data_cosmo.csv")
