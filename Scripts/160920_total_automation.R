@@ -498,6 +498,11 @@ for (i in 1:length(node_data$cluster)) {
 }
 # Rename the lineages in the sequence assignment table
 
+# Add the country of origin for each sequence for comparison later
+for (i in 1:length(sequence_data$ID)) {
+  sequence_data$country[i] <- metadata$sequence.m49_country.display_name[(which(metadata$ID == sequence_data$ID[i]))]
+}
+
 #############################################
 #             REPLOT THE TREE               #
 #############################################
