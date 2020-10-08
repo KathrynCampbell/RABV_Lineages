@@ -109,3 +109,10 @@ node_data <- lineage_assignment(tree, min.support = 70, max.support = 100, align
 # Compare with WGS assignment
 # Different number of lineages - definitely different to WGS by 7 - not yet clear which 
 
+sequence_data_all <- read.csv(file = "Outputs/sequence_data_cosmo.csv")
+node_data_all <- read.csv(file = "Outputs/node_data_cosmo.csv")
+
+for (i in 1:567) {
+  sequence_data$WGS_cluster[i] <- sequence_data_all$cluster[which(sequence_data_all$ID == sequence_data$ID[i])]
+}
+
