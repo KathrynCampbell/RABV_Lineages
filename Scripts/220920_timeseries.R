@@ -4,6 +4,8 @@
 #'date: 22/07/2020
 #'---
 
+#KB added suggestions 08/10/20
+#KB: check out https://stackoverflow.com/questions/50604055/ggplot2-geom-bar-position-failure/50609038
 rm(list=ls())
 library(ggplot2)
 library(caper)
@@ -13,13 +15,16 @@ library(ggpubr)
 #############################################
 #            IMPORT THE DATA                #
 #############################################
-sequence_data <- read.csv("Outputs/sequence_data_cosmo.csv")
-node_data <- read.csv("Outputs/node_data_cosmo.csv")
+#KB added ignore row names (remove if you change csv export)
+sequence_data <- read.csv("Outputs/sequence_data_cosmo.csv", row.names = 1)
+node_data <- read.csv("Outputs/node_data_cosmo.csv", row.names = 1)
 # These were created in the lineage assignment script (Scripts/160920_total_automation.R)
 
 tree <- read_annotated(file="Trees/230720_Cosmo_copy.nex.txt") # GLUE sequences
 tree$tip.label <- sub("(?<=\\.).*$", "", tree$tip.label, perl = T)
 tree$tip.label <- gsub("\\.", "", tree$tip.label, perl = T)
+# #KB- can replace above 2 lines with this:
+# tree$tip.label <- gsub("\\..*", "", tree$tip.label, perl = T)
 
 attach(sequence_data)
 #############################################
@@ -39,7 +44,7 @@ all<- ggplot(sequence_data, aes(x=Year, fill=cluster))+
 sequence_data_2 <- sequence_data
 sequence_data_2$cluster <- gsub("\\..*","",sequence_data$cluster)
 major <- ggplot(sequence_data_2, aes(x=Year, fill=cluster))+
-  geom_histogram(stat="count") +
+  geom_histogram(stat="count", position="stack") +
   ggtitle("Major"); major
 
 # Split into groups as seen in figures/LineageTreeGroups.png
@@ -81,3 +86,4 @@ groups6 <- ggplot(sequence_data_2, aes(x=Year, fill=cluster))+
   ggtitle("Groups_6"); groups6
 
 ggarrange(all, major, groups6, legend = F, ncol=2, nrow=2)
+
