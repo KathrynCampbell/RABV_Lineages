@@ -45,11 +45,8 @@ source("R/lineage_assignment.r")
 tree <- read_annotated(file="Trees/230720_Cosmo_copy.nex.txt") # GLUE sequences
 
 # Sequence names got messed up in MAFFT, need to fix these so they match metadata and alignment
-tree$tip.label <- sub("(?<=\\.).*$", "", tree$tip.label, perl = T)
-tree$tip.label <- gsub("\\.", "", tree$tip.label, perl = T)
-
 # #KB- can replace above 2 lines with this:
-# tree$tip.label <- gsub("\\..*", "", tree$tip.label, perl = T)
+tree$tip.label <- gsub("\\..*", "", tree$tip.label, perl = T)
 
 #'**METADATA**
 #'========================================================================================================
@@ -74,11 +71,8 @@ metadata<- metadata %>%
 alignment <- read.alignment("Sequences/220720_GLUE_CosmoSeqs_align.fasta", format = "fasta")
 
 # Sequence names got messed up in MAFFT, need to fix these so they match metadata and alignment
-alignment$nam <- sub("(?<=\\.).*$", "", tree$tip.label, perl = T) 
-alignment$nam <- gsub("\\.", "", tree$tip.label, perl = T)
-
 # #KB- can replace above 2 lines with this:
-# alignment$nam <- gsub("\\..*", "", alignment$nam, perl = T)
+alignment$nam <- gsub("\\..*", "", alignment$nam, perl = T)
 
 
 #############################################
@@ -113,9 +107,6 @@ alignment$nam <- gsub("\\.", "", tree$tip.label, perl = T)
 sequence_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata)[[2]]
 node_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata)[[1]]
 
-#KB if you are importing the data need to ignore first col OR make sure you export csv without row names (see end of script)
-node_data <- read.csv("Outputs/node_data_cosmo.csv", row.names = 1)
-sequence_data <- read.csv("Outputs/sequence_data_cosmo.csv", row.names = 1)
 #---------------------------------------------------------------------------------------
 #
 # Everything above this is part of the lineage assignment script
