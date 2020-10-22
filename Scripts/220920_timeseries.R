@@ -4,7 +4,7 @@
 #'date: 22/07/2020
 #'---
 
-#KB added suggestions 08/10/20
+#KB added suggestions 08/10/20, 22/10/20
 #KB: check out https://stackoverflow.com/questions/50604055/ggplot2-geom-bar-position-failure/50609038
 ## Fixed!
 rm(list=ls())
