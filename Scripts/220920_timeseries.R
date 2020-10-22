@@ -80,7 +80,7 @@ for (i in 1:(length(node_data_2$Node))) {
 }
 # Reassign the lineages with the reduced number of options
 
-groups6 <- ggplot(sequence_data_2, aes(x=Year, fill=cluster))+
+groups6 <- ggplot(sequence_data_2, aes(x=factor(Year), fill=cluster))+
   geom_histogram(stat="count") +
   #KB edit: can add in text angle to make axes easier to read:
   theme(axis.text.x = element_text(angle = 45)) +
