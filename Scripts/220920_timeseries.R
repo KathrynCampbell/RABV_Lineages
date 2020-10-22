@@ -82,7 +82,10 @@ for (i in 1:(length(node_data_2$Node))) {
 
 groups6 <- ggplot(sequence_data_2, aes(x=Year, fill=cluster))+
   geom_histogram(stat="count") +
+  #KB edit: can add in text angle to make axes easier to read:
+  theme(axis.text.x = element_text(angle = 45)) +
   ggtitle("Groups_6"); groups6
+
 
 ggarrange(all, major, groups6, legend = F, ncol=2, nrow=2)
 
