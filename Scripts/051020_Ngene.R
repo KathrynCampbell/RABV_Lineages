@@ -102,8 +102,8 @@ alignment$nam <- gsub("\\.", "", tree$tip.label, perl = T)
 #'    - If using posterior support, use min.support = 0.7 and max.support = 1.0
 #'=========================================================================================================
 
-sequence_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata)[[2]]
-node_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata)[[1]]
+sequence_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata, sequences = 90)[[2]]
+node_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata, sequences = 90)[[1]]
 
 #---------------------------------------------------------------------------------------
 # Compare with WGS assignment

@@ -11,7 +11,7 @@
 #'File: lineage_assignment.r
 #'=====================
 
-lineage_assignment <- function(tree, min.support, max.support, alignment, metadata) {
+lineage_assignment <- function(tree, min.support, max.support, alignment, metadata, sequences) {
   
   alignment_matrix <- as.matrix.alignment(alignment)
   # Need it as a matrix for later analyses
@@ -31,7 +31,7 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   }
   # For each node identified in the previous step, count the number of tips descended from that node
   
-  nodes_5 <- node_data[(which(node_data[,2]>=5)),]
+  nodes_5 <- node_data[(which(node_data[,2]>= sequences)),]
   # Only carry forwards nodes which have more than 5 tips descended from it
   # This has been identified as the definition for a cluster in previous studies
   
@@ -83,7 +83,7 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   }
   # Take away the number of removed tips from the previous total number of tips calculated for each node
   
-  nodes_5 <- nodes_new[(which(nodes_new[,2] >= 5)),] # Redo this to remove any that now have less than 5, and write over the old nodes_5 so this is updated with the new tip numbers
+  nodes_5 <- nodes_new[(which(nodes_new[,2] >= sequences)),] # Redo this to remove any that now have less than 5, and write over the old nodes_5 so this is updated with the new tip numbers
   
   
   #############################################
