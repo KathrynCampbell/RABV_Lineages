@@ -159,11 +159,7 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   }
   # Count the number of sequences assigned to each lineage
   
-  ### KB problem here in code when there no empty lineages to remove- creates integer(0)
-
-  empty <- which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 2))])
-  while(length(empty)>0){
-  nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 2))])),]}
+  nodes_diff <- nodes_diff[-c(which(nodes_diff$cluster %in% summary$cluster[(which(summary$count < 2))])),]
   # If any lineages have no sequences in them, remove them as an option from the nodes_diff table
   
   min <- min(summary$count)
