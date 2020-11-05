@@ -1,0 +1,180 @@
+#'---------------------------------------------------------
+#'title: Cosmopolitan Lineage Assignment - Total Automation Tanzania
+#'author: Kathryn Campbell
+#'date: 02/11/2020
+#'---------------------------------------------------------
+
+rm(list=ls())
+
+#############################################
+#            INSTALL PACKAGES               #
+#############################################
+library(seqinr)
+library(ape)
+library(dplyr)
+library(TreeTools)
+library(adephylo)
+library(phangorn)
+library(phylotate)
+library(caper)
+library(stringr)
+library(pracma)
+library(ggrepel)
+library(phytools)
+library(treeio)
+library(ggtree)
+library(gridExtra)
+
+#############################################
+#          SOURCE THE FUNCTION              #
+#############################################
+
+source("R/lineage_assignment.r")
+
+#############################################
+#            IMPORT THE DATA                #
+#############################################
+#'
+#'**TREE**
+#'========================================================================================================
+#' The tree must contain the element 'node.comment' which contains the bootstrap support/posterior support
+#' And the element 'tip.label' which lists all the sequence ID's
+#' These sequence ID's must match the sequence ID's in the metadata and alignment
+#'=========================================================================================================
+tree_N <- read_annotated(file="Trees/021120_GLUE_TanzSeqs_N_align.nex") # GLUE sequences
+tree_WGS <- read_annotated(file="Trees/021120_GLUE_TanzSeqs_align.nex") # GLUE sequences
+
+# Need to edit node.comment so it's in the format required 
+tree_N$node.comment<-gsub(".*&bootstrap=", "", tree_N$node.comment)
+tree_WGS$node.comment<-gsub(".*&bootstrap=", "", tree_WGS$node.comment)
+
+
+#'**METADATA**
+#'========================================================================================================
+#' The metadata must contain the element 'year' which lists the collection year for each sequence 
+#' And the element 'ID' which lists all the sequence ID's
+#' These sequence ID's must match the sequence ID's in the tree and alignment
+#'=========================================================================================================
+metadata <- read.csv("Sequences/021120_GLUE_TanzMeta.csv")
+
+# Need to edit column names so they match what is required
+metadata<- metadata %>%
+  rename(ID = sequence.sequenceID,
+         year = sequence.latest_collection_year)
+
+
+#'**ALIGNMENT**
+#'========================================================================================================
+#' The alignment must contain the element 'seq' which contains the sequences
+#' And the element 'nam' which lists all the sequence ID's
+#' These sequence ID's must match the sequence ID's in the metadata and tree
+#'=========================================================================================================
+alignment_N <- read.alignment("Sequences/021120_GLUE_TanzSeqs_N_align.fasta", format = "fasta")
+alignment_WGS <- read.alignment("Sequences/021120_GLUE_TanzSeqs_align.fasta", format = "fasta")
+
+
+
+#############################################
+#           RUN THE ASSIGNMENT              #
+#############################################
+#'========================================================================================================
+#' Function in 'R/lineage_assignment.r'
+#' This function will split the tree into lineages, and assign a lineage number to each sequence
+#' It may take a little while!
+#' 
+#' The lineages are defined according to Rambaut et al. (2020) in which there must be:
+#'    - 70% support at the defining node
+#'    - At least 5 genomes with 95% coverage
+#'    - 1 or more shared nucleotide differences from the ancestral lineage
+#'    - At least 1 shared nucleotide change
+#' 
+#' The function will return 2 elements:
+#'    - A data frame with information about each sequence, including the number of 'n's, the number of '-'s,
+#'      the length of the alignment, the length after removing n's and -'s, the collection year and 
+#'      the assigned lineage number (called sequence_data)
+#'    - A data frame with information about each node the lineages are defined from including the node number,
+#'      the number of tips descended from that node, the number of shared differences between sequences in 
+#'      that lineage from the ancestor, the number of other lineages that lineage overlaps with and the 
+#'      lineage number assigned to that node (called node_data)
+#'      
+#' The function uses the arguments tree, alignment and metadata which were specified earlier
+#' It also uses the min.support and max.support arguments:
+#'    - If using bootstrap support, use min.support = 70 and max.support = 100
+#'    - If using posterior support, use min.support = 0.7 and max.support = 1.0
+#'=========================================================================================================
+
+sequence_data_N <- lineage_assignment(tree_N, min.support = 95, max.support = 100, alignment_N, metadata, sequences = 10)[[2]]
+node_data_N <- lineage_assignment(tree_N, min.support = 95, max.support = 100, alignment_N, metadata, sequences = 10)[[1]]
+
+sequence_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 100, alignment_WGS, metadata, sequences = 10)[[2]]
+node_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 100, alignment_WGS, metadata, sequences = 10)[[1]]
+
+#---------------------------------------------------------------------------------------
+#
+# Everything above this is part of the lineage assignment script
+# Everything below is added extras specific to the cosmopolitan lineages - 
+# Makes a plot with informative naming
+#
+#---------------------------------------------------------------------------------------
+
+#############################################
+#            COMPARE N AND WGS              #
+#############################################
+for (i in 1:205) {
+  sequence_data_WGS$"N_cluster"[i] <- sequence_data_N$cluster[which(sequence_data_N$ID == sequence_data_WGS$ID[i])]
+}
+
+sequence_data_WGS$cluster <- as.factor(sequence_data_WGS$cluster)
+plot_tree_WGS<-ggtree(tree_WGS) %<+% sequence_data_WGS +
+  geom_tippoint(na.rm = T, aes(colour = (cluster))) +
+  theme(legend.position = c(0.05, 0.83),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8)) +
+  guides(colour=guide_legend(override.aes=list(alpha=1, size=5)))
+
+for (i in c(1:13)) {
+    plot_tree_WGS <-plot_tree_WGS +
+      geom_cladelabel(node_data_WGS$Node[i], node_data_WGS$cluster[i], offset = 0.01*i, offset.text = 0)
+}
+
+plot_tree_WGS
+
+sequence_data_N$cluster <- as.factor(sequence_data_N$cluster)
+plot_tree_N<-ggtree(tree_N)  %<+% sequence_data_N +
+  geom_tippoint(na.rm = T, aes(colour = (cluster))) +
+  theme(legend.position = c(0.05, 0.83),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8)) +
+  guides(colour=guide_legend(override.aes=list(alpha=1, size=5)))
+
+# plot_tree_N
+
+# identify(plot_tree_N)
+
+# 1 = 207
+# 2 = 208
+# 3 = 325
+# 4 = 345
+# 5 = 210
+# 6 = 346
+
+node_data_N <- data.frame(Node = c(207, 209, 274, 345, 275, 352), cluster = c(1:6))
+
+for (i in c(1:6)) {
+  plot_tree_N <-plot_tree_N +
+    geom_cladelabel(node_data_N$Node[i], node_data_N$cluster[i], offset = 0.01*i, offset.text = 0)
+}
+
+plot_tree_N
+flip(plot_tree_N, 220, 221)
+
+grid.arrange(plot_tree_N, plot_tree_WGS, ncol = 2)
+
+help("mrca.phylo")
+
+mrca.phylo(tree_WGS, c(207, 209, 204))
+Descendants(tree_WGS, 212, type = 'tips')
+
+getMRCA(tree_WGS, c('KF155002', 'KR534217'))
+
+test <- Siblings(tree_N)
