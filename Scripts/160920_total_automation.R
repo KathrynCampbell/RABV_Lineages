@@ -115,11 +115,6 @@ node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, align
 # Makes a plot with informative naming
 #
 #-------------------------------------------------------------------------------
-#############################################
-#              PLOT THE TREE                #
-#############################################
-# Need to do an initial rough plot to understand names and positions etc
-#
 
 
 # #############################################
@@ -196,9 +191,9 @@ node_data$cluster[64]<-"AM2a_A1"
 #-------------------------------------------------------------------------------
 # # Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
 # 
-# for (i in 1:length(node_data$cluster)) {
-#   sequence_data$cluster[which(sequence_data$cluster == i)] <- node_data$cluster[i]
-# }
+for (i in 1:length(node_data$cluster)) {
+  sequence_data$cluster[which(sequence_data$cluster == i)] <- node_data$cluster[i]
+}
 # # Rename the lineages in the sequence assignment table
 # 
 # # Add the country of origin for each sequence for comparison later
@@ -397,6 +392,63 @@ tree_N <- read_annotated(filename = "Trees/051020_GLUE_CosmoSeqs_N_align.fasta.n
 sequence_data_N <- read.csv(file = "Outputs/sequence_data_cosmoN10.csv")
 node_data_N <- read.csv(file = "Outputs/node_data_cosmoN10.csv")
 
+sequence_data_N$previous <- NA
+for (i in 1:length(sequence_data_N$ID)) {
+  sequence_data_N$previous[i]<-
+    metadata$alignment.displayName[which(metadata$ID == sequence_data_N$ID[i])]
+}
+
+node_data_N$cluster[1]<-"A1"
+node_data_N$cluster[2]<-"A1.1"
+node_data_N$cluster[3]<-"A1.1.1"
+node_data_N$cluster[4]<-"B1"
+node_data_N$cluster[5]<-"AF1b_A1"
+node_data_N$cluster[6]<-"ME1a_A1"
+node_data_N$cluster[7]<-"ME2_A1"
+node_data_N$cluster[8]<-"A1.2"
+node_data_N$cluster[9]<-"B1.1"
+node_data_N$cluster[10]<-"ME2_A1.1"
+node_data_N$cluster[11]<-"A1.2.1"
+node_data_N$cluster[12]<-"CA1_A1"
+node_data_N$cluster[13]<-"ME2_A1.1.1"
+node_data_N$cluster[14]<-"ME1a_A1.1"
+node_data_N$cluster[15]<-"AF1b_A1.1"
+node_data_N$cluster[16]<-"NEE_A1"
+node_data_N$cluster[17]<-"CA1_A1.1"
+node_data_N$cluster[18]<-"ME2_B1"
+node_data_N$cluster[19]<-"ME1a_A1.1.1"
+node_data_N$cluster[20]<-"C1"
+node_data_N$cluster[21]<-"CA1_A1.1.1"
+node_data_N$cluster[22]<-"ME2_B1.1"
+node_data_N$cluster[23]<-"ME1a_B1"
+node_data_N$cluster[24]<-"A1.1.3"
+node_data_N$cluster[25]<-"CA2_A1"
+node_data_N$cluster[26]<-"AF1b_A1.1.1"
+node_data_N$cluster[27]<-"AF1b_A1.2"
+node_data_N$cluster[28]<-"CE_A1"
+node_data_N$cluster[29]<-"WE_A1"
+node_data_N$cluster[30]<-"EE_A1"
+node_data_N$cluster[31]<-"NEE_A1.1"
+node_data_N$cluster[32]<-"CA1_B1"
+node_data_N$cluster[33]<-"ME2_B1.1.1"
+node_data_N$cluster[34]<-"ME1a_B1.1"
+node_data_N$cluster[35]<-"ME1a_A1.2"
+node_data_N$cluster[36]<-"ME1a_A1.3"
+node_data_N$cluster[37]<-"CA2_A1.1"
+node_data_N$cluster[38]<-"C1.1"
+node_data_N$cluster[39]<-"AM2a_A1"
+node_data_N$cluster[40]<-"D1"
+node_data_N$cluster[41]<-"AF1b_B1"
+node_data_N$cluster[42]<-"AF1b_A1.3"
+node_data_N$cluster[43]<-"AF1b_A1.2.1"
+node_data_N$cluster[44]<-"E1"
+
+for (i in 1:length(node_data_N$cluster)) {
+  sequence_data_N$cluster[which(sequence_data_N$cluster == i)] <- node_data_N$cluster[i]
+}
+# Rename the lineages in the sequence assignment table
+
+
 sequence_data_N$cluster <- as.factor(sequence_data_N$cluster)
 # Make a nice figure to save! Similar to before but with text sizes, legend etc
 plot_tree_N<-ggtree(tree_N) %<+% sequence_data_N +
@@ -531,6 +583,11 @@ for (i in c(32)) {
 plot_tree_N <- flip(plot_tree_N, 872, 571)
 plot_tree_N
 # Plot with everything on it!
+
+ggsave("figures/Lineageplot_tree_N10.png", 
+       plot = last_plot(),
+       height = 15, width = 30)
+# Save it
 
 combined <- grid.arrange(plot_tree, plot_tree_N, nrow = 2)
 
