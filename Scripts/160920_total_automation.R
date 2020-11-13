@@ -595,3 +595,11 @@ ggsave("figures/Lineageplot_tree_combined.png",
        plot = combined,
        height = 20, width = 30)
 # Save it
+
+for (i in 1:567) {
+  sequence_data$"N_cluster"[i] <- sequence_data_N$cluster[which(sequence_data_N$ID == sequence_data$ID[i])]
+}
+
+sequence_data$"N_cluster"[1] 
+
+sequence_data_N$cluster <- as.character(sequence_data_N$cluster)

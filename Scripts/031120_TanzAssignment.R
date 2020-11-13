@@ -120,9 +120,25 @@ node_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 10
 #############################################
 #            COMPARE N AND WGS              #
 #############################################
-for (i in 1:205) {
-  sequence_data_WGS$"N_cluster"[i] <- sequence_data_N$cluster[which(sequence_data_N$ID == sequence_data_WGS$ID[i])]
+
+node_data_WGS$cluster[1]<-"A1"
+node_data_WGS$cluster[2]<-"A1.1"
+node_data_WGS$cluster[3]<-"A1.1.1"
+node_data_WGS$cluster[4]<-"B1"
+node_data_WGS$cluster[5]<-"B1.1"
+node_data_WGS$cluster[6]<-"B1.1.1"
+node_data_WGS$cluster[7]<-"A1.1.2"
+node_data_WGS$cluster[8]<-"C1"
+node_data_WGS$cluster[9]<-"C1.1"
+node_data_WGS$cluster[10]<-"C1.1.1"
+node_data_WGS$cluster[11]<-"D1"
+node_data_WGS$cluster[12]<-"E1"
+node_data_WGS$cluster[13]<-"A1.1.3"
+
+for (i in 1:length(node_data_WGS$cluster)) {
+  sequence_data_WGS$cluster[which(sequence_data_WGS$cluster == i)] <- node_data_WGS$cluster[i]
 }
+# Rename the lineages in the sequence assignment table
 
 sequence_data_WGS$cluster <- as.factor(sequence_data_WGS$cluster)
 plot_tree_WGS<-ggtree(tree_WGS) %<+% sequence_data_WGS +
@@ -130,7 +146,8 @@ plot_tree_WGS<-ggtree(tree_WGS) %<+% sequence_data_WGS +
   theme(legend.position = c(0.05, 0.83),
         legend.text = element_text(size = 8),
         legend.title = element_text(size = 8)) +
-  guides(colour=guide_legend(override.aes=list(alpha=1, size=5)))
+  guides(colour=guide_legend(override.aes=list(alpha=1, size=5))) +
+  ggtitle("WGS")
 
 for (i in c(1:13)) {
     plot_tree_WGS <-plot_tree_WGS +
@@ -139,13 +156,15 @@ for (i in c(1:13)) {
 
 plot_tree_WGS
 
+
 sequence_data_N$cluster <- as.factor(sequence_data_N$cluster)
 plot_tree_N<-ggtree(tree_N)  %<+% sequence_data_N +
   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
   theme(legend.position = c(0.05, 0.83),
         legend.text = element_text(size = 8),
         legend.title = element_text(size = 8)) +
-  guides(colour=guide_legend(override.aes=list(alpha=1, size=5)))
+  guides(colour=guide_legend(override.aes=list(alpha=1, size=5))) +
+  ggtitle("N gene")
 
 # plot_tree_N
 
@@ -160,21 +179,36 @@ plot_tree_N<-ggtree(tree_N)  %<+% sequence_data_N +
 
 node_data_N <- data.frame(Node = c(207, 209, 274, 345, 275, 352), cluster = c(1:6))
 
+node_data_N$cluster[1]<-"A1"
+node_data_N$cluster[2]<-"A1.1"
+node_data_N$cluster[3]<-"A1.1.1"
+node_data_N$cluster[4]<-"A1.2"
+node_data_N$cluster[5]<-"B1"
+node_data_N$cluster[6]<-"A1.2.1"
+
+node_data_N$cluster[1]
+
+for (i in (as.factor(1:length(node_data_N$cluster)))) {
+  sequence_data_N$cluster[which(sequence_data_N$cluster == i)] <- node_data_N$cluster[i]
+}
+# Rename the lineages in the sequence assignment table
+
 for (i in c(1:6)) {
   plot_tree_N <-plot_tree_N +
     geom_cladelabel(node_data_N$Node[i], node_data_N$cluster[i], offset = 0.01*i, offset.text = 0)
 }
 
 plot_tree_N
-flip(plot_tree_N, 220, 221)
 
-grid.arrange(plot_tree_N, plot_tree_WGS, ncol = 2)
+combined <- grid.arrange(plot_tree_N, plot_tree_WGS, ncol = 2)
 
-help("mrca.phylo")
+ggsave("figures/Lineageplot_tree_combined_Tanz.png", 
+       plot = combined,
+       height = 20, width = 30)
+# Save it
 
-mrca.phylo(tree_WGS, c(207, 209, 204))
-Descendants(tree_WGS, 212, type = 'tips')
+for (i in 1:205) {
+  sequence_data_WGS$"N_cluster"[i] <- sequence_data_N$cluster[which(sequence_data_N$ID == sequence_data_WGS$ID[i])]
+}
 
-getMRCA(tree_WGS, c('KF155002', 'KR534217'))
-
-test <- Siblings(tree_N)
+sequence_data_N$cluster
