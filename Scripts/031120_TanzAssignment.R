@@ -207,8 +207,91 @@ ggsave("figures/Lineageplot_tree_combined_Tanz.png",
        height = 20, width = 30)
 # Save it
 
+
+
+
+
+
+
+
+
 for (i in 1:205) {
   sequence_data_WGS$"N_cluster"[i] <- sequence_data_N$cluster[which(sequence_data_N$ID == sequence_data_WGS$ID[i])]
 }
 
 sequence_data_N$cluster
+
+
+
+
+
+
+
+timeseries_WGS<- ggplot(sequence_data_WGS, aes(x=factor(Year), fill=cluster))+
+  geom_histogram(stat="count") +
+  ggtitle("Tanz Time Series WGS"); timeseries_WGS
+
+ggsave("figures/TimeSeries_Tanz_WGS.png", 
+       plot = timeseries_WGS,
+       height = 20, width = 30)
+
+
+#timeseries N? Clusters N?
+
+
+
+
+
+
+
+clusters_WGS <- sequence_data_WGS %>%
+  group_by(cluster) %>%
+  summarise()
+# Create a data frame ready to fill in information about each cluster
+
+for (i in 1:length(clusters_WGS$cluster)) {
+  clusters_WGS$year_first[i] <- sequence_data_WGS %>%
+    filter(cluster == clusters_WGS$cluster[i])%>%
+    group_by(Year)%>%
+    summarise()%>%
+    min()
+  clusters_WGS$year_last[i] <- sequence_data_WGS %>%
+    filter(cluster == clusters_WGS$cluster[i])%>%
+    group_by(Year)%>%
+    summarise()%>%
+    max()
+}
+# For each cluster, find and list the earliest colleciton year, the latest collection year and all the places
+# that cluster has been found
+
+clusters_WGS$n_seqs<-(sequence_data_WGS %>%
+                    group_by(cluster)%>%
+                    summarise(n=n()))$n
+
+for (i in 1:length(sequence_data_WGS$ID)) {
+  sequence_data_WGS$Place[i] <- metadata$sequence.gb_place_sampled[(which(metadata$ID == sequence_data_WGS$ID[i]))]
+}
+
+clusters_WGS$place[2]<-(sequence_data_WGS %>%
+  filter(cluster == clusters_WGS$cluster[2])%>%
+  group_by(Place)%>%
+  summarise())
+# Add another column listing the number of sequences assigned to each cluster
+
+for (i in 1:length(clusters_WGS$cluster)) {
+  numbers<-which(alignment_WGS$nam %in% (sequence_data_WGS$ID[which(sequence_data_WGS$cluster == clusters_WGS$cluster[i])]))
+  
+  test_align <- as.alignment(alignment_WGS$seq[c(numbers)])
+  test_align$nb <- length(numbers)
+  test_align$nam <- alignment_WGS$nam[c(numbers)]
+  test_align$seq <- alignment_WGS$seq[c(numbers)]
+  test_align$com <- "NA"
+  
+  test_align <- as.matrix(test_align)
+  distances <- as.matrix(dist.gene(test_align, method = "pairwise", pairwise.deletion = F, variance = F))
+  clusters_WGS$max_distance[i] <- max(distances)
+  clusters_WGS$mean_distance[i] <- mean(distances)
+}
+
+
+
