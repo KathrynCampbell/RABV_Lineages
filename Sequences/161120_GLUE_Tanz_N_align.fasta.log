@@ -1,0 +1,14 @@
+IQ-TREE multicore version 2.0.6 for Mac OS X 64-bit built May 30 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Kathryns-MBP (AVX512, FMA3, 32 GB RAM)
+Command: /Users/kathryncampbell/Desktop/iqtree2 -s /Users/kathryncampbell/Documents/GitHub/Lineages/Sequences/161120_GLUE_Tanz_N_align.fasta -B 1000
+Seed:    395407 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Nov 16 16:11:15 2020
+Kernel:  AVX+FMA - 1 threads (8 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 8 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file /Users/kathryncampbell/Documents/GitHub/Lineages/Sequences/161120_GLUE_Tanz_N_align.fasta ... ERROR: Cannot read file /Users/kathryncampbell/Documents/GitHub/Lineages/Sequences/161120_GLUE_Tanz_N_align.fasta
