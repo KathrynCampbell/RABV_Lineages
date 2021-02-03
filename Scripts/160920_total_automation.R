@@ -613,9 +613,17 @@ ggsave("figures/TimeSeries_WGS.png",
        plot = timeseries_WGS,
        height = 20, width = 30)
 
+
+
+
+for (i in 1:length(sequence_data$ID)) {
+  sequence_data$Country[i] <- metadata$sequence.m49_country.display_name[(which(metadata$ID == sequence_data$ID[i]))]
+}
+
 clusters_WGS <- sequence_data %>%
   group_by(cluster) %>%
   summarise()
+clusters_WGS$country <- NA
 # Create a data frame ready to fill in information about each cluster
 
 for (i in 1:length(clusters_WGS$cluster)) {
@@ -629,6 +637,10 @@ for (i in 1:length(clusters_WGS$cluster)) {
     group_by(Year)%>%
     summarise()%>%
     max()
+  clusters_WGS$country[i]<-paste((sequence_data %>%
+                                  filter(cluster == clusters_WGS$cluster[i] & Country !="-") %>%
+                                  group_by(Country) %>%
+                                  summarise()))
 }
 # For each cluster, find and list the earliest colleciton year, the latest collection year and all the places
 # that cluster has been found
@@ -637,14 +649,8 @@ clusters_WGS$n_seqs<-(sequence_data %>%
                         group_by(cluster)%>%
                         summarise(n=n()))$n
 
-for (i in 1:length(sequence_data$ID)) {
-  sequence_data$Place[i] <- metadata$sequence.gb_place_sampled[(which(metadata$ID == sequence_data$ID[i]))]
-}
 
-clusters_WGS$place[2]<-(sequence_data %>%
-                          filter(cluster == clusters_WGS$cluster[2])%>%
-                          group_by(Place)%>%
-                          summarise())
+
 # Add another column listing the number of sequences assigned to each cluster
 
 for (i in 1:length(clusters_WGS$cluster)) {
