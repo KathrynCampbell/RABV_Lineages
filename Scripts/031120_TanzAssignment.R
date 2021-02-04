@@ -1,5 +1,5 @@
 #'---------------------------------------------------------
-#'title: Cosmopolitan Lineage Assignment - Total Automation Tanzania
+#'title: Tanzanian Lineage Assignment
 #'author: Kathryn Campbell
 #'date: 02/11/2020
 #'---------------------------------------------------------
@@ -84,7 +84,7 @@ alignment_WGS <- read.alignment("Sequences/021120_GLUE_TanzSeqs_align.fasta", fo
 #' 
 #' The lineages are defined according to Rambaut et al. (2020) in which there must be:
 #'    - 70% support at the defining node
-#'    - At least 5 genomes with 95% coverage
+#'    - At least 10 genomes with 95% coverage
 #'    - 1 or more shared nucleotide differences from the ancestral lineage
 #'    - At least 1 shared nucleotide change
 #' 
@@ -100,7 +100,10 @@ alignment_WGS <- read.alignment("Sequences/021120_GLUE_TanzSeqs_align.fasta", fo
 #' The function uses the arguments tree, alignment and metadata which were specified earlier
 #' It also uses the min.support and max.support arguments:
 #'    - If using bootstrap support, use min.support = 70 and max.support = 100
+#'    - If using ultrafast bootstrap support, use min.support = 95 and max.support = 100
 #'    - If using posterior support, use min.support = 0.7 and max.support = 1.0
+#' The minimum number of sequences to define a lineage can also be changed in the sequences argument
+#' 
 #'=========================================================================================================
 
 sequence_data_N <- lineage_assignment(tree_N, min.support = 95, max.support = 100, alignment_N, metadata, sequences = 10)[[2]]
@@ -112,13 +115,13 @@ node_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 10
 #---------------------------------------------------------------------------------------
 #
 # Everything above this is part of the lineage assignment script
-# Everything below is added extras specific to the cosmopolitan lineages - 
+# Everything below is added extras specific to the Tanzanian lineages - 
 # Makes a plot with informative naming
 #
 #---------------------------------------------------------------------------------------
 
 #############################################
-#            COMPARE N AND WGS              #
+#            PLOT WGS LINEAGES              #
 #############################################
 
 node_data_WGS$cluster[1]<-"A1"
@@ -138,9 +141,12 @@ node_data_WGS$cluster[13]<-"A1.1.3"
 for (i in 1:length(node_data_WGS$cluster)) {
   sequence_data_WGS$cluster[which(sequence_data_WGS$cluster == i)] <- node_data_WGS$cluster[i]
 }
-# Rename the lineages in the sequence assignment table
+# Rename the lineages in the sequence assignment table 
+# Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
 
 sequence_data_WGS$cluster <- as.factor(sequence_data_WGS$cluster)
+
+# Plot a nice figure to save
 plot_tree_WGS<-ggtree(tree_WGS) %<+% sequence_data_WGS +
   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
   theme(legend.position = c(0.05, 0.83),
@@ -149,6 +155,7 @@ plot_tree_WGS<-ggtree(tree_WGS) %<+% sequence_data_WGS +
   guides(colour=guide_legend(override.aes=list(alpha=1, size=5))) +
   ggtitle("WGS")
 
+# Plot each clade bar
 for (i in c(1:13)) {
     plot_tree_WGS <-plot_tree_WGS +
       geom_cladelabel(node_data_WGS$Node[i], node_data_WGS$cluster[i], offset = 0.01*i, offset.text = 0)
@@ -157,7 +164,13 @@ for (i in c(1:13)) {
 plot_tree_WGS
 
 
+#############################################
+#          PLOT N GENE LINEAGES             #
+#############################################
+
 sequence_data_N$cluster <- as.factor(sequence_data_N$cluster)
+
+# Plot a nice figure to save
 plot_tree_N<-ggtree(tree_N)  %<+% sequence_data_N +
   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
   theme(legend.position = c(0.05, 0.83),
@@ -166,7 +179,9 @@ plot_tree_N<-ggtree(tree_N)  %<+% sequence_data_N +
   guides(colour=guide_legend(override.aes=list(alpha=1, size=5))) +
   ggtitle("N gene")
 
-# plot_tree_N
+
+# For some reason the node_data_N table doesn't work, but can see from the tree the assignments
+# Do these manually:
 
 # identify(plot_tree_N)
 
@@ -178,6 +193,9 @@ plot_tree_N<-ggtree(tree_N)  %<+% sequence_data_N +
 # 6 = 346
 
 node_data_N <- data.frame(Node = c(207, 209, 274, 345, 275, 352), cluster = c(1:6))
+
+# Rename the lineages in the sequence assignment table 
+# Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
 
 node_data_N$cluster[1]<-"A1"
 node_data_N$cluster[2]<-"A1.1"
@@ -191,14 +209,19 @@ node_data_N$cluster[1]
 for (i in (as.factor(1:length(node_data_N$cluster)))) {
   sequence_data_N$cluster[which(sequence_data_N$cluster == i)] <- node_data_N$cluster[i]
 }
-# Rename the lineages in the sequence assignment table
 
+# Plot each clade bar
 for (i in c(1:6)) {
   plot_tree_N <-plot_tree_N +
     geom_cladelabel(node_data_N$Node[i], node_data_N$cluster[i], offset = 0.01*i, offset.text = 0)
 }
 
 plot_tree_N
+
+
+#############################################
+#         WGS AND N GENE COMPARISON         #
+#############################################
 
 combined <- grid.arrange(plot_tree_N, plot_tree_WGS, ncol = 2)
 
@@ -207,51 +230,46 @@ ggsave("figures/Lineageplot_tree_combined_Tanz.png",
        height = 20, width = 30)
 # Save it
 
-
-
-
-
-
-
-
-
 for (i in 1:205) {
   sequence_data_WGS$"N_cluster"[i] <- sequence_data_N$cluster[which(sequence_data_N$ID == sequence_data_WGS$ID[i])]
 }
-
+# Add a column in the sequence data to compare N gene assignment - not working currently
 sequence_data_N$cluster
 
 
+#############################################
+#                TIMESERIES                 #
+#############################################
 
-
-
-
-
+# Plot a timeseries of sequences per year split by cluster
 timeseries_WGS<- ggplot(sequence_data_WGS, aes(x=factor(Year), fill=cluster))+
   geom_histogram(stat="count") +
   ggtitle("Tanz Time Series WGS"); timeseries_WGS
 
+# Save it
 ggsave("figures/TimeSeries_Tanz_WGS.png", 
        plot = timeseries_WGS,
        height = 20, width = 30)
 
+# Currently not working for N gene - need to fix
 
-#timeseries N? Clusters N?
+#############################################
+#         LINEAGE INFORMATION TABLE         #
+#############################################
 
-
-
-
-
+# Extract the place information from the metadata
 for (i in 1:length(sequence_data_WGS$ID)) {
   sequence_data_WGS$Place[i] <- metadata$sequence.gb_place_sampled[(which(metadata$ID == sequence_data_WGS$ID[i]))]
 }
 
+# Create a data frame ready to fill in information about each cluster
 clusters_WGS <- sequence_data_WGS %>%
   group_by(cluster) %>%
   summarise()
 clusters_WGS$place <- NA
-# Create a data frame ready to fill in information about each cluster
 
+# For each cluster, find and list the earliest colleciton year, the latest collection year and all the places
+# that cluster has been found
 for (i in 1:length(clusters_WGS$cluster)) {
   clusters_WGS$year_first[i] <- sequence_data_WGS %>%
     filter(cluster == clusters_WGS$cluster[i])%>%
@@ -268,16 +286,14 @@ for (i in 1:length(clusters_WGS$cluster)) {
                                   group_by(Place) %>%
                                   summarise()))
 }
-# For each cluster, find and list the earliest colleciton year, the latest collection year and all the places
-# that cluster has been found
 
+# Add another column listing the number of sequences assigned to each cluster
 clusters_WGS$n_seqs<-(sequence_data_WGS %>%
                     group_by(cluster)%>%
                     summarise(n=n()))$n
 
-
-# Add another column listing the number of sequences assigned to each cluster
-
+# For each lineage, calculate the pairwise distance for all the sequences allocated to each lineage
+# Extract the mean and max distance for each lineage
 for (i in 1:length(clusters_WGS$cluster)) {
   numbers<-which(alignment_WGS$nam %in% (sequence_data_WGS$ID[which(sequence_data_WGS$cluster == clusters_WGS$cluster[i])]))
   
@@ -292,6 +308,3 @@ for (i in 1:length(clusters_WGS$cluster)) {
   clusters_WGS$max_distance[i] <- max(distances)
   clusters_WGS$mean_distance[i] <- mean(distances)
 }
-
-
-

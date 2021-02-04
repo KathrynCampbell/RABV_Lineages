@@ -1,5 +1,5 @@
 #'---------------------------------------------------------
-#'title: Cosmopolitan Lineage Assignment - Total Automation
+#'title: Cosmopolitan Lineage Assignment
 #'author: Kathryn Campbell
 #'date: 16/09/2020
 #'---------------------------------------------------------
@@ -86,7 +86,7 @@ alignment$nam <- gsub("\\..*", "", alignment$nam, perl = T)
 #' 
 #' The lineages are defined according to Rambaut et al. (2020) in which there must be:
 #'    - 70% support at the defining node
-#'    - At least 5 genomes with 95% coverage
+#'    - At least 10 genomes with 95% coverage
 #'    - 1 or more shared nucleotide differences from the ancestral lineage
 #'    - At least 1 shared nucleotide change
 #' 
@@ -102,7 +102,10 @@ alignment$nam <- gsub("\\..*", "", alignment$nam, perl = T)
 #' The function uses the arguments tree, alignment and metadata which were specified earlier
 #' It also uses the min.support and max.support arguments:
 #'    - If using bootstrap support, use min.support = 70 and max.support = 100
+#'    - If using ultrafast bootstrap support, use min.support = 95 and max.support = 100
 #'    - If using posterior support, use min.support = 0.7 and max.support = 1.0
+#' The minimum number of sequences to define a lineage can also be changed in the sequences argument
+#' 
 #'=========================================================================================================
 
 sequence_data <- lineage_assignment(tree, min.support = 95, max.support = 100, alignment, metadata, sequences = 10)[[2]]
@@ -118,7 +121,7 @@ node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, align
 
 
 # #############################################
-# #         RENAME THE LINEAGES               #
+#           RENAME THE LINEAGES               #
 # #############################################
 # 
 # # Just doing this by eye currently, must be a better way
@@ -194,16 +197,12 @@ node_data$cluster[64]<-"AM2a_A1"
 for (i in 1:length(node_data$cluster)) {
   sequence_data$cluster[which(sequence_data$cluster == i)] <- node_data$cluster[i]
 }
-# # Rename the lineages in the sequence assignment table
-# 
-# # Add the country of origin for each sequence for comparison later
-# for (i in 1:length(sequence_data$ID)) {
-#   sequence_data$country[i] <- metadata$sequence.m49_country.display_name[(which(metadata$ID == sequence_data$ID[i]))]
-# }
+# Rename the lineages in the sequence assignment table
 
 #############################################
-#             REPLOT THE TREE               #
+#                 WGS PLOT                  #
 #############################################
+# Add a column of previous assignment to the table for comparison
 sequence_data$previous <- NA
 for (i in 1:length(sequence_data$ID)) {
   sequence_data$previous[i]<-
@@ -386,18 +385,21 @@ write.csv(sequence_data, "Outputs/sequence_data_cosmo10.csv", row.names=F)
 write.csv(node_data, "Outputs/node_data_cosmo10.csv", row.names=F)
 
 #############################################
-#             COMBINE FIGURES               #
+#               N GENE PLOT                 #
 #############################################
+# Import the assignment done on the same set of N genes for comparison
 tree_N <- read_annotated(filename = "Trees/051020_GLUE_CosmoSeqs_N_align.fasta.nex")
 sequence_data_N <- read.csv(file = "Outputs/sequence_data_cosmoN10.csv")
 node_data_N <- read.csv(file = "Outputs/node_data_cosmoN10.csv")
 
+# Add a column of previous assignment to the table for comparison
 sequence_data_N$previous <- NA
 for (i in 1:length(sequence_data_N$ID)) {
   sequence_data_N$previous[i]<-
     metadata$alignment.displayName[which(metadata$ID == sequence_data_N$ID[i])]
 }
 
+# Name the N gene lineages
 node_data_N$cluster[1]<-"A1"
 node_data_N$cluster[2]<-"A1.1"
 node_data_N$cluster[3]<-"A1.1.1"
@@ -589,6 +591,11 @@ ggsave("figures/Lineageplot_tree_N10.png",
        height = 15, width = 30)
 # Save it
 
+
+
+#############################################
+#           WGS N COMPARISON                #
+#############################################
 combined <- grid.arrange(plot_tree, plot_tree_N, nrow = 2)
 
 ggsave("figures/Lineageplot_tree_combined.png", 
@@ -596,6 +603,7 @@ ggsave("figures/Lineageplot_tree_combined.png",
        height = 20, width = 30)
 # Save it
 
+# Add a column with the N gene assignment to the WGS assignment for comparison
 sequence_data_N$cluster <- as.character(sequence_data_N$cluster)
 
 for (i in 1:567) {
@@ -603,8 +611,10 @@ for (i in 1:567) {
 }
 
 
-
-
+#############################################
+#                TIMESERIES                 #
+#############################################
+# Plot a timeseries of sequences per year split by cluster
 timeseries_WGS<- ggplot(sequence_data, aes(x=factor(Year), fill=cluster))+
   geom_histogram(stat="count") +
   ggtitle("Time Series WGS"); timeseries_WGS
@@ -615,17 +625,22 @@ ggsave("figures/TimeSeries_WGS.png",
 
 
 
-
+#############################################
+#         LINEAGE INFORMATION TABLE         #
+#############################################
+# Extract the place information from the metadata
 for (i in 1:length(sequence_data$ID)) {
   sequence_data$Country[i] <- metadata$sequence.m49_country.display_name[(which(metadata$ID == sequence_data$ID[i]))]
 }
 
+# Create a data frame ready to fill in information about each cluster
 clusters_WGS <- sequence_data %>%
   group_by(cluster) %>%
   summarise()
 clusters_WGS$country <- NA
-# Create a data frame ready to fill in information about each cluster
 
+# For each cluster, find and list the earliest colleciton year, the latest collection year and all the places
+# that cluster has been found
 for (i in 1:length(clusters_WGS$cluster)) {
   clusters_WGS$year_first[i] <- sequence_data %>%
     filter(cluster == clusters_WGS$cluster[i])%>%
@@ -642,17 +657,15 @@ for (i in 1:length(clusters_WGS$cluster)) {
                                   group_by(Country) %>%
                                   summarise()))
 }
-# For each cluster, find and list the earliest colleciton year, the latest collection year and all the places
-# that cluster has been found
+
+# Add another column listing the number of sequences assigned to each cluster
 
 clusters_WGS$n_seqs<-(sequence_data %>%
                         group_by(cluster)%>%
                         summarise(n=n()))$n
 
-
-
-# Add another column listing the number of sequences assigned to each cluster
-
+# For each lineage, calculate the pairwise distance for all the sequences allocated to each lineage
+# Extract the mean and max distance for each lineage
 for (i in 1:length(clusters_WGS$cluster)) {
   numbers<-which(alignment$nam %in% (sequence_data$ID[which(sequence_data$cluster == clusters_WGS$cluster[i])]))
   
@@ -667,6 +680,3 @@ for (i in 1:length(clusters_WGS$cluster)) {
   clusters_WGS$max_distance[i] <- max(distances)
   clusters_WGS$mean_distance[i] <- mean(distances)
 }
-
-
-
