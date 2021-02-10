@@ -72,7 +72,12 @@ metadata<- metadata %>%
 alignment_N <- read.alignment("Sequences/021120_GLUE_TanzSeqs_N_align.fasta", format = "fasta")
 alignment_WGS <- read.alignment("Sequences/021120_GLUE_TanzSeqs_align.fasta", format = "fasta")
 
-
+#'**TIMETREE**
+#'========================================================================================================
+#' 
+#'========================================================================================================
+ancestral <- read.alignment(file = "TimeTree/ancestral_sequences.fasta", format = "fasta")
+ancestral$nam <- gsub("\\..*", "", ancestral$nam, perl = T)
 
 #############################################
 #           RUN THE ASSIGNMENT              #
@@ -109,8 +114,8 @@ alignment_WGS <- read.alignment("Sequences/021120_GLUE_TanzSeqs_align.fasta", fo
 sequence_data_N <- lineage_assignment(tree_N, min.support = 95, max.support = 100, alignment_N, metadata, sequences = 10)[[2]]
 node_data_N <- lineage_assignment(tree_N, min.support = 95, max.support = 100, alignment_N, metadata, sequences = 10)[[1]]
 
-sequence_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 100, alignment_WGS, metadata, sequences = 10)[[2]]
-node_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 100, alignment_WGS, metadata, sequences = 10)[[1]]
+sequence_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 100, alignment_WGS, metadata, ancestral)[[2]]
+node_data_WGS <- lineage_assignment(tree_WGS, min.support = 95, max.support = 100, alignment_WGS, metadata, ancestral)[[1]]
 
 #---------------------------------------------------------------------------------------
 #
