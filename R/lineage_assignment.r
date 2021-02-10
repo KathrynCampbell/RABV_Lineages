@@ -11,9 +11,11 @@
 #'File: lineage_assignment.r
 #'=====================
 
-lineage_assignment <- function(tree, min.support, max.support, alignment, metadata, sequences) {
+lineage_assignment <- function(tree, min.support, max.support, alignment, metadata, ancestral) {
   
   alignment_matrix <- as.matrix.alignment(alignment)
+  ancestral_matrix <- as.matrix.alignment(ancestral)
+  sequences <- 10
   # Need it as a matrix for later analyses
   
   #############################################
@@ -103,21 +105,18 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   # E.g. which lineages show one or more shared nucleotides differences from the ancestor
   # Count these differences and add them to the table to be analysed further (may just be n's)
   
+  nodes_reduced <- data.frame(Nodes = (nodes_5$Node - (1+length(tree$tip.label))))
+  
   for (i in 1:length(nodes_5$Node)) {
-    cm <- clade.members(nodes_5[i,1], tree, include.nodes = F, tip.labels = T)
+    cm <- clade.members(nodes_5$Node[i], tree, include.nodes = F, tip.labels = T)
     seq_cm <- which(seq_data$ID %in% cm)
+    old <- which(row.names(ancestral_matrix) == paste("NODE_", (sprintf("%07d", nodes_reduced$Nodes[i])), sep=""))
     
-    old <- which(row.names(alignment_matrix) %in% (
-      seq_data$ID[seq_cm[which(seq_data$Year[seq_cm] == min(seq_data$Year[seq_cm]))]] # This row is still a little confusing!
-    ))
-    old <- old[1]
-    
-    tips <- which(row.names(alignment_matrix) %in% cm)
-    tips <- tips[-c(which(tips == old))]
-    x <- which(alignment_matrix[old,] != alignment_matrix[(tips[1]),])
+    tips <- which(row.names(ancestral_matrix) %in% cm)
+    x <- which(ancestral_matrix[old,] != ancestral_matrix[(tips[1]),])
     
     for (j in tips[-c(1)]) {
-      x <- x[which(x %in% (which(alignment_matrix[old,] != alignment_matrix[j,])))]
+      x <- x[which(x %in% (which(ancestral_matrix[old,] != ancestral_matrix[j,])))]
       print(x)
       nodes_5$diff[i] <- length(x)
     }

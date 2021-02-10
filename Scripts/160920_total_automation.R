@@ -75,7 +75,12 @@ alignment <- read.alignment("Sequences/220720_GLUE_CosmoSeqs_align.fasta", forma
 # #KB- can replace above 2 lines with this:
 alignment$nam <- gsub("\\..*", "", alignment$nam, perl = T)
 
-
+#'**TIMETREE**
+#'========================================================================================================
+#' 
+#'========================================================================================================
+ancestral <- read.alignment(file = "")
+ancestral$nam <- gsub("\\..*", "", ancestral$nam, perl = T)
 #############################################
 #           RUN THE ASSIGNMENT              #
 #############################################
@@ -108,8 +113,8 @@ alignment$nam <- gsub("\\..*", "", alignment$nam, perl = T)
 #' 
 #'=========================================================================================================
 
-sequence_data <- lineage_assignment(tree, min.support = 95, max.support = 100, alignment, metadata, sequences = 10)[[2]]
-node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, alignment, metadata, sequences = 10)[[1]]
+sequence_data <- lineage_assignment(tree, min.support = 95, max.support = 100, alignment, metadata, ancestral)[[2]]
+node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, alignment, metadata, ancestral)[[1]]
 
 #---------------------------------------------------------------------------------------
 #
