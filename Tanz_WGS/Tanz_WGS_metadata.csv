@@ -1,0 +1,206 @@
+﻿sequence.sequenceID,alignment.name,alignment.displayName,sequence.m49_country.id,sequence.m49_country.display_name,sequence.gb_place_sampled,sequence.collection_year,sequence.earliest_collection_year,sequence.latest_collection_year,sequence.gb_length,sequence.gb_create_date,sequence.gb_update_date,sequence.host,sequence.gb_pubmed_id,sequence.isolate
+KF155002,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2010,2010,2010,11923,14-Jul-13,14-Jul-13,Canis familiaris,23822119,RV2772
+KR534217,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2490
+KR534218,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2491
+KR534219,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2007,2007,2007,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2492
+KR534220,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2493
+KR534228,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11914,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2788
+KR534229,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11849,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2789
+KR534230,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11885,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2790
+KR534231,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11884,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2791
+KR534232,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,jackal,27774283,RV2792
+KR534233,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2794
+KR534234,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2795
+KR534235,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2796
+KR534236,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2797
+KR534237,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2798
+KR534238,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11867,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2800
+KR534244,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2889
+KR534245,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2890
+KR534246,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,civet,27774283,RV2891
+KR534247,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2892
+KR534248,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2893
+KR534249,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11917,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2895
+KR534250,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2897
+KR534251,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2898
+KR534252,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2899
+KR534253,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11922,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2903
+KR534254,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Felis catus,27774283,RV2906
+KR534256,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11921,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2909
+KR906734,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2495.1
+KR906735,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2008,2008,2008,11903,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2498.1
+KR906736,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2008,2008,2008,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2499.1
+KR906737,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2500.1
+KR906738,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2004,2004,2004,11923,17-Apr-16,17-Apr-16,Bos taurus,-,RV2501.1
+KR906739,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Arusha Region,2004,2004,2004,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2502.1
+KR906740,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2009,2009,2009,11914,17-Apr-16,17-Apr-16,Felis catus,-,RV2503.1
+KR906741,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Arusha Region,2003,2003,2003,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2504.1
+KR906742,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2009,2009,2009,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2767.1
+KR906743,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Dar es Salaam,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2770.1
+KR906744,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Iringa region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2771.1
+KR906745,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pwani region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2773.1
+KR906746,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Dar es Salaam,2010,2010,2010,11875,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2774.1
+KR906747,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Iringa region,2010,2010,2010,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2775.1
+KR906748,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Chake chake,2010,2010,2010,11923,17-Apr-16,06-Feb-18,Canis familiaris,-,RV2776.1
+KR906749,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pemba island,2010,2010,2010,11878,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2777.1
+KR906750,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pemba island,2010,2010,2010,11854,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2778.1
+KR906751,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Lindi region,2011,2011,2011,11915,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2780.1
+KR906752,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Kusini Unguja,2011,2011,2011,11923,17-Apr-16,06-Feb-18,Canis familiaris,-,RV2782.1
+KR906753,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Mtwara region,2011,2011,2011,11922,17-Apr-16,17-Apr-16,Bos taurus,-,RV2783.1
+KR906754,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Lindi region,2011,2011,2011,11865,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2784.1
+KR906755,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2793.1
+KR906756,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2799.1
+KR906757,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Lindi region,2010,2010,2010,11890,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2807.1
+KR906758,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11825,17-Apr-16,17-Apr-16,Ovis aries,-,RV2808.1
+KR906759,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11829,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2809.1
+KR906760,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2810.1
+KR906761,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11845,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2811.1
+KR906762,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2813.1
+KR906763,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2814.1
+KR906764,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Capra hircus,-,RV2815.1
+KR906765,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2816.1
+KR906766,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pemba island,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2817.1
+KR906767,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2861.1
+KR906768,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11878,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2862.1
+KR906769,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2871.1
+KR906770,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2875.1
+KR906771,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2894.1
+KR906772,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2896.1
+KR906773,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2900.1
+KR906774,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11921,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2901.1
+KR906775,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11854,17-Apr-16,17-Apr-16,unknown,-,RV2902.1
+KR906776,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2907.1
+KR906777,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,unknown,-,RV3091.1
+KR906778,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,17-Apr-16,17-Apr-16,unknown,-,RV3093.1
+KR906779,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,17-Apr-16,17-Apr-16,Bos taurus,-,RV3100.1
+KR906780,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3104.1
+KR906781,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,unknown,-,RV3107.1
+KR906782,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11919,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3111.1
+KR906783,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3117.1
+KR906784,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3125.1
+KR906785,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11922,17-Apr-16,17-Apr-16,unknown,-,RV3127.1
+KR906786,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Sus scrofa,-,RV3128.1
+KR906787,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Bos taurus,-,RV3131.1
+KR906788,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11919,17-Apr-16,17-Apr-16,Bos taurus,-,RV3132.1
+KR906789,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3133.1
+KR906790,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3140.1
+KR906791,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11874,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3149.1
+KR906792,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3123.1
+KX148206,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,96013TAN
+KY210220,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11914,03-Dec-17,03-Dec-17,Capra hircus,-,rv2483
+KY210221,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11912,03-Dec-17,03-Dec-17,Capra hircus,-,rv2485
+KY210222,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2009,2009,2009,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2489
+KY210223,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2007,2007,2007,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2497
+KY210224,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2786
+KY210225,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv2858
+KY210226,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2859
+KY210227,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2863
+KY210228,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11856,03-Dec-17,03-Dec-17,Capra hircus,-,rv2866
+KY210229,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2867
+KY210230,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv2868
+KY210231,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2870
+KY210232,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2873
+KY210233,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv2877
+KY210234,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2878
+KY210235,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2879
+KY210236,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Bos taurus,-,rv2880
+KY210237,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,03-Dec-17,03-Dec-17,Bos taurus,-,rv2881
+KY210238,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2882
+KY210239,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2883
+KY210240,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11884,03-Dec-17,03-Dec-17,Bos taurus,-,rv2884
+KY210241,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11905,03-Dec-17,03-Dec-17,Capra hircus,-,rv2885
+KY210242,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv2886
+KY210243,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2887
+KY210244,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11858,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2888
+KY210245,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3047
+KY210246,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Ovis aries,-,rv3048
+KY210247,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3049
+KY210248,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3050
+KY210249,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3051
+KY210250,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3052
+KY210251,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3053
+KY210252,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3057
+KY210253,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3058
+KY210254,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3059
+KY210255,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3060
+KY210256,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3061
+KY210257,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3063
+KY210258,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3064
+KY210259,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11920,03-Dec-17,03-Dec-17,Felis catus,-,rv3066
+KY210260,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11897,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3067
+KY210261,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv3068
+KY210262,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv3070
+KY210263,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3071
+KY210264,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3072
+KY210265,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3073
+KY210266,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3074
+KY210267,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3075
+KY210268,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3078
+KY210269,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3079
+KY210270,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3080
+KY210271,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3082
+KY210272,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3084
+KY210273,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3085
+KY210274,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3086
+KY210275,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11914,03-Dec-17,03-Dec-17,Bos taurus,-,rv3087
+KY210276,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3088
+KY210277,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3090
+KY210278,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3092
+KY210279,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11903,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3094
+KY210280,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3096
+KY210281,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3097
+KY210282,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11869,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3098
+KY210283,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3099
+KY210284,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11914,03-Dec-17,03-Dec-17,Jackal,-,rv3101
+KY210285,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv3102
+KY210286,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3103
+KY210287,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11873,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3105
+KY210288,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3109
+KY210289,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3110
+KY210290,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3113
+KY210291,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Jackal,-,rv3114
+KY210292,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3115
+KY210293,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11915,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3119
+KY210294,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3121
+KY210295,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3122
+KY210296,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3124
+KY210297,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Ovis aries,-,rv3129
+KY210298,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Capra hircus,-,rv3130
+KY210299,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3134
+KY210300,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3135
+KY210301,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3136
+KY210302,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Capra hircus,-,rv3137
+KY210303,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3138
+KY210304,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3139
+KY210305,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Hyena,-,rv3145
+KY210306,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Civet,-,rv3146
+KY210307,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3150
+KY210308,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11875,03-Dec-17,03-Dec-17,Bos taurus,-,rv3151
+KY210309,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11906,03-Dec-17,03-Dec-17,not available,-,rv3152
+KY210310,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11891,03-Dec-17,03-Dec-17,Capra hircus,-,rv3153
+KY210311,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11919,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3154
+MN726802,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11552,25-Dec-19,25-Dec-19,-,-,RAB16033
+MN726803,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2018,2018,2018,11274,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD713
+MN726804,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11923,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SUB7087
+MN726806,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,10847,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD648
+MN726807,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11462,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM024
+MN726808,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11806,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD622
+MN726809,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11545,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM015
+MN726811,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11341,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD711
+MN726813,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,10357,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM025
+MN726815,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11869,25-Dec-19,25-Dec-19,Canis mesomelas,-,SD577
+MN726817,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11633,25-Dec-19,25-Dec-19,Bos taurus,-,SD620
+MN726818,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11869,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD601
+MN726820,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11819,25-Dec-19,25-Dec-19,Felis catus,-,SD683
+MN726822,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2018,2018,2018,11341,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD714
+MN726823,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11341,25-Dec-19,25-Dec-19,-,-,SD706
+MN726824,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11632,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,RAB16031
+MN726825,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11732,25-Dec-19,25-Dec-19,Canis mesomelas,-,SD577SG
+MN726826,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11868,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,Rab16025
+MN726827,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11869,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM023
+MN726828,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11127,25-Dec-19,25-Dec-19,Capra hircus,-,PM019
+MN726829,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11517,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD693
+MN726832,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11341,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD709
+MN726833,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11821,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD641
+MN726834,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,10835,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD681
+MN726835,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11559,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM018
