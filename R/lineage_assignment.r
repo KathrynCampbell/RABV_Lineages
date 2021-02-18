@@ -12,7 +12,6 @@
 #'=====================
 
 lineage_assignment <- function(tree, min.support, max.support, alignment, metadata, ancestral) {
-  
   alignment_matrix <- as.matrix.alignment(alignment)
   ancestral_matrix <- as.matrix.alignment(ancestral)
   sequences <- 10
@@ -23,6 +22,7 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   #############################################
   # Identify nodes with a bootstrap of over 70 (why would the first ~570 nodes be NA?)
   nodes_70 <- which(tree$node.comment > min.support | tree$node.comment == max.support)
+  nodes_70 <- nodes_70 + length(tree$tip.label)
   
   node_data <- data.frame(Node = nodes_70, n_tips = NA)
   # Make a dataframe ready for values to be put in
