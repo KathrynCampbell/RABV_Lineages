@@ -5,7 +5,7 @@ rm(list=ls())
 args = "Cosmo_WGS"
 
 #'---------------------------------------------------------
-#'title: Cosmopolitan Lineage Assignment
+#'title: Cosmopolitan WGS Lineage Assignment
 #'author: Kathryn Campbell
 #'date: 16/09/2020
 #'---------------------------------------------------------
@@ -237,11 +237,11 @@ sequence_data$cluster <- as.factor(sequence_data$cluster)
 # Plot a nice figure to save
 plot_tree<-ggtree(tree) %<+% sequence_data +
   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
-  theme(legend.position = c(0.05, 0.83),
+  theme(legend.position = c(0.1, 0.83),
         legend.text = element_text(size = 8),
         legend.title = element_text(size = 8)) +
   guides(colour=guide_legend(override.aes=list(alpha=1, size=5))) +
-  ggtitle(paste(args, "Lineage Tree", sep = ""))
+  ggtitle(paste(args, "Lineage Tree", sep = " "))
 
 # Plot each clade bar
 # ---------------------------------------------------------------------------------------------
