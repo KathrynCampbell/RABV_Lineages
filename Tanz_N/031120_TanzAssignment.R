@@ -5,7 +5,7 @@ rm(list=ls())
 args = "Tanz_N"
 
 #'---------------------------------------------------------
-#'title: Cosmopolitan Lineage Assignment
+#'title: Tanzanian N Gene Lineage Assignment
 #'author: Kathryn Campbell
 #'date: 16/09/2020
 #'---------------------------------------------------------

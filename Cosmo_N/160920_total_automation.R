@@ -5,7 +5,7 @@ rm(list=ls())
 args = "Cosmo_N"
 
 #'---------------------------------------------------------
-#'title: Cosmopolitan Lineage Assignment
+#'title: Cosmopolitan N Lineage Assignment
 #'author: Kathryn Campbell
 #'date: 16/09/2020
 #'---------------------------------------------------------

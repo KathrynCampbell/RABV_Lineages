@@ -5,7 +5,7 @@ rm(list=ls())
 args = "Tanz_WGS"
 
 #'---------------------------------------------------------
-#'title: Cosmopolitan Lineage Assignment
+#'title: Tanzanian WGS Lineage Assignment
 #'author: Kathryn Campbell
 #'date: 16/09/2020
 #'---------------------------------------------------------
