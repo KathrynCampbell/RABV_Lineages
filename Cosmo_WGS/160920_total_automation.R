@@ -235,7 +235,7 @@ attach(tree)
 sequence_data$cluster <- as.factor(sequence_data$cluster)
 
 # Plot a nice figure to save
-plot_tree<-ggtree(tree) %<+% sequence_data +
+plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
   geom_tippoint(aes(color=cluster), size=3) + scale_color_manual(values=c("yellow","yellow2", "yellow3",
                                                                           "steelblue1", "steelblue3",
                                                                           "lawngreen", "green", "green2", "green3","green4",
