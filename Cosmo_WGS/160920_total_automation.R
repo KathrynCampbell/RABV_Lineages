@@ -23,12 +23,14 @@ library(ggrepel)
 library(phytools)
 library(treeio)
 library(ggtree)
+library(ips)
 
 #############################################
 #          SOURCE THE FUNCTION              #
 #############################################
 
 source("R/lineage_assignment.r")
+source("R/lineage_naming.R")
 
 
 #############################################
@@ -55,12 +57,6 @@ tree$node.comment<- gsub(".*=", "", tree$node.label, perl = T)
 #' These sequence ID's must match the sequence ID's in the tree and alignment
 #'=========================================================================================================
 metadata <- read.csv(file = paste(args, "/", args, "_metadata.csv", sep = ""))
-
-# Need to edit column names so they match what is required
-metadata<- metadata %>%
-  rename(ID = sequence.sequenceID,
-         year = sequence.latest_collection_year,
-         country = sequence.m49_country.display_name)
 
 #'**ALIGNMENT**
 #'========================================================================================================
@@ -129,96 +125,7 @@ node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, align
 #           RENAME THE LINEAGES               #
 # #############################################
 
-# Add a column of previous assignment to the table for comparison
-# sequence_data$previous <- NA
-# for (i in 1:length(sequence_data$ID)) {
-#   sequence_data$previous[i]<-
-#     metadata$alignment.displayName[which(metadata$ID == sequence_data$ID[i])]
-# }
-# 
-# # Plot a nice figure to save
-# plot_tree<-ggtree(tree) %<+% sequence_data +
-#   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
-#   ggtitle(paste(args, "Lineage Tree", sep = ""))
-# 
-# # Plot each clade bar
-# for (i in c(1:length(node_data$Node))) {
-#   plot_tree<-plot_tree +
-#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.5+0.15*i, offset.text = 0)
-# }
-# 
-# plot_tree
-# 
-# # Just doing this by eye currently, must be a better way
-# # ------------------------------
-node_data$cluster[1]<-"A1"
-node_data$cluster[2]<-"A1.1"
-node_data$cluster[3]<-"A1.1.1"
-node_data$cluster[4]<-"B1"
-node_data$cluster[5]<-"C1"
-node_data$cluster[6]<-"AF1b_A1"
-node_data$cluster[7]<-"AF1b_A1.1"
-node_data$cluster[8]<-"AF1b_A1.1.1"
-node_data$cluster[9]<-"B1.1"
-node_data$cluster[10]<-"B1.2"
-node_data$cluster[11]<-"ME1a_A1"
-node_data$cluster[12]<-"ME1a_A1.1"
-node_data$cluster[13]<-"AF1b_B1"
-node_data$cluster[14]<-"ME1a_A1.1.1"
-node_data$cluster[15]<-"ME1a_B1"
-node_data$cluster[16]<-"ME2_A1"
-node_data$cluster[17]<-"D1"
-node_data$cluster[18]<-"ME1a_B1.1"
-node_data$cluster[19]<-"ME2_A1.1"
-node_data$cluster[20]<-"D1.1"
-node_data$cluster[21]<-"B1.1.1"
-node_data$cluster[22]<-"ME1a_B1.1.1"
-node_data$cluster[23]<-"ME2_A1.1.1"
-node_data$cluster[24]<-"E1"
-node_data$cluster[25]<-"ME1a_C1"
-node_data$cluster[26]<-"ME2_B1"
-node_data$cluster[27]<-"AF1b_C1"
-node_data$cluster[28]<-"AF1b_B1.1"
-node_data$cluster[29]<-"NEE_A1"
-node_data$cluster[30]<-"CA1_A1"
-node_data$cluster[31]<-"ME1a_C1.1"
-node_data$cluster[32]<-"CA2_A1"
-node_data$cluster[33]<-"AF1b_B1.1.1"
-node_data$cluster[34]<-"NEE_A1.1"
-node_data$cluster[35]<-"CA1_A1.1"
-node_data$cluster[36]<-"CA2_A1.1"
-node_data$cluster[37]<-"AF1b_A1.2"
-node_data$cluster[38]<-"AF1b_D1"
-node_data$cluster[39]<-"AF1b_B1.2"
-node_data$cluster[40]<-"AF1a_A1"
-node_data$cluster[41]<-"D1.1.1"
-node_data$cluster[42]<-"CA1_A1.1.1"
-node_data$cluster[43]<-"ME1a_C1.1.1"
-node_data$cluster[44]<-"ME2_B1.1"
-node_data$cluster[45]<-"AF1b_D1.1"
-node_data$cluster[46]<-"AF1b_B1.2.1"
-node_data$cluster[47]<-"F1"
-node_data$cluster[48]<-"AM2a_A1"
-node_data$cluster[49]<-"D1.1.2"
-node_data$cluster[50]<-"WE_A1"
-node_data$cluster[51]<-"CE_A1"
-node_data$cluster[52]<-"EE_A1"
-node_data$cluster[53]<-"NEE_A1.1.1"
-node_data$cluster[54]<-"CA1_B1"
-node_data$cluster[55]<-"ME1a_A1.1.2"
-node_data$cluster[56]<-"ME1a_D1"
-node_data$cluster[57]<-"ME1a_C1.1.2"
-node_data$cluster[58]<-"ME1a_A1.1.3"
-node_data$cluster[59]<-"ME1a_A1.1.4"
-node_data$cluster[60]<-"ME2_B1.1.1"
-node_data$cluster[61]<-"CA2_A1.1.1"
-node_data$cluster[62]<-"AF1b_A1.2.1"
-node_data$cluster[63]<-"AF1b_C1.1"
-node_data$cluster[64]<-"AF1b_D1.1.1"
-node_data$cluster[65]<-"AF1b_B1.3"
-node_data$cluster[66]<-"AF1b_E1"
-node_data$cluster[67]<-"AF1b_A1.2"
-node_data$cluster[68]<-"AF1a_A1.1"
+node_data<-lineage_naming(sequence_data, metadata, node_data, tree)
 
 #-------------------------------------------------------------------------------
 # # Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
@@ -236,27 +143,7 @@ sequence_data$cluster <- as.factor(sequence_data$cluster)
 
 # Plot a nice figure to save
 plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
-  geom_tippoint(aes(color=cluster), size=3) + scale_color_manual(values=c("yellow","yellow2", "yellow3",
-                                                                          "steelblue1", "steelblue3",
-                                                                          "lawngreen", "green", "green2", "green3","green4",
-                                                                          "olivedrab1","olivedrab2","olivedrab3","olivedrab4","darkolivegreen","darkgreen",
-                                                                          "palegreen","palegreen3","chartreuse","chartreuse3","chartreuse4","springgreen",
-                                                                          "blue","blue2","blue3","blue4",
-                                                                          "lightcoral",
-                                                                          "purple","purple3","purple4","darkorchid","darkorchid1",
-                                                                          "gold","gold3","gold4",
-                                                                          "seagreen1",
-                                                                          "cyan","cyan3","cyan4","darkgreen",
-                                                                          "firebrick4",
-                                                                          "tan2",
-                                                                          "navy",
-                                                                          "violetred","violetred1","violetred2","violetred3","violetred4","deeppink4",
-                                                                          "hotpink","hotpink3","hotpink4",
-                                                                          "magenta","magenta2","magenta3","magenta4","deeppink",
-                                                                          "red","red3","red4","tomato","tomato3","tomato4",
-                                                                          "chocolate1","chocolate3","chocolate4",
-                                                                          "khaki3",
-                                                                          "grey68")) +
+  geom_tippoint(aes(color=cluster), size=3)  +
   theme(legend.position = c(0.9, 0.15),
         legend.text = element_text(size = 12),
         legend.title = element_text(size = 20)) +
@@ -264,116 +151,36 @@ plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
   ggtitle(paste(args, "Lineage Tree", sep = " "))+
   theme(plot.title = element_text(size = 40, face = "bold"))
 
+# + scale_color_manual(values=c("yellow","yellow2", "yellow3",
+#                               "steelblue1", "steelblue3",
+#                               "lawngreen", "green", "green2", "green3","green4",
+#                               "olivedrab1","olivedrab2","olivedrab3","olivedrab4","darkolivegreen","darkgreen",
+#                               "palegreen","palegreen3","chartreuse","chartreuse3","chartreuse4","springgreen",
+#                               "blue","blue2","blue3","blue4",
+#                               "lightcoral",
+#                               "purple","purple3","purple4","darkorchid","darkorchid1",
+#                               "gold","gold3","gold4",
+#                               "seagreen1",
+#                               "cyan","cyan3","cyan4","darkgreen",
+#                               "firebrick4",
+#                               "tan2",
+#                               "navy",
+#                               "violetred","violetred1","violetred2","violetred3","violetred4","deeppink4",
+#                               "hotpink","hotpink3","hotpink4",
+#                               "magenta","magenta2","magenta3","magenta4","deeppink",
+#                               "red","red3","red4","tomato","tomato3","tomato4",
+#                               "chocolate1","chocolate3","chocolate4",
+#                               "khaki3",
+#                               "grey68"))
+
 # Plot each clade bar
 # ---------------------------------------------------------------------------------------------
 # GROUP 1
-for (i in c(1)) {
+for (i in c(1:78)) {
   plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0, offset.text = 0, fontsize = 5)
-}
-# GROUP 2
-for (i in c(2)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.01*i, offset.text = 0,fontsize = 5)
-}
-# GROUP 3
-for (i in c(3)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.04, offset.text = 0,fontsize = 5)
-}
-# GROUP 4
-for (i in c(17)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.055, offset.text = 0,fontsize = 5)
-}
-for (i in c(4)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.12, offset.text = 0,fontsize = 5)
-}
-for (i in c(32,5)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.13, offset.text = 0,fontsize = 5)
-}
-for (i in c(40)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.14, offset.text = 0,fontsize = 5)
+    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.5*i, offset.text = 0, fontsize = 5)
 }
 
-# GROUP 5
-for (i in c(20)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.07, offset.text = 0,fontsize = 5)
-}
-for (i in c(10,9,16,6)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.14, offset.text = 0,fontsize = 5)
-}
-for (i in c(36,68)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.15, offset.text = 0,fontsize = 5)
-}
-# GROUP 6
-for (i in c(11,50,51,52,29,21,19,61)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.165, offset.text = 0,fontsize = 5)
-}
-for (i in c(41,48,49)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.12, offset.text = 0,fontsize = 5)
-}
-for (i in c(7,37,67)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.16, offset.text = 0,fontsize = 5)
-}
-# GROUP 7
-for (i in c(12,34,24,23,8,62)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.2, offset.text = 0,fontsize = 5)
-}
-for (i in c(47)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.16, offset.text = 0,fontsize = 5)
-}
-# GROUP 8
-for (i in c(55,58,59,14,53,30,26,13,27)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.22, offset.text = 0,fontsize = 5)
-}
-# GROUP 9
-for (i in c(15,35,44,28,39,63,65)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.25, offset.text = 0,fontsize = 5)
-}
-# GROUP 10
-for (i in c(18,42,60,33,46)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.27, offset.text = 0,fontsize = 5)
-}
-# GROUP 11
-for (i in c(22,54,38,66)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.29, offset.text = 0,fontsize = 5)
-}
-# GROUP 8
-for (i in c(25,45)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.31, offset.text = 0,fontsize = 5)
-}
-# GROUP 13
-for (i in c(31,64)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.33, offset.text = 0,fontsize = 5)
-}
-# GROUP 14
-for (i in c(57,43)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.35, offset.text = 0,fontsize = 5)
-}
-# GROUP 15
-for (i in c(56)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.37, offset.text = 0,fontsize = 5)
-}
 plot_tree
 # Plot with everything on it!
 
