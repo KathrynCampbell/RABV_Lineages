@@ -55,13 +55,13 @@ possible_names<-paste(possible_names, problem_names$letters, sep = "_")
 for (i in 1:length(node_data$Node)) {
   test<-which(node_data$Node %in% descendants(tree, node_data$Node[i], type = "all", ignore.tip = T))
   node_data$test[c(test)] <- paste(node_data$cluster[i], ".1", sep = "")
-  
-  node_data$test<-str_replace(node_data$test, "A1.1.1.1", "B1")
-  node_data$test<-str_replace(node_data$test, "B1.1.1.1", "C1")
-  node_data$test<-str_replace(node_data$test, "C1.1.1.1", "D1")
-  node_data$test<-str_replace(node_data$test, "D1.1.1.1", "E1")
-  node_data$test<-str_replace(node_data$test, "E1.1.1.1", "F1")
-  node_data$test<-str_replace(node_data$test, "F1.1.1.1", "G1")
+  node_data$test<-str_replace(node_data$test, "A1\\..\\..\\..", "B1")
+  node_data$test<-str_replace(node_data$test, "B1\\..\\..\\..", "C1")
+  node_data$test<-str_replace(node_data$test, "C1\\..\\..\\..", "D1")
+  node_data$test<-str_replace(node_data$test, "D1\\..\\..\\..", "E1")
+  node_data$test<-str_replace(node_data$test, "E1\\..\\..\\..", "F1")
+  node_data$test<-str_replace(node_data$test, "F1\\..\\..\\..", "G1")
+  node_data$test<-str_replace(node_data$test, "G1\\..\\..\\..", "H1")
   
   majors<-which(grepl("_", node_data$test))
   node_data$cluster[c(majors)] <- node_data$test[c(majors)]
@@ -100,12 +100,14 @@ unclassified<-unclassified[c(-1)]
 for (i in 1:length(node_data$Node)) {
   test<-which(node_data$Node %in% descendants(tree, node_data$Node[i], type = "all", ignore.tip = T))
   node_data$test[c(test)] <- paste(node_data$cluster[i], ".1", sep = "")
-  node_data$test<-str_replace(node_data$test, "A1.1.1.1", "B1")
-  node_data$test<-str_replace(node_data$test, "B1.1.1.1", "C1")
-  node_data$test<-str_replace(node_data$test, "C1.1.1.1", "D1")
-  node_data$test<-str_replace(node_data$test, "D1.1.1.1", "E1")
-  node_data$test<-str_replace(node_data$test, "E1.1.1.1", "F1")
-  node_data$test<-str_replace(node_data$test, "F1.1.1.1", "G1")
+  node_data$test<-str_replace(node_data$test, "A1\\..\\..\\..", "B1")
+  node_data$test<-str_replace(node_data$test, "B1\\..\\..\\..", "C1")
+  node_data$test<-str_replace(node_data$test, "C1\\..\\..\\..", "D1")
+  node_data$test<-str_replace(node_data$test, "D1\\..\\..\\..", "E1")
+  node_data$test<-str_replace(node_data$test, "E1\\..\\..\\..", "F1")
+  node_data$test<-str_replace(node_data$test, "F1\\..\\..\\..", "G1")
+  node_data$test<-str_replace(node_data$test, "G1\\..\\..\\..", "H1")
+  
   node_data$cluster[unclassified]<-node_data$test[unclassified]
   
   for (v in 1:length(problem_names$letters)) {
