@@ -185,9 +185,11 @@ node_data$group[1]<-1
 
 for (i in 1:50) {
   group<-which(node_data$group == i)
+  if (length(group != 0)) {
   for (j in 1:length(group)) {
     children<-which(node_data$Node %in% descendants(tree, (node_data$Node[group[j]]), type = "all", ignore.tip = T))
     node_data$group[children]<-i+1
+  }
   }
 }
 
