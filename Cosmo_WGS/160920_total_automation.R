@@ -175,10 +175,25 @@ plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
 
 # Plot each clade bar
 # ---------------------------------------------------------------------------------------------
-# GROUP 1
-for (i in c(1:78)) {
+node_data$group<-NA
+
+for (i in 1:length(node_data$Node)) {
+  node_data$temp[i]<-length(which(node_data$Node %in% (descendants(tree, node_data$Node[i], type = "all"))))
+}
+
+node_data$group[1]<-1
+
+for (i in 1:50) {
+  group<-which(node_data$group == i)
+  for (j in 1:length(group)) {
+    children<-which(node_data$Node %in% descendants(tree, (node_data$Node[group[j]]), type = "all", ignore.tip = T))
+    node_data$group[children]<-i+1
+  }
+}
+
+for (i in 1:length(node_data$Node)) {
   plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.5*i, offset.text = 0, fontsize = 5)
+    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.2*node_data$group[i], offset.text = 0, fontsize = 5)
 }
 
 plot_tree
@@ -187,7 +202,7 @@ plot_tree
 
 ggsave(paste(args, "/Figures/", args, "_lineage_tree.png", sep = ""), 
        plot = plot_tree,
-       height = 20, width = 30)
+       height = 20, width = 40)
 # Save it
 
 #KB added row.names=F to avoid a column of row numbers

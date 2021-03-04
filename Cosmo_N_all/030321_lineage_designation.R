@@ -175,21 +175,114 @@ plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
 
 # Plot each clade bar
 # ---------------------------------------------------------------------------------------------
-# GROUP 1
-for (i in c(1:187)) {
+node_data$group<-NA
+
+for (i in 1:length(node_data$Node)) {
+  node_data$temp[i]<-length(which(node_data$Node %in% (descendants(tree, node_data$Node[i], type = "all"))))
+}
+
+node_data$group[1]<-1
+
+for (i in 1:50) {
+  group<-which(node_data$group == i)
+  for (j in 1:length(group)) {
+    children<-which(node_data$Node %in% descendants(tree, (node_data$Node[group[j]]), type = "all", ignore.tip = T))
+    node_data$group[children]<-i+1
+  }
+}
+
+for (i in 1:length(node_data$Node)) {
   plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.5*i, offset.text = 0, fontsize = 5)
+    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.2*node_data$group[i], offset.text = 0, fontsize = 5)
 }
 
 plot_tree
 # Plot with everything on it!
 
+
 ggsave(paste(args, "/Figures/", args, "_lineage_tree.png", sep = ""), 
        plot = plot_tree,
-       height = 20, width = 30)
+       height = 20, width = 40)
 # Save it
 
 #KB added row.names=F to avoid a column of row numbers
 write.csv(sequence_data, file = (paste(args, "/Outputs/", args, "_sequence_data.csv", sep = "")), row.names=F)
 write.csv(node_data, file = (paste(args, "/Outputs/", args, "_node_data.csv", sep = "")), row.names=F)
+
+
+#############################################
+#                TIMESERIES                 #
+#############################################
+# Plot a timeseries of sequences per year split by cluster
+timeseries<- ggplot(sequence_data, aes(x=factor(Year), fill=cluster))+
+  geom_histogram(stat="count") +
+  ggtitle(paste(args, "Time Series", sep = " "));timeseries
+
+# Save it
+ggsave(paste(args, "/Figures/", args, "_timeseries.png", sep = ""),
+       plot = timeseries,
+       height = 20, width = 30)
+
+
+#############################################
+#         LINEAGE INFORMATION TABLE         #
+#############################################
+
+# Extract the place information from the metadata
+for (i in 1:length(sequence_data$ID)) {
+  sequence_data$Country[i] <- metadata$country[(which(metadata$ID == sequence_data$ID[i]))]
+}
+
+# Create a data frame ready to fill in information about each cluster
+clusters <- sequence_data %>%
+  group_by(cluster) %>%
+  summarise()
+clusters$country <- NA
+clusters$year_first <- NA
+clusters$year_last <- NA
+clusters$max_distance <- NA
+clusters$mean_distance <- NA
+
+# For each cluster, find and list the earliest collection year, the latest collection year and all the places
+# that cluster has been found
+for (i in 1:length(clusters$cluster)) {
+  clusters$year_first[i] <- sequence_data %>%
+    filter(cluster == clusters$cluster[i])%>%
+    group_by(Year)%>%
+    summarise()%>%
+    min()
+  clusters$year_last[i] <- sequence_data %>%
+    filter(cluster == clusters$cluster[i])%>%
+    group_by(Year)%>%
+    summarise()%>%
+    max()
+  clusters$country[i]<-paste((sequence_data %>%
+                                filter(cluster == clusters$cluster[i] & Country !="-") %>%
+                                group_by(Country) %>%
+                                summarise()))
+}
+
+# Add another column listing the number of sequences assigned to each cluster
+clusters$n_seqs<-(sequence_data %>%
+                    group_by(cluster)%>%
+                    summarise(n=n()))$n
+
+# For each lineage, calculate the pairwise distance for all the sequences allocated to each lineage
+# Extract the mean and max distance for each lineage
+for (i in 1:length(clusters$cluster)) {
+  numbers<-which(alignment$nam %in% (sequence_data$ID[which(sequence_data$cluster == clusters$cluster[i])]))
+  
+  test_align <- as.alignment(alignment$seq[c(numbers)])
+  test_align$nb <- length(numbers)
+  test_align$nam <- alignment$nam[c(numbers)]
+  test_align$seq <- alignment$seq[c(numbers)]
+  test_align$com <- "NA"
+  
+  test_align <- as.matrix(test_align)
+  distances <- as.matrix(dist.gene(test_align, method = "pairwise", pairwise.deletion = F, variance = F))
+  clusters$max_distance[i] <- max(distances)
+  clusters$mean_distance[i] <- mean(distances)
+}
+
+write.csv(clusters, file = (paste(args, "/Outputs/", args, "_lineage_info.csv", sep = "")), row.names=F)
 
