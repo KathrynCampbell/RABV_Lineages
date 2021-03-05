@@ -244,7 +244,12 @@ clusters$year_first <- NA
 clusters$year_last <- NA
 clusters$max_distance <- NA
 clusters$mean_distance <- NA
+# Add another column listing the number of sequences assigned to each cluster
+clusters$n_seqs<-(sequence_data %>%
+                    group_by(cluster)%>%
+                    summarise(n=n()))$n
 
+clusters<-clusters[-c(which(is.na(clusters$cluster))),]
 # For each cluster, find and list the earliest collection year, the latest collection year and all the places
 # that cluster has been found
 for (i in 1:length(clusters$cluster)) {
@@ -264,11 +269,6 @@ for (i in 1:length(clusters$cluster)) {
                                 summarise()))
 }
 
-# Add another column listing the number of sequences assigned to each cluster
-clusters$n_seqs<-(sequence_data %>%
-                    group_by(cluster)%>%
-                    summarise(n=n()))$n
-
 # For each lineage, calculate the pairwise distance for all the sequences allocated to each lineage
 # Extract the mean and max distance for each lineage
 for (i in 1:length(clusters$cluster)) {
@@ -287,4 +287,5 @@ for (i in 1:length(clusters$cluster)) {
 }
 
 write.csv(clusters, file = (paste(args, "/Outputs/", args, "_lineage_info.csv", sep = "")), row.names=F)
+
 
