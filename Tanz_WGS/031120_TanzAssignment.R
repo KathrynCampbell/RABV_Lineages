@@ -286,19 +286,14 @@ clusters$n_seqs<-(sequence_data %>%
 
 # For each lineage, calculate the pairwise distance for all the sequences allocated to each lineage
 # Extract the mean and max distance for each lineage
-for (i in 1:length(clusters$cluster)) {
-  numbers<-which(alignment$nam %in% (sequence_data$ID[which(sequence_data$cluster == clusters$cluster[i])]))
+distances<-as.matrix(distTips(tree, tips = "all", method = "patristic"))
+
+for (i in 1:length(node_data$Node)) {
+  numbers<-Descendants(tree, node_data$Node[i], type = "tips")
+  subset<-distances[,which(rownames(distances) %in% alignment$nam[numbers[[1]]])]
   
-  test_align <- as.alignment(alignment$seq[c(numbers)])
-  test_align$nb <- length(numbers)
-  test_align$nam <- alignment$nam[c(numbers)]
-  test_align$seq <- alignment$seq[c(numbers)]
-  test_align$com <- "NA"
-  
-  test_align <- as.matrix(test_align)
-  distances <- as.matrix(dist.gene(test_align, method = "pairwise", pairwise.deletion = F, variance = F))
-  clusters$max_distance[i] <- max(distances)
-  clusters$mean_distance[i] <- mean(distances)
+  clusters$max_distance[i] <- max(subset)
+  clusters$mean_distance[i] <- mean(subset)
 }
 
 write.csv(clusters, file = (paste(args, "/Outputs/", args, "_lineage_info.csv", sep = "")), row.names=F)

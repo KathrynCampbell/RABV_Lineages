@@ -1,6 +1,6 @@
 "cluster","country","year_first","year_last","max_distance","mean_distance","n_seqs"
-"A1","c(""Chake chake"", ""Dar es Salaam"", ""Iringa region"", ""Kusini Unguja"", ""Lindi region"", ""Morogoro region"", ""Pemba island"")",2008,2011,65,32.3333333333333,12
-"A1.1","c(""Arusha Region"", ""Dar es Salaam"", ""Iringa region"", ""Morogoro region"", ""Serengeti District"")",1996,2017,131,17.6778435239974,39
-"A1.1.1","Serengeti District",2011,2013,4,0.657844990548204,23
-"B1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,22,1.1156462585034,42
+"A1","c(""Chake chake"", ""Dar es Salaam"", ""Iringa region"", ""Kusini Unguja"", ""Lindi region"", ""Morogoro region"", ""Pemba island"")",2008,2011,0.0691012086,0.0168941034856691,12
+"A1.1","c(""Arusha Region"", ""Dar es Salaam"", ""Iringa region"", ""Morogoro region"", ""Serengeti District"")",1996,2017,0.0691012086,0.0169548034578285,39
+"A1.1.1","Serengeti District",2011,2013,0.0739537266,0.0212432728825474,23
+"B1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,0.0672474001,0.0176144669694804,42
 NA,NA,NA,NA,NA,NA,89
