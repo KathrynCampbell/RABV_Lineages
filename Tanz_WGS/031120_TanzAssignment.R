@@ -23,12 +23,15 @@ library(ggrepel)
 library(phytools)
 library(treeio)
 library(ggtree)
+library(ips)
+library(adephylo)
 
 #############################################
 #          SOURCE THE FUNCTION              #
 #############################################
 
 source("R/lineage_assignment.r")
+source("R/lineage_naming.R")
 
 
 #############################################
@@ -128,43 +131,7 @@ node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, align
 # #############################################
 #           RENAME THE LINEAGES               #
 # #############################################
-
-# Add a column of previous assignment to the table for comparison
-# sequence_data$previous <- NA
-# for (i in 1:length(sequence_data$ID)) {
-#   sequence_data$previous[i]<-
-#     metadata$alignment.displayName[which(metadata$ID == sequence_data$ID[i])]
-# }
-# 
-# # Plot a nice figure to save
-# plot_tree<-ggtree(tree) %<+% sequence_data +
-#   geom_tippoint(na.rm = T, aes(colour = (cluster))) +
-#   ggtitle(paste(args, "Lineage Tree", sep = ""))
-# 
-# # Plot each clade bar
-# for (i in c(1:length(node_data$Node))) {
-#   plot_tree<-plot_tree +
-#     geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.5+0.15*i, offset.text = 0)
-# }
-# 
-# plot_tree
-# 
-# # Just doing this by eye currently, must be a better way
-# # ------------------------------
-node_data$cluster[1]<-"A1"
-node_data$cluster[2]<-"A1.1"
-node_data$cluster[3]<-"A1.1.1"
-node_data$cluster[4]<-"B1"
-node_data$cluster[5]<-"B1.1"
-node_data$cluster[6]<-"B1.1.1"
-node_data$cluster[7]<-"C1"
-node_data$cluster[8]<-"A1.1.2"
-node_data$cluster[9]<-"C1.1"
-node_data$cluster[10]<-"C1.1.1"
-node_data$cluster[11]<-"B1.2"
-node_data$cluster[12]<-"B1.3"
-node_data$cluster[13]<-"D1"
-node_data$cluster[14]<-"E1"
+node_data<-lineage_naming(sequence_data, metadata, node_data, tree)
 
 #-------------------------------------------------------------------------------
 # # Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
@@ -181,37 +148,61 @@ attach(tree)
 sequence_data$cluster <- as.factor(sequence_data$cluster)
 
 # Plot a nice figure to save
-plot_tree<-ggtree(tree) %<+% sequence_data +
-  geom_tippoint(na.rm = T, aes(colour = (cluster))) +
-  theme(legend.position = c(0.03, 0.9),
-        legend.text = element_text(size = 8),
-        legend.title = element_text(size = 8)) +
-  guides(colour=guide_legend(override.aes=list(alpha=1, size=5))) +
-  ggtitle(paste(args, "Lineage Tree", sep = " "))
+plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
+  geom_tippoint(aes(color=cluster), size=3)  +
+  theme(legend.position = c(0.9, 0.15),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 20)) +
+  guides(colour=guide_legend(override.aes=list(alpha=1, size=7))) +
+  ggtitle(paste(args, "Lineage Tree", sep = " "))+
+  theme(plot.title = element_text(size = 40, face = "bold"))
+
+# + scale_color_manual(values=c("yellow","yellow2", "yellow3",
+#                               "steelblue1", "steelblue3",
+#                               "lawngreen", "green", "green2", "green3","green4",
+#                               "olivedrab1","olivedrab2","olivedrab3","olivedrab4","darkolivegreen","darkgreen",
+#                               "palegreen","palegreen3","chartreuse","chartreuse3","chartreuse4","springgreen",
+#                               "blue","blue2","blue3","blue4",
+#                               "lightcoral",
+#                               "purple","purple3","purple4","darkorchid","darkorchid1",
+#                               "gold","gold3","gold4",
+#                               "seagreen1",
+#                               "cyan","cyan3","cyan4","darkgreen",
+#                               "firebrick4",
+#                               "tan2",
+#                               "navy",
+#                               "violetred","violetred1","violetred2","violetred3","violetred4","deeppink4",
+#                               "hotpink","hotpink3","hotpink4",
+#                               "magenta","magenta2","magenta3","magenta4","deeppink",
+#                               "red","red3","red4","tomato","tomato3","tomato4",
+#                               "chocolate1","chocolate3","chocolate4",
+#                               "khaki3",
+#                               "grey68"))
 
 # Plot each clade bar
 # ---------------------------------------------------------------------------------------------
-for (i in c(1:7)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.1*i, offset.text = 0)
-}
-for (i in c(9,10)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = -0.15+0.1*i, offset.text = 0)
-}
-for (i in c(8)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.251, offset.text = 0)
-}
-for (i in c(11, 12)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.5, offset.text = 0)
-}
-for (i in c(13, 14)) {
-  plot_tree <-plot_tree +
-    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.4, offset.text = 0)
+node_data$group<-NA
+
+for (i in 1:length(node_data$Node)) {
+  node_data$temp[i]<-length(which(node_data$Node %in% (descendants(tree, node_data$Node[i], type = "all"))))
 }
 
+node_data$group[1]<-1
+
+for (i in 1:50) {
+  group<-which(node_data$group == i)
+  if (length(group != 0)) {
+    for (j in 1:length(group)) {
+      children<-which(node_data$Node %in% descendants(tree, (node_data$Node[group[j]]), type = "all", ignore.tip = T))
+      node_data$group[children]<-i+1
+    }
+  }
+}
+
+for (i in 1:length(node_data$Node)) {
+  plot_tree <-plot_tree +
+    geom_cladelabel(node_data$Node[i], node_data$cluster[i], offset = 0.1*node_data$group[i], offset.text = 0, fontsize = 5)
+}
 
 plot_tree
 # Plot with everything on it!
@@ -219,7 +210,7 @@ plot_tree
 
 ggsave(paste(args, "/Figures/", args, "_lineage_tree.png", sep = ""), 
        plot = plot_tree,
-       height = 20, width = 30)
+       height = 15, width = 49)
 # Save it
 
 #KB added row.names=F to avoid a column of row numbers
@@ -297,3 +288,4 @@ for (i in 1:length(node_data$Node)) {
 }
 
 write.csv(clusters, file = (paste(args, "/Outputs/", args, "_lineage_info.csv", sep = "")), row.names=F)
+

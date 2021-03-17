@@ -16,7 +16,7 @@ lineage_naming <- function(sequence_data, metadata, node_data, tree) {
 sequence_data$previous <- NA
 for (i in 1:length(sequence_data$ID)) {
   sequence_data$previous[i]<-
-    metadata$alignment.displayName[which(metadata$ID == sequence_data$ID[i])]
+    metadata$assignment[which(metadata$ID == sequence_data$ID[i])]
 }
 
 previous_assignments<-data.frame(assignment = unique(sequence_data$previous), node = NA)
@@ -35,10 +35,9 @@ for (i in 1:length(node_data$Node)) {
 
 for (i in 1:length(previous_assignments$assignment)) {
   previous_assignments$node[i]<-which(node_data$previous == previous_assignments$assignment[i])[1]
-  previous_assignments$assignment[i]<-str_split(previous_assignments$assignment, " ")[[i]][2]
+  previous_assignments$assignment[i]<-previous_assignments$assignment[i]
 }
 
-previous_assignments<-previous_assignments[-c(which((is.na(previous_assignments$node) | is.na(previous_assignments$assignment)))),]
 possible_names<-data.frame(names = rep(previous_assignments$assignment, 9))
 previous_assignments$assignment<-paste(previous_assignments$assignment, "_A1", sep = "")
 
@@ -46,7 +45,9 @@ for (i in 1:length(previous_assignments$assignment)) {
   node_data$cluster[previous_assignments$node[i]]<-previous_assignments$assignment[i]
 }
 
-node_data$cluster[1]<-"A1"
+if ((length(which(previous_assignments$node == 1))) == 0) {
+  node_data$cluster[1]<-"A1"
+}
 node_data$test <- NA
 problem_names<-data.frame(letters = c("A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1"))
 possible_names<-possible_names[order(possible_names$names),]
