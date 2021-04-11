@@ -1,4 +1,4 @@
-﻿ID,alignment.name,alignment.displayName,sequence.m49_country.id,country,sequence.gb_place_sampled,sequence.collection_year,sequence.earliest_collection_year,year,sequence.gb_length,sequence.gb_create_date,sequence.gb_update_date,sequence.host,sequence.gb_pubmed_id,sequence.isolate
+﻿ID,alignment.name,assignment,sequence.m49_country.id,country,sequence.gb_place_sampled,sequence.collection_year,sequence.earliest_collection_year,year,sequence.gb_length,sequence.gb_create_date,sequence.gb_update_date,sequence.host,sequence.gb_pubmed_id,sequence.isolate
 AB009601,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,1997,6545,25-Dec-97,28-May-13,-,-,RC-HL
 AB009663,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,1997,11926,25-Dec-97,28-May-13,-,11270607,RC-HL
 AB010494,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,1998,1424,05-Feb-98,28-May-13,-,-,Nishigahara

@@ -24,6 +24,7 @@ library(phytools)
 library(treeio)
 library(ggtree)
 library(ips)
+library(adephylo)
 
 #############################################
 #          SOURCE THE FUNCTION              #
@@ -57,6 +58,7 @@ tree$node.comment<- gsub(".*=", "", tree$node.label, perl = T)
 #' These sequence ID's must match the sequence ID's in the tree and alignment
 #'=========================================================================================================
 metadata <- read.csv(file = paste(args, "/", args, "_metadata.csv", sep = ""))
+metadata_new<-read.csv(file = paste(args, "/updated_metadata.csv", sep = ""))
 
 #'**ALIGNMENT**
 #'========================================================================================================
@@ -124,14 +126,146 @@ node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, align
 # #############################################
 #           RENAME THE LINEAGES               #
 # #############################################
+node_data$number<-c(1:length(node_data$Node))
+
+sequence_data$previous <- NA
+for (i in 1:length(sequence_data$ID)) {
+  sequence_data$previous[i]<-
+    metadata_new$assignment[which(metadata_new$ID == sequence_data$ID[i])]
+}
+
+unique<-unique(sequence_data$previous)
+
+m<-matrix(nrow = length(unique), ncol = 2)
+extras<-as.data.frame(m)
+
+for (i in 1:length(unique)) {
+  extras$assignment[i]<-str_split(unique[i], "_")[[1]][1]
+}
+
+unique<- c(unique, unique(extras$assignment))
+unique<- unique(unique)
+
+unique<-unique[grep("_", unique)]
+
+previous_assignments<-data.frame(assignment = unique, node = NA)
+
+node_data$previous<-NA
+
+for (i in 1:length(node_data$Node)) {
+  clades<-unique(sequence_data$previous[
+    which(sequence_data$ID %in% tree$tip.label[c(unlist(
+      Descendants(tree, node_data$Node[i], type = "tips")))])])
+  
+  node_data$previous[i]<-
+    paste(c(clades), collapse = ", ")
+  
+}
+
+for (i in 1:length(previous_assignments$assignment)) {
+  previous_assignments$node[i]<-which(node_data$previous == previous_assignments$assignment[i])[1]
+  previous_assignments$assignment[i]<-previous_assignments$assignment[i]
+}
+
+for (i in 1:length(previous_assignments$assignment)) {
+  node_data$cluster[previous_assignments$node[i]]<-previous_assignments$assignment[i]
+}
+
+possible_names<-data.frame(names = previous_assignments$assignment)
+
+for (i in 1:length(possible_names$names)) {
+  possible_names$names[i]<-str_split(possible_names$names, "_")[[i]][1]
+}
+
+possible_names<-data.frame(names = rep(unique(possible_names$names), 26))
+problem_names<-data.frame(letters = c("A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1", "J1", "K1", "L1", "M1", "N1",
+                                      "O1", "P1", "Q1", "R1", "S1", "T1", "U1", "V1", "W1", "X1", "Y1", "Z1"))
+possible_names<-possible_names[order(possible_names$names),]
+possible_names<-paste(possible_names, problem_names$letters, sep = "_")
+
+for (i in 1:length(node_data$Node)) {
+  test<-which(node_data$Node %in% descendants(tree, node_data$Node[i], type = "all", ignore.tip = T))
+  node_data$test[c(test)] <- paste(node_data$cluster[i], ".1", sep = "")
+  node_data$test<-str_replace(node_data$test, "A1\\..\\..\\..", "B1")
+  node_data$test<-str_replace(node_data$test, "B1\\..\\..\\..", "C1")
+  node_data$test<-str_replace(node_data$test, "C1\\..\\..\\..", "D1")
+  node_data$test<-str_replace(node_data$test, "D1\\..\\..\\..", "E1")
+  node_data$test<-str_replace(node_data$test, "E1\\..\\..\\..", "F1")
+  node_data$test<-str_replace(node_data$test, "F1\\..\\..\\..", "G1")
+  node_data$test<-str_replace(node_data$test, "G1\\..\\..\\..", "H1")
+  
+  majors<-which(grepl("_", node_data$test))
+  node_data$cluster[c(majors)] <- node_data$test[c(majors)]
+  
+  for (k in 1:length(possible_names)) {
+    if (length(which(node_data$cluster == possible_names[k]))>1) {
+      problems<-which(node_data$cluster == possible_names[k])
+      problems<-problems[-c(1)]
+      y=1
+      for (a in 1:length(problems)) {
+        letter<-which(problem_names$letters == (str_split(node_data$cluster[problems[a]], "_")[[1]][2]))
+        node_data$cluster[problems[a]]<-paste((str_split(node_data$cluster[problems[a]], "_")[[1]][1]), problem_names$letters[(letter+y)], sep = "_")
+        y = y+1
+      }
+    }
+  }
+  duplicates<-unique(node_data$cluster[duplicated(node_data$cluster)])
+  problems<-duplicates[which(str_count(duplicates, pattern = "\\.") == 0)]
+  duplicates<-duplicates[which(str_count(duplicates, pattern = "\\.") != 0)]
+  
+  for (i in 1:length(duplicates)) {
+    test<-which(node_data$cluster == duplicates[i])
+    test<-test[-c(1)]
+    x<-1
+    for (j in 1:length(test)) {
+      name<-unlist(str_split(node_data$cluster[test[j]], "\\."))
+      name[length(name)]<-x+as.integer(name[length(name)])
+      x<-(x+1)
+      node_data$cluster[test[j]]<-paste(c(name), collapse='.' )
+    }
+  }
+}
+
+node_data<-node_data[,-c(7,8)]
+
+changes<-grep("_", node_data$cluster)
+
+descendents<-changes
+
+for (i in 1:length(changes)) {
+  descendents<-c(descendents, which(node_data$Node %in% getDescendants(tree, node_data$Node[changes[i]])))
+  descendents<-unique(descendents)
+}
+
+node_data_descended<-node_data[descendents,]
+
+node_data<-node_data[-c(descendents),]
 
 node_data<-lineage_naming(sequence_data, metadata, node_data, tree)
+
+node_data$cluster[which(node_data$cluster %in% node_data_descended$cluster)]
+
+node_data$cluster<-gsub("Cosmopolitan AF1a_A1.1", "Cosmopolitan AF1a_A1.2", node_data$cluster)
+node_data$cluster<-gsub("Cosmopolitan AF1b_C1.1", "Cosmopolitan AF1b_C1.2", node_data$cluster)
+node_data$cluster<-gsub("Cosmopolitan AM2a_A1.1", "Cosmopolitan AM2a_A1.3", node_data$cluster)
+node_data$cluster<-gsub("Cosmopolitan AM2a_A1.2", "Cosmopolitan AM2a_A1.4", node_data$cluster)
+node_data$cluster<-gsub("Cosmopolitan AF1a_A1", "Cosmopolitan AF1a_A2", node_data$cluster)
+node_data$cluster<-gsub("Cosmopolitan AM2a_A1", "Cosmopolitan AM2a_A2", node_data$cluster)
+node_data$cluster<-gsub("Cosmopolitan ME1a_B1", "Cosmopolitan ME1a_B2", node_data$cluster)
+node_data$cluster<-gsub("Cosmopolitan CA1_A1", "Cosmopolitan CA1_A1_old", node_data$cluster)
+
+node_data<-rbind(node_data, node_data_descended)
+
+unique(metadata_new$assignment[grep("_", metadata_new$assignment)])
+
+#CA1, NEE, ME1a
+
 
 #-------------------------------------------------------------------------------
 # # Renamed according to Rambaut et al (2020) with A1.1.1.1 becoming a new letter (e.g. C1)
 # 
 for (i in 1:length(node_data$cluster)) {
-  sequence_data$cluster[which(sequence_data$cluster == i)] <- node_data$cluster[i]
+  sequence_data$cluster[which(sequence_data$cluster == i)] <- node_data$cluster[which(node_data$number == i)]
 }
 # Rename the lineages in the sequence assignment table
 
@@ -144,9 +278,9 @@ sequence_data$cluster <- as.factor(sequence_data$cluster)
 # Plot a nice figure to save
 plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
   geom_tippoint(aes(color=cluster), size=3)  +
-  theme(legend.position = c(0.9, 0.15),
-        legend.text = element_text(size = 12),
-        legend.title = element_text(size = 20)) +
+  #theme(legend.position = c(0.8, 0.15),
+        #legend.text = element_text(size = 12),
+        #legend.title = element_text(size = 20)) +
   guides(colour=guide_legend(override.aes=list(alpha=1, size=7))) +
   ggtitle(paste(args, "Lineage Tree", sep = " "))+
   theme(plot.title = element_text(size = 40, face = "bold"))
@@ -204,12 +338,13 @@ plot_tree
 
 ggsave(paste(args, "/Figures/", args, "_lineage_tree.png", sep = ""), 
        plot = plot_tree,
-       height = 20, width = 40)
+       height = 30, width = 49)
 # Save it
 
 #KB added row.names=F to avoid a column of row numbers
 write.csv(sequence_data, file = (paste(args, "/Outputs/", args, "_sequence_data.csv", sep = "")), row.names=F)
 write.csv(node_data, file = (paste(args, "/Outputs/", args, "_node_data.csv", sep = "")), row.names=F)
+
 
 
 #############################################
@@ -282,4 +417,12 @@ for (i in 1:length(node_data$Node)) {
 }
 
 write.csv(clusters, file = (paste(args, "/Outputs/", args, "_lineage_info.csv", sep = "")), row.names=F)
+
+WGS<-read.csv("Cosmo_WGS/Outputs/Cosmo_WGS_sequence_data.csv")
+
+sequence_data$cluster<-as.character(sequence_data$cluster)
+
+for (i in 1:length(WGS$ID)) {
+  WGS$N_lineage[i]<-sequence_data$cluster[which(sequence_data$ID == WGS$ID[i])]
+}
 

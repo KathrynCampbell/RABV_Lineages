@@ -38,7 +38,7 @@ for (i in 1:length(previous_assignments$assignment)) {
   previous_assignments$assignment[i]<-previous_assignments$assignment[i]
 }
 
-possible_names<-data.frame(names = rep(previous_assignments$assignment, 9))
+possible_names<-data.frame(names = rep(previous_assignments$assignment, 26))
 previous_assignments$assignment<-paste(previous_assignments$assignment, "_A1", sep = "")
 
 for (i in 1:length(previous_assignments$assignment)) {
@@ -49,7 +49,8 @@ if ((length(which(previous_assignments$node == 1))) == 0) {
   node_data$cluster[1]<-"A1"
 }
 node_data$test <- NA
-problem_names<-data.frame(letters = c("A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1"))
+problem_names<-data.frame(letters = c("A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1", "J1", "K1", "L1", "M1", "N1",
+                                      "O1", "P1", "Q1", "R1", "S1", "T1", "U1", "V1", "W1", "X1", "Y1", "Z1"))
 possible_names<-possible_names[order(possible_names$names),]
 possible_names<-paste(possible_names, problem_names$letters, sep = "_")
 
@@ -140,6 +141,6 @@ for (i in 1:length(node_data$Node)) {
   }
 }
 
-node_data<-node_data[,-c(6,7)]
+node_data<-node_data[, -c((grep("test", names(node_data))), grep("previous", names(node_data)))]
 return(node_data)
 }
