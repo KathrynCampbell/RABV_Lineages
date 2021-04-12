@@ -112,8 +112,8 @@ ancestral$nam <- gsub("\\..*", "", ancestral$nam, perl = T)
 #' 
 #'=========================================================================================================
 
-sequence_data <- lineage_assignment(tree, min.support = 95, max.support = 100, alignment, metadata, ancestral)[[2]]
-node_data <- lineage_assignment(tree, min.support = 95, max.support = 100, alignment, metadata, ancestral)[[1]]
+sequence_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata, ancestral)[[2]]
+node_data <- lineage_assignment(tree, min.support = 70, max.support = 100, alignment, metadata, ancestral)[[1]]
 
 #---------------------------------------------------------------------------------------
 #
