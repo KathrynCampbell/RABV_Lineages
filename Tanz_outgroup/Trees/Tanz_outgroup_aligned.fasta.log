@@ -1,0 +1,414 @@
+IQ-TREE multicore version 2.0.3 for Mac OS X 64-bit built Dec 19 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Kathryns-MBP (AVX512, FMA3, 32 GB RAM)
+Command: iqtree -s Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta -B 1000
+Seed:    342101 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Tue May 11 13:34:58 2021
+Kernel:  AVX+FMA - 1 threads (8 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 8 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 215 sequences with 11924 columns, 3076 distinct patterns
+2706 parsimony-informative, 416 singleton sites, 8802 constant sites
+          Gap/Ambiguity  Composition  p-value
+   1  KF155002    0.02%    passed     99.87%
+   2  KR534217    0.02%    passed     99.30%
+   3  KR534218    0.02%    passed     99.22%
+   4  KR534219    0.02%    passed     99.30%
+   5  KR534220    0.02%    passed     99.22%
+   6  KR534228    0.09%    passed     99.48%
+   7  KR534229    0.63%    passed     99.09%
+   8  KR534230    0.34%    passed     97.89%
+   9  KR534231    0.34%    passed     98.37%
+  10  KR534232    0.03%    passed    100.00%
+  11  KR534233    0.02%    passed     99.98%
+  12  KR534234    0.02%    passed     98.89%
+  13  KR534235    0.02%    passed     99.08%
+  14  KR534236    0.02%    passed     99.22%
+  15  KR534237    0.02%    passed     99.22%
+  16  KR534238    0.49%    passed     97.70%
+  17  KR534244    0.09%    passed     99.88%
+  18  KR534245    0.02%    passed     99.86%
+  19  KR534246    0.02%    passed     99.86%
+  20  KR534247    0.02%    passed     99.96%
+  21  KR534248    0.02%    passed     99.91%
+  22  KR534249    0.06%    passed     99.93%
+  23  KR534250    0.02%    passed     99.22%
+  24  KR534251    0.02%    passed     99.13%
+  25  KR534252    0.02%    passed     99.30%
+  26  KR534253    0.03%    passed     99.52%
+  27  KR534254    0.02%    passed     99.98%
+  28  KR534256    0.03%    passed     99.32%
+  29  KR906734    0.02%    passed     99.50%
+  30  KR906735    0.18%    passed     97.92%
+  31  KR906736    0.02%    passed     97.36%
+  32  KR906737    0.06%    passed     99.32%
+  33  KR906738    0.02%    passed     99.77%
+  34  KR906739    0.02%    passed     99.72%
+  35  KR906740    0.14%    passed     99.99%
+  36  KR906741    0.02%    passed     99.67%
+  37  KR906742    0.02%    passed     99.97%
+  38  KR906743    0.11%    passed     98.67%
+  39  KR906744    0.09%    passed     99.75%
+  40  KR906745    0.10%    passed     99.37%
+  41  KR906746    0.42%    passed     99.37%
+  42  KR906747    0.02%    passed     98.87%
+  43  KR906748    0.02%    passed     99.25%
+  44  KR906749    0.39%    passed     99.31%
+  45  KR906750    0.59%    passed     98.64%
+  46  KR906751    0.09%    passed     98.55%
+  47  KR906752    0.02%    passed     99.25%
+  48  KR906753    0.03%    passed     99.29%
+  49  KR906754    0.49%    passed     99.09%
+  50  KR906755    0.02%    passed     99.86%
+  51  KR906756    0.03%    passed    100.00%
+  52  KR906757    0.38%    passed     99.78%
+  53  KR906758    0.95%    passed     99.57%
+  54  KR906759    1.75%    passed     97.12%
+  55  KR906760    0.04%    passed     99.97%
+  56  KR906761    2.28%    passed     99.70%
+  57  KR906762    0.09%    passed     99.96%
+  58  KR906763    0.04%    passed     92.53%
+  59  KR906764    0.08%    passed     94.75%
+  60  KR906765    0.02%    passed     94.44%
+  61  KR906766    0.10%    passed     96.34%
+  62  KR906767    0.09%    passed     99.79%
+  63  KR906768    0.39%    passed     98.66%
+  64  KR906769    0.09%    passed     97.66%
+  65  KR906770    0.11%    passed     98.90%
+  66  KR906771    0.02%    passed     99.79%
+  67  KR906772    0.03%    passed     99.97%
+  68  KR906773    0.02%    passed     99.47%
+  69  KR906774    0.03%    passed     99.27%
+  70  KR906775    1.64%    passed     99.17%
+  71  KR906776    0.02%    passed     98.74%
+  72  KR906777    0.02%    passed     98.64%
+  73  KR906778    0.09%    passed     98.83%
+  74  KR906779    0.05%    passed     99.10%
+  75  KR906780    0.04%    passed     99.67%
+  76  KR906781    0.02%    passed     99.70%
+  77  KR906782    0.05%    passed     99.99%
+  78  KR906783    0.20%    passed     99.82%
+  79  KR906784    0.02%    passed     99.01%
+  80  KR906785    0.03%    passed     99.49%
+  81  KR906786    0.13%    passed     99.71%
+  82  KR906787    0.02%    passed     99.83%
+  83  KR906788    0.06%    passed     99.15%
+  84  KR906789    0.02%    passed     99.11%
+  85  KR906790    0.02%    passed     99.91%
+  86  KR906791    7.38%    passed     99.65%
+  87  KR906792    0.03%    passed     98.91%
+  88  KX148206    1.03%    passed     99.83%
+  89  KY210220    0.09%    passed     98.87%
+  90  KY210221    1.37%    passed     99.43%
+  91  KY210222    0.02%    passed     99.30%
+  92  KY210223    0.09%    passed     98.95%
+  93  KY210224    0.02%    passed     99.08%
+  94  KY210225    0.02%    passed     99.94%
+  95  KY210226    0.07%    passed     98.91%
+  96  KY210227    0.09%    passed     99.27%
+  97  KY210228    2.28%    passed     99.23%
+  98  KY210229    0.02%    passed     99.97%
+  99  KY210230    0.02%    passed     99.08%
+ 100  KY210231    0.02%    passed     99.94%
+ 101  KY210232    0.02%    passed     99.91%
+ 102  KY210233    0.02%    passed     98.98%
+ 103  KY210234    0.16%    passed     99.78%
+ 104  KY210235    0.02%    passed     99.91%
+ 105  KY210236    0.09%    passed     99.00%
+ 106  KY210237    0.03%    passed     99.18%
+ 107  KY210238    0.02%    passed     99.96%
+ 108  KY210239    0.02%    passed     99.89%
+ 109  KY210240    0.34%    passed     96.93%
+ 110  KY210241    0.16%    passed     99.92%
+ 111  KY210242    0.06%    passed     98.10%
+ 112  KY210243    0.09%    passed     99.88%
+ 113  KY210244    0.57%    passed     98.20%
+ 114  KY210245    0.02%    passed     99.95%
+ 115  KY210246    0.02%    passed     99.99%
+ 116  KY210247    0.02%    passed     99.92%
+ 117  KY210248    0.02%    passed     99.54%
+ 118  KY210249    0.03%    passed     99.82%
+ 119  KY210250    0.04%    passed     99.88%
+ 120  KY210251    0.02%    passed     99.89%
+ 121  KY210252    0.02%    passed     99.96%
+ 122  KY210253    0.02%    passed     99.84%
+ 123  KY210254    0.03%    passed     99.85%
+ 124  KY210255    0.02%    passed     99.84%
+ 125  KY210256    0.02%    passed     99.84%
+ 126  KY210257    0.03%    passed     99.43%
+ 127  KY210258    0.03%    passed     99.87%
+ 128  KY210259    0.04%    passed     99.99%
+ 129  KY210260    0.29%    passed     99.98%
+ 130  KY210261    0.02%    passed     98.98%
+ 131  KY210262    0.02%    passed     99.53%
+ 132  KY210263    0.03%    passed     99.73%
+ 133  KY210264    0.02%    passed     98.45%
+ 134  KY210265    0.02%    passed     99.33%
+ 135  KY210266    0.02%    passed     99.77%
+ 136  KY210267    0.02%    passed     99.99%
+ 137  KY210268    0.02%    passed     98.91%
+ 138  KY210269    0.02%    passed     99.22%
+ 139  KY210270    0.03%    passed     99.38%
+ 140  KY210271    0.02%    passed     99.78%
+ 141  KY210272    0.02%    passed     99.96%
+ 142  KY210273    0.02%    passed     99.22%
+ 143  KY210274    0.02%    passed     99.30%
+ 144  KY210275    1.67%    passed     99.69%
+ 145  KY210276    0.03%    passed     99.15%
+ 146  KY210277    0.02%    passed     98.98%
+ 147  KY210278    0.04%    passed     99.15%
+ 148  KY210279    0.59%    passed     98.13%
+ 149  KY210280    0.08%    passed     99.01%
+ 150  KY210281    0.02%    passed     99.13%
+ 151  KY210282    0.46%    passed     96.58%
+ 152  KY210283    0.02%    passed     99.02%
+ 153  KY210284    0.23%    passed     99.47%
+ 154  KY210285    0.02%    passed     99.29%
+ 155  KY210286    0.03%    passed     99.66%
+ 156  KY210287    0.53%    passed     99.80%
+ 157  KY210288    0.03%    passed     99.65%
+ 158  KY210289    0.04%    passed     99.93%
+ 159  KY210290    0.04%    passed     99.95%
+ 160  KY210291    0.02%    passed     99.97%
+ 161  KY210292    0.02%    passed     99.94%
+ 162  KY210293    0.08%    passed     99.88%
+ 163  KY210294    0.04%    passed     98.70%
+ 164  KY210295    0.02%    passed     99.62%
+ 165  KY210296    0.02%    passed     99.62%
+ 166  KY210297    0.02%    passed     98.74%
+ 167  KY210298    0.04%    passed     98.65%
+ 168  KY210299    0.10%    passed     99.82%
+ 169  KY210300    0.02%    passed     99.83%
+ 170  KY210301    0.02%    passed     99.94%
+ 171  KY210302    0.04%    passed     99.95%
+ 172  KY210303    0.02%    passed     99.30%
+ 173  KY210304    0.03%    passed     98.66%
+ 174  KY210305    0.02%    passed     98.73%
+ 175  KY210306    0.03%    passed     99.27%
+ 176  KY210307    0.02%    passed     99.86%
+ 177  KY210308    0.42%    passed     99.81%
+ 178  KY210309    0.16%    passed     99.17%
+ 179  KY210310    0.29%    passed     97.54%
+ 180  KY210311    0.04%    passed     99.75%
+ 181  MN726802   11.40%    passed     91.21%
+ 182  MN726803   29.88%    passed     86.15%
+ 183  MN726804    0.02%    passed     99.99%
+ 184  MN726806   23.91%    passed     73.88%
+ 185  MN726807   15.91%    passed     89.95%
+ 186  MN726808    1.23%    passed     99.84%
+ 187  MN726809   12.55%    passed     89.18%
+ 188  MN726811   22.06%    passed     91.74%
+ 189  MN726813   39.62%    passed     51.67%
+ 190  MN726815    0.74%    passed     99.41%
+ 191  MN726817    5.20%    passed     93.80%
+ 192  MN726818    0.65%    passed     98.54%
+ 193  MN726820    1.04%    passed     98.48%
+ 194  MN726822   20.36%    passed     91.52%
+ 195  MN726823   13.97%    passed     93.19%
+ 196  MN726824    3.83%    passed     99.27%
+ 197  MN726825    1.89%    passed     98.89%
+ 198  MN726826    1.14%    passed     99.62%
+ 199  MN726827    2.93%    passed     98.91%
+ 200  MN726828   15.86%    passed     63.73%
+ 201  MN726829   14.23%    passed     87.16%
+ 202  MN726832   18.05%    passed     91.79%
+ 203  MN726833    5.16%    passed     96.28%
+ 204  MN726834   50.56%    passed     90.17%
+ 205  MN726835    7.21%    passed     98.76%
+ 206  KC252634    1.03%    passed     36.74%
+ 207  KC660078    1.07%    passed     33.09%
+ 208  MG201922    1.03%    passed     58.97%
+ 209  MG458321    1.03%    passed     26.76%
+ 210  MK567666    1.06%    passed     48.16%
+ 211  MK689674    1.33%    passed     41.05%
+ 212  MK689675    1.33%    passed     44.00%
+ 213  MK689676    1.33%    passed     42.12%
+ 214  MN186249    1.03%    passed     51.10%
+ 215  MN186250    1.06%    passed     43.34%
+WARNING: 1 sequences contain more than 50% gaps/ambiguity
+****  TOTAL       1.70%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: KY210222 is identical to KR534217 but kept for subsequent analysis
+NOTE: KR534220 is identical to KR534218 but kept for subsequent analysis
+NOTE: KR534237 is identical to KR534236 but kept for subsequent analysis
+NOTE: KR534246 is identical to KR534245 but kept for subsequent analysis
+NOTE: KY210238 is identical to KR534247 but kept for subsequent analysis
+NOTE: KY210232 is identical to KR534248 but kept for subsequent analysis
+NOTE: KY210281 is identical to KR534251 but kept for subsequent analysis
+NOTE: KR906752 is identical to KR906748 but kept for subsequent analysis
+NOTE: KY210300 is identical to KR906787 but kept for subsequent analysis
+NOTE: KY210255 is identical to KY210253 but kept for subsequent analysis
+NOTE: KY210296 is identical to KY210295 but kept for subsequent analysis
+NOTE: 2 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: KY210235 (identical to KR534248) is ignored but added at the end
+NOTE: KY210256 (identical to KY210253) is ignored but added at the end
+Alignment was printed to Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.uniqueseq.phy
+
+For your convenience alignment with unique sequences printed to Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.uniqueseq.phy
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.062 seconds
+Perform fast likelihood tree search using GTR+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -48420.676
+Optimal log-likelihood: -48420.390
+Rate parameters:  A-C: 1.36587  A-G: 8.61455  A-T: 0.53085  C-G: 0.16630  C-T: 10.53142  G-T: 1.00000
+Base frequencies:  A: 0.284  C: 0.222  G: 0.233  T: 0.262
+Proportion of invariable sites: 0.374
+Gamma shape alpha: 0.550
+Parameters optimization took 1 rounds (0.769 sec)
+Time for fast ML tree search: 10.299 seconds
+
+NOTE: ModelFinder requires 224 MB RAM!
+ModelFinder will test up to 286 DNA models (sample size: 11924) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  GTR+F         50024.812    431 100911.625   100944.029   104095.124
+  2  GTR+F+I       48599.990    432 98063.979    98096.536    101254.865
+  3  GTR+F+G4      48487.464    432 97838.928    97871.485    101029.813
+  4  GTR+F+I+G4    48414.675    433 97695.350    97728.061    100893.622
+  5  GTR+F+R2      48400.385    433 97666.771    97699.481    100865.042
+  6  GTR+F+R3      48397.487    435 97664.974    97697.992    100878.018
+ 18  SYM+R2        48480.021    430 97820.042    97852.293    100996.155
+ 31  TVM+F+R2      48413.294    432 97690.588    97723.145    100881.473
+ 44  TVMe+R2       48485.571    429 97829.142    97861.241    100997.868
+ 57  TIM3+F+R2     48501.934    431 97865.868    97898.272    101049.367
+ 70  TIM3e+R2      48592.769    428 98041.538    98073.484    101202.878
+ 83  TIM2+F+R2     48489.296    431 97840.593    97872.996    101024.092
+ 96  TIM2e+R2      48568.024    428 97992.048    98023.994    101153.388
+109  TIM+F+R2      48424.875    431 97711.749    97744.153    100895.248
+122  TIMe+R2       48518.089    428 97892.178    97924.124    101053.518
+135  TPM3u+F+R2    48514.359    430 97888.718    97920.969    101064.830
+148  TPM3+F+R2     48514.359    430 97888.718    97920.969    101064.830
+161  TPM2u+F+R2    48502.138    430 97864.277    97896.528    101040.390
+174  TPM2+F+R2     48502.138    430 97864.277    97896.528    101040.390
+187  K3Pu+F+R2     48437.311    430 97734.622    97766.873    100910.734
+200  K3P+R2        48523.477    427 97900.954    97932.749    101054.908
+213  TN+F+R2       48502.533    430 97865.066    97897.317    101041.179
+226  TNe+R2        48592.906    427 98039.813    98071.607    101193.766
+239  HKY+F+R2      48514.911    429 97887.822    97919.920    101056.548
+252  K2P+R2        48598.246    426 98048.492    98080.136    101195.060
+265  F81+F+R2      51427.613    428 103711.227   103743.173   106872.567
+278  JC+R2         51483.180    425 103816.360   103847.852   106955.541
+Akaike Information Criterion:           GTR+F+R3
+Corrected Akaike Information Criterion: GTR+F+R3
+Bayesian Information Criterion:         GTR+F+R2
+Best-fit model: GTR+F+R2 chosen according to BIC
+
+All model information printed to Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.model.gz
+CPU time for ModelFinder: 70.613 seconds (0h:1m:10s)
+Wall-clock time for ModelFinder: 71.189 seconds (0h:1m:11s)
+Generating 1000 samples for ultrafast bootstrap (seed: 342101)...
+
+NOTE: 54 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -48400.385
+Optimal log-likelihood: -48400.345
+Rate parameters:  A-C: 1.35347  A-G: 8.52330  A-T: 0.54229  C-G: 0.17772  C-T: 10.56656  G-T: 1.00000
+Base frequencies:  A: 0.284  C: 0.222  G: 0.233  T: 0.262
+Site proportion and rates:  (0.858,0.299) (0.142,5.247)
+Parameters optimization took 1 rounds (0.459 sec)
+Computing ML distances based on estimated model parameters... 1.433 sec
+Computing BIONJ tree...
+0.019 seconds
+Log-likelihood of BIONJ tree: -48820.059
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 6.495 second
+Computing log-likelihood of 98 initial trees ... 5.145 seconds
+Current best score: -48387.256
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -48370.565
+Iteration 10 / LogL: -48371.589 / Time: 0h:0m:34s
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 12: -48369.398
+Iteration 20 / LogL: -48390.868 / Time: 0h:0m:55s
+Finish initializing candidate tree set (20)
+Current best tree score: -48369.398 / CPU time: 52.849
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 30: -48366.029
+Iteration 30 / LogL: -48366.029 / Time: 0h:1m:14s (0h:4m:16s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 31: -48365.897
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 40: -48363.435
+Iteration 40 / LogL: -48363.435 / Time: 0h:1m:33s (0h:3m:59s left)
+Iteration 50 / LogL: -48409.399 / Time: 0h:1m:51s (0h:3m:24s left)
+Log-likelihood cutoff on original alignment: -48454.968
+Iteration 60 / LogL: -48395.440 / Time: 0h:2m:9s (0h:2m:55s left)
+Iteration 70 / LogL: -48366.070 / Time: 0h:2m:29s (0h:2m:31s left)
+Iteration 80 / LogL: -48392.277 / Time: 0h:2m:46s (0h:2m:6s left)
+Iteration 90 / LogL: -48363.785 / Time: 0h:3m:6s (0h:1m:44s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 100: -48363.418
+Iteration 100 / LogL: -48363.418 / Time: 0h:3m:25s (0h:3m:27s left)
+Log-likelihood cutoff on original alignment: -48448.592
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.996
+Iteration 110 / LogL: -48363.940 / Time: 0h:3m:45s (0h:3m:5s left)
+Iteration 120 / LogL: -48363.651 / Time: 0h:4m:3s (0h:2m:43s left)
+Iteration 130 / LogL: -48425.371 / Time: 0h:4m:24s (0h:2m:23s left)
+Iteration 140 / LogL: -48367.058 / Time: 0h:4m:42s (0h:2m:2s left)
+Iteration 150 / LogL: -48374.671 / Time: 0h:5m:1s (0h:1m:41s left)
+Log-likelihood cutoff on original alignment: -48448.592
+Iteration 160 / LogL: -48524.190 / Time: 0h:5m:20s (0h:1m:20s left)
+Iteration 170 / LogL: -48374.268 / Time: 0h:5m:40s (0h:1m:0s left)
+Iteration 180 / LogL: -48365.986 / Time: 0h:5m:59s (0h:0m:40s left)
+Iteration 190 / LogL: -48363.766 / Time: 0h:6m:18s (0h:0m:20s left)
+Iteration 200 / LogL: -48416.451 / Time: 0h:6m:35s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -48448.592
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.999
+TREE SEARCH COMPLETED AFTER 201 ITERATIONS / Time: 0h:6m:38s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -48363.418
+Optimal log-likelihood: -48363.418
+Rate parameters:  A-C: 1.40321  A-G: 8.89596  A-T: 0.56568  C-G: 0.18517  C-T: 10.91253  G-T: 1.00000
+Base frequencies:  A: 0.284  C: 0.222  G: 0.233  T: 0.262
+Site proportion and rates:  (0.862,0.305) (0.138,5.353)
+Parameters optimization took 1 rounds (0.367 sec)
+BEST SCORE FOUND : -48363.418
+Creating bootstrap support values...
+Split supports printed to NEXUS file Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.splits.nex
+Total tree length: 0.593
+
+Total number of iterations: 201
+CPU time used for tree search: 395.612 sec (0h:6m:35s)
+Wall-clock time used for tree search: 396.529 sec (0h:6m:36s)
+Total CPU time used: 398.857 sec (0h:6m:38s)
+Total wall-clock time used: 399.848 sec (0h:6m:39s)
+
+Computing bootstrap consensus tree...
+Reading input file Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.splits.nex...
+213 taxa and 1837 splits.
+Consensus tree written to Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.contree
+Reading input trees file Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.contree
+Log-likelihood of consensus tree: -48367.680
+
+Analysis results written to: 
+  IQ-TREE report:                Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.iqtree
+  Maximum-likelihood tree:       Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.treefile
+  Likelihood distances:          Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.splits.nex
+  Consensus tree:                Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.contree
+  Screen log file:               Tanz_outgroup/Alignment/Tanz_outgroup_aligned.fasta.log
+
+Date and Time: Tue May 11 13:42:50 2021
