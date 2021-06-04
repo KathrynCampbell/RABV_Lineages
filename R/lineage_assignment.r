@@ -15,6 +15,7 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   alignment_matrix <- as.matrix.alignment(alignment)
   ancestral_matrix <- as.matrix.alignment(ancestral)
   sequences <- 10
+  max.support = 100
   # Need it as a matrix for later analyses
   
   #############################################
@@ -163,7 +164,7 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   
   min <- min(summary$count)
   
-  while (min < 2){
+  while (min > 2){
     nodes_diff <- nodes_diff[order(-nodes_diff$overlaps),]
     nodes_diff$cluster <-c(1:(length(nodes_diff$Node)))
     lineage_assignments$cluster <- NA
@@ -185,12 +186,16 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
     }
   }
   # Repeat the above steps until there are no clusters with 0 sequences left 
+  for (i in 1:(length(nodes_diff$Node))) {
+    lineage_assignments[which(lineage_assignments[,1] %in% clade.members(nodes_diff[i,1], tree, include.nodes = F, tip.labels = T)), 2] <- nodes_diff[i,5]
+  }
   
   for(i in 1:length(seq_data$ID)){
     seq_data$cluster[i]<-lineage_assignments$cluster[which(lineage_assignments$tip == seq_data$ID[i])]
   }
-  
-  
+  for (i in 1:(length(nodes_diff$Node))) {
+    lineage_assignments[which(lineage_assignments[,1] %in% clade.members(nodes_diff[i,1], tree, include.nodes = F, tip.labels = T)), 2] <- nodes_diff[i,5]
+  }
   data <- list(nodes_diff, seq_data)
   return(data)
 }
