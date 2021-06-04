@@ -7,6 +7,18 @@ if (!require("processx")) install.packages("processx")
 library(processx)
 library(TreeTools)
 library(ggtree)
+library(RColorBrewer)
+library(rgdal)
+library(ggplot2)
+library(rworldmap)
+library(cleangeo)
+library(dplyr)
+library(gridExtra)
+library(ggpubr)
+library(mapproj)
+library("rnaturalearth")
+library(rnaturalearthdata)
+library(scatterpie)
 
 Sys.setenv("PATH" = "/Users/kathryncampbell/miniconda3/bin")
 
@@ -62,8 +74,6 @@ for (i in 1:length(clades)) {
   pal<-rev(pal(length(lineage)))
   lineage_info$colour[(grep(clades[i], lineage_info$cluster))]<-pal
 }
-
-show_col(lineage_info$colour)
 
 lineage_info$cluster<-gsub("Cosmopolitan ", "", lineage_info$cluster)
 lineage_info$parent<-gsub("Cosmopolitan ", "", lineage_info$parent)
@@ -130,7 +140,102 @@ ggsave("Cosmo_WGS/Figures/figure_lineage_tree.png",
        plot = plot_tree,
        height = 25, width = 40)
 
-plot_tree<-plot_tree + theme(legend.position = "left")
-ggsave("Cosmo_WGS/Figures/legend_lineage_tree.png",
-       plot = plot_tree,
-       height = 25, width = 40)
+world<-ne_countries()
+
+#' **Cleaning the data**
+#' Find which country names do not match between data and map file
+map_countries <- as.character(world$admin)
+countries <- unique(metadata$country)
+no_match <- setdiff(countries, map_countries); message(length(no_match), " countries are mis-matched: \n", paste0(no_match, collapse="\n"))
+
+metadata$country[grepl("USA|United States", metadata$country)] <- "United States of America"
+metadata$country[grepl("Tanzania", metadata$country)] <- "United Republic of Tanzania"
+metadata$country[grepl("Serbia", metadata$country)] <- "Republic of Serbia"
+metadata$country[grepl("Czechia", metadata$country)] <- "Czech Republic"
+metadata$country[grepl("Grenada", metadata$country)] <- "Grenada"
+
+#' How many entries are there for the remaining mis-matches?
+table(metadata$country[which(metadata$country %in% no_match)])
+
+countries <- unique(metadata$country)
+#' ** Tabulating the data**
+country_table<-table(metadata$country); country_table
+length(country_table)
+
+sequence_data<-sequence_data[-c(which(is.na(sequence_data$cluster))),]
+
+lineage_table <- data.frame(matrix(ncol = (length(unique(sequence_data$cluster))+1), nrow = length(countries)))
+x <- c("country", unique(sequence_data$cluster))
+colnames(lineage_table) <- x
+
+lineage_table$country<-countries
+
+for (i in 1:length(countries)) {
+  country_place<-which(lineage_table$country == countries[i])
+  lineages<-unique(sequence_data$cluster[which(sequence_data$ID %in% metadata$ID[which(metadata$country == countries[i])])])
+  
+  for (j in 1:length(lineages)) {
+    country_lineage<-which(colnames(lineage_table) == lineages[j])
+    lineage_table[country_place, country_lineage]<-length(which((sequence_data$cluster[which(sequence_data$ID %in% 
+                                                                                          metadata$ID[which(metadata$country == countries[i])])]) == lineages[j]))
+  }
+}
+
+lineage_table[is.na(lineage_table)] <- 0
+
+lineage_table$LAT<-NA
+lineage_table$LON<-NA
+
+lineage_table<-lineage_table[-c(which(lineage_table$country == "-")),]
+lineage_table<-lineage_table[-c(which(lineage_table$country == "Grenada")),]
+
+for (i in 1:length(lineage_table$country)) {
+  lineage_table$LAT[i]<-world@polygons[which(world$admin == lineage_table$country[i])][[1]]@labpt[2]
+  lineage_table$LON[i]<-world@polygons[which(world$admin == lineage_table$country[i])][[1]]@labpt[1]
+}
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+plot<-
+  ggplot(data = world) +
+  geom_sf() 
+
+lineage_table <- with(lineage_table, lineage_table[abs(LON) < 150 & abs(LAT) < 70,])
+n <- nrow(lineage_table)
+lineage_table$region <- factor(1:n)
+lineage_table$radius<-NA
+for (i in 1:length(lineage_table$country)) {
+  lineage_table$radius[i]<-sum(lineage_table[i,2:74])
+}
+
+lineage_table$radius[which(lineage_table$radius %in% 6:10)]<-6
+lineage_table$radius[which(lineage_table$radius %in% 11:20)]<-7
+lineage_table$radius[which(lineage_table$radius %in% 21:50)]<-8
+lineage_table$radius[which(lineage_table$radius %in% 51:100)]<-9
+lineage_table$radius[which(lineage_table$radius %in% 101:200)]<-10
+lineage_table$radius[which(lineage_table$radius > 200)]<-11
+
+head(lineage_table)
+
+lineage_table$radius<-lineage_table$radius/1.5
+
+colour_table<-data.frame(lineage = colnames(lineage_table[2:74]), colour = NA)
+colour_table$lineage<-gsub("Cosmopolitan ", "", colour_table$lineage)
+
+for (i in 1:length(colour_table$lineage)) {
+  colour_table$colour[i]<-lineage_info$colour[which(lineage_info$cluster == colour_table$lineage[i])]
+}
+
+plot_world<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=radius),
+                       data=lineage_table, cols=c(colnames(lineage_table)[2:74]), color=NA, alpha=.8)+ 
+  theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+
+  coord_sf(xlim = c(-155, 155), ylim = c(-50, 70))
+
+plot_zoom<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=(radius/2)),
+                             data=lineage_table, cols=c(colnames(lineage_table)[2:74]), color=NA, alpha=.8)+ 
+  theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+
+  coord_sf(xlim = c(-15,55), ylim = c(-30,62))
+
+plot_world
+plot_zoom
+ggsave("Cosmo_WGS/Figures/pie_map.png", plot = plot_world, width = 45, height = 20)
+ggsave("Cosmo_WGS/Figures/pie_map_zoom.png", plot = plot_zoom)

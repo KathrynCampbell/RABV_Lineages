@@ -203,7 +203,6 @@ for (i in 1:length(node_data$Node)) {
 plot_tree
 # Plot with everything on it!
 
-
 ggsave(paste(args, "/Figures/", args, "_lineage_tree.png", sep = ""), 
        plot = plot_tree,
        height = 20, width = 40)
