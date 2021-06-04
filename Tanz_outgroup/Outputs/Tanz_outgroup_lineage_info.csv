@@ -1,0 +1,15 @@
+"cluster","country","year_first","year_last","max_distance","mean_distance","hosts","n_seqs"
+"A1","c(""Morogoro region"", ""Serengeti District"")",2009,2017,0.3000487546,0.237225798394031,"Canis familiaris",7
+"A1.1","c(""Arusha Region"", ""Mtwara region"", ""Pemba island"", ""Serengeti District"")",2003,2011,0.3000487546,0.220800631724723,"Canis familiaris",4
+"A1.1.1","c(""Arusha Region"", ""Dar es Salaam"", ""Iringa region"", ""Morogoro region"", ""Pemba island"", ""Serengeti District"")",1996,2017,0.3000487546,0.0505628966430662,"Canis familiaris",68
+"B1","c(""Dar es Salaam"", ""Iringa region"", ""Lindi region"")",2010,2011,0.3000487546,0.0315868039641037,"Canis familiaris",4
+"B1.1","c(""Chake chake"", ""Kusini Unguja"")",2010,2011,0.3000487546,0.0317389840043365,"Canis familiaris",2
+"Cosmopolitan AF1b_A1","Pwani region",2010,2018,0.2911816751,0.0263541938344186,"Canis familiaris",2
+"Cosmopolitan AF1b_A1.1","Serengeti District",2004,2012,0.3000487546,0.0503939964485709,"Canis familiaris",11
+"Cosmopolitan AF1b_A1.1.1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,0.2999936792,0.0344186011018398,"Canis familiaris",7
+"Cosmopolitan AF1b_A1.1.2","Serengeti District",2010,2013,0.2908518413,0.0259973195197674,"Canis familiaris",21
+"Cosmopolitan AF1b_A1.1.3","Serengeti District",2011,2017,0.2999936792,0.0341508255175415,"Canis familiaris",28
+"Cosmopolitan AF1b_B1","character(0)",2017,2018,0.2914312117,0.0310907166290698,"Canis familiaris",3
+"Cosmopolitan AF1b_B1.1","Serengeti District",2012,2013,0.2999936792,0.0345843405094574,"Canis familiaris",2
+"Cosmopolitan AF1b_B1.1.1","Serengeti District",2011,2012,0.3000487546,0.030200284839408,"Canis familiaris",5
+"Cosmopolitan AF1b_C1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,0.2924383551,0.0299894113546512,"Canis familiaris",35

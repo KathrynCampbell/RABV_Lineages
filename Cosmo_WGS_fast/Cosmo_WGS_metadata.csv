@@ -1,0 +1,651 @@
+﻿ID,alignment.name,assignment,sequence.m49_country.id,country,sequence.gb_place_sampled,sequence.collection_year,sequence.earliest_collection_year,year,sequence.gb_length,sequence.gb_create_date,sequence.gb_update_date,sequence.host,sequence.gb_pubmed_id,sequence.isolate
+AB009663,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,1997,11926,25-Dec-97,28-May-13,-,11270607,RC-HL
+AB044824,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2000,11926,21-Jun-00,28-May-13,-,11270607,Nishigahara
+AB085828,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2003,11615,07-Jan-03,01-Aug-03,-,12505638,HEP-Flury
+AB128149,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2003,11926,10-Dec-03,28-May-13,-,17010466,Ni-CE
+AB362483,AL_Cosmopolitan_AM3b,Cosmopolitan AM3b,BRA,Brazil,-,-,-,2009,11924,29-Sep-09,15-Jan-11,Dusicyon sp.,19701711,BR-Pfx1
+AB517659,AL_Cosmopolitan_AM3a,Cosmopolitan AM3a,BRA,Brazil,-,-,-,2012,11923,02-Feb-12,02-Feb-12,Canis lupus familiaris,-,BRdg335
+AB517660,AL_Cosmopolitan_AM3b,Cosmopolitan AM3b,BRA,Brazil,-,-,-,2012,11925,02-Feb-12,02-Feb-12,-,-,BR-Pfx3
+AB645847,AL_Cosmopolitan_AM1,Cosmopolitan AM1,USA,United States,-,-,-,2012,11923,19-Jan-12,13-Apr-12,Marmota monax,22248643,1088
+AB839170,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2013,11634,27-Jul-13,28-Nov-13,-,24244660,rHEP5.0-CVSG
+DQ099524,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2005,11711,17-Jul-05,17-Jul-05,-,-,FluryLEP
+DQ099525,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2005,11723,17-Jul-05,17-Jul-05,-,-,PM1503
+DQ875050,AL_Cosmopolitan,Cosmopolitan,CHN,China,Henan province,-,-,2006,11869,06-Sep-06,25-Nov-08,-,-,MRV
+DQ875051,AL_Cosmopolitan,Cosmopolitan,CHN,China,Jilin province,-,-,2006,11863,06-Sep-06,25-Nov-08,-,-,DRV
+EF542830,AL_Cosmopolitan,Cosmopolitan,RUS,Russia,-,-,-,2008,11932,14-Jan-08,25-Feb-08,-,18187223,RV-97
+EU293115,AL_Cosmopolitan_WE,Cosmopolitan WE,FRA,France,-,1991,1991,1991,11923,23-Apr-08,23-Apr-08,Vulpes vulpes,18446239,9147FRA
+FJ577895,AL_Cosmopolitan,Cosmopolitan,CHN,China,-,-,-,2009,11924,26-Jan-09,29-Apr-10,-,20423522,Flury-LEP-C
+GQ412744,AL_Cosmopolitan,Cosmopolitan,CHN,China,Beijing,1931,1931,1931,11925,31-Jul-15,31-Jul-15,Canis familiaris,-,aG
+GQ918139,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2010,11927,30-Jun-10,30-Jun-10,-,-,CVS-11
+GU565703,AL_Cosmopolitan,Cosmopolitan,-,-,-,1948,1948,1948,11925,24-Mar-10,10-Aug-10,-,20538851,Flury-LEP
+GU565704,AL_Cosmopolitan,Cosmopolitan,-,-,-,1948,1948,1948,11925,24-Mar-10,10-Aug-10,-,20538851,Flury-HEP
+HM535790,AL_Cosmopolitan,Cosmopolitan,USA,United States,-,-,-,2010,11927,29-Nov-10,29-Dec-10,-,21068252,CVS-N2c
+HQ450386,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,-,-,-,2011,11924,04-Jan-11,12-Sep-12,Canis familiaris,22966186,DRV-Mexico
+HQ891318,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2011,11927,02-Aug-11,23-Jan-13,-,23265241,B2c
+JN234411,AL_Cosmopolitan,Cosmopolitan,CHN,China,-,1931,1931,1931,11925,10-Dec-11,30-Jun-15,Canis familiaris,23895005,4aGV
+JQ685894,AL_Cosmopolitan_AM4,Cosmopolitan AM4,USA,United States,-,1994,1994,1994,11923,11-Jul-12,11-Jul-12,Mephitis mephitis,22737076,CA982
+JQ685899,AL_Cosmopolitan_AM2b,Cosmopolitan AM2b,USA,United States,-,2009,2009,2009,11930,11-Jul-12,11-Jul-12,Vulpes vulpes,22737076,A10-0515
+JQ685943,AL_Cosmopolitan_AM2b,Cosmopolitan AM2b,USA,United States,-,2009,2009,2009,11925,11-Jul-12,11-Jul-12,Vulpes vulpes,22737076,A10-0511
+JQ685944,AL_Cosmopolitan_AM1,Cosmopolitan AM1,USA,United States,-,1984,1984,1984,11925,11-Jul-12,11-Jul-12,Mephitis mephitis,22737076,NC839
+JQ685967,AL_Cosmopolitan_AM1,Cosmopolitan AM1,USA,United States,-,-,-,2012,11923,11-Jul-12,11-Jul-12,Mephitis mephitis,22737076,NC1234
+JQ685970,AL_Cosmopolitan_AM4,Cosmopolitan AM4,USA,United States,-,1974,1974,1974,11923,11-Jul-12,11-Jul-12,Mephitis mephitis,22737076,CASK2
+JQ944704,AL_Cosmopolitan_NEE,Cosmopolitan NEE,RUS,Russia,-,2009,2009,2009,11923,14-Jul-12,14-Jul-12,Canis familiaris,-,184VNO
+JQ944705,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,-,2008,2008,2008,11923,14-Jul-12,14-Jul-12,Canis familiaris,-,1350KRA
+JQ944706,AL_Cosmopolitan_CA2,Cosmopolitan CA2,RUS,Russia,-,2008,2008,2008,11923,14-Jul-12,14-Jul-12,Canis familiaris,-,1352KRA
+JQ944708,AL_Cosmopolitan_CA3,Cosmopolitan CA3,RUS,Russia,-,2008,2008,2008,11914,14-Jul-12,14-Jul-12,Vulpes vulpes,-,1564NNO
+JQ944709,AL_Cosmopolitan,Cosmopolitan,ETH,Ethiopia,-,2008,2008,2008,11927,14-Jul-12,14-Jul-12,-,-,EPHVAC
+JX473838,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,NAM,Namibia,"Kunene, Etosha National Park",2009,2009,2009,11923,21-Oct-12,21-Oct-12,jackal,-,178J09
+JX473839,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,NAM,Namibia,"Kunene, Etosha National Park",2009,2009,2009,11923,21-Oct-12,21-Oct-12,jackal,-,192J09
+JX473840,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,NAM,Namibia,"Khomas, Windhoek",2009,2009,2009,11923,21-Oct-12,21-Oct-12,Tragelaphus strepsiceros (Namibian kudu),-,239K09
+JX473841,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,NAM,Namibia,"Otjozondjupa, Grootfontein",2009,2009,2009,11923,21-Oct-12,21-Oct-12,Tragelaphus strepsiceros (Namibian kudu),-,240K09
+KC252633,AL_Cosmopolitan_CA1,Cosmopolitan CA1,CHN,China,-,2011,2011,2011,11917,31-Aug-14,06-Feb-15,Bos taurus,-,CNM1103C
+KC595280,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,Lipetsk region,2011,2011,2011,11796,25-Mar-13,13-Nov-13,Vulpes vulpes,23661472,Rus(Lipetsk)8052f_2011
+KC595281,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,Lipetsk region,2011,2011,2011,11799,25-Mar-13,13-Nov-13,Felis catus,23661472,Rus(Lipetsk)8053c_2011
+KC595282,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,Lipetsk region,2011,2011,2011,11798,25-Mar-13,13-Nov-13,Vulpes vulpes,23661472,Rus(Lipetsk)8054f_2011
+KC595283,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,Lipetsk region,2011,2011,2011,11798,25-Mar-13,13-Nov-13,Vulpes vulpes,23661472,Rus(Lipetsk)8057f_2011
+KC737850,AL_Cosmopolitan_AM3a,Cosmopolitan AM3a,USA,United States,-,2011,2011,2011,11925,18-Jun-13,18-Jun-13,Homo sapiens,-,A11-5300
+KF154997,AL_Cosmopolitan_NEE,Cosmopolitan NEE,EST,Estonia,-,-,-,2013,11923,14-Jul-13,14-Jul-13,Canis familiaris,23822119,RV437
+KF154998,AL_Cosmopolitan_AF4,Cosmopolitan AF4,ISR,Israel,-,1950,1950,1950,11924,14-Jul-13,14-Jul-13,Canis familiaris,23822119,RV2324
+KF155000,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRQ,Iraq,-,2010,2010,2010,11923,14-Jul-13,14-Jul-13,Bos taurus,23822119,RV2516
+KF155001,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,MAR,Morocco,-,2009,2009,2009,11926,14-Jul-13,14-Jul-13,Bos taurus,23822119,RV2627
+KF155002,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2010,2010,2010,11923,14-Jul-13,14-Jul-13,Canis familiaris,23822119,RV2772
+KM016899,AL_Cosmopolitan_CA1,Cosmopolitan CA1,CHN,China,-,2014,2014,2014,11923,01-Oct-14,01-Oct-14,Vulpes vulpes,-,WQ14-RF
+KM198893,AL_Cosmopolitan,Cosmopolitan,RUS,Russia,-,-,-,2014,11932,25-Oct-14,25-Oct-14,-,-,Moscow 3253
+KM594039,AL_Cosmopolitan_AM3b,Cosmopolitan AM3b,BRA,Brazil,-,2009,2009,2009,11881,18-Nov-15,14-Apr-16,Cerdocyon thous,-,IP 7841/09
+KP723638,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,ETH,Ethiopia,-,2014,2014,2014,11926,04-Mar-15,08-Apr-15,Canis simensis,25814597,RV2985
+KP997032,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,Primorsky Krai,2014,2014,2014,11873,08-Sep-15,08-Sep-15,Ursus arctos,-,PO-01_2014_Primorye
+KR534217,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2490
+KR534218,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2491
+KR534219,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2007,2007,2007,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2492
+KR534220,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2493
+KR534228,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11914,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2788
+KR534229,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11849,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2789
+KR534230,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11885,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2790
+KR534231,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11884,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2791
+KR534232,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,jackal,27774283,RV2792
+KR534233,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2794
+KR534234,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2795
+KR534235,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2796
+KR534236,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2797
+KR534237,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2798
+KR534238,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11867,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2800
+KR534244,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2889
+KR534245,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2890
+KR534246,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,civet,27774283,RV2891
+KR534247,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2892
+KR534248,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2893
+KR534249,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11917,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2895
+KR534250,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2897
+KR534251,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2898
+KR534252,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2899
+KR534253,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11922,06-Nov-15,01-Nov-16,Canis familiaris,27774283,RV2903
+KR534254,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,06-Nov-15,01-Nov-16,Felis catus,27774283,RV2906
+KR534256,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11921,06-Nov-15,01-Nov-16,Bos taurus,27774283,RV2909
+KR906734,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2495.1
+KR906735,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2008,2008,2008,11903,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2498.1
+KR906736,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2008,2008,2008,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2499.1
+KR906737,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2500.1
+KR906738,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2004,2004,2004,11923,17-Apr-16,17-Apr-16,Bos taurus,-,RV2501.1
+KR906739,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Arusha Region,2004,2004,2004,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2502.1
+KR906740,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2009,2009,2009,11914,17-Apr-16,17-Apr-16,Felis catus,-,RV2503.1
+KR906741,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Arusha Region,2003,2003,2003,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2504.1
+KR906742,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2009,2009,2009,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2767.1
+KR906743,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Dar es Salaam,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2770.1
+KR906744,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Iringa region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2771.1
+KR906745,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pwani region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2773.1
+KR906746,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Dar es Salaam,2010,2010,2010,11875,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2774.1
+KR906747,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Iringa region,2010,2010,2010,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2775.1
+KR906748,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Chake chake,2010,2010,2010,11923,17-Apr-16,06-Feb-18,Canis familiaris,-,RV2776.1
+KR906749,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pemba island,2010,2010,2010,11878,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2777.1
+KR906750,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pemba island,2010,2010,2010,11854,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2778.1
+KR906751,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Lindi region,2011,2011,2011,11915,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2780.1
+KR906752,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Kusini Unguja,2011,2011,2011,11923,17-Apr-16,06-Feb-18,Canis familiaris,-,RV2782.1
+KR906753,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Mtwara region,2011,2011,2011,11922,17-Apr-16,17-Apr-16,Bos taurus,-,RV2783.1
+KR906754,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Lindi region,2011,2011,2011,11865,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2784.1
+KR906755,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2793.1
+KR906756,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2799.1
+KR906757,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Lindi region,2010,2010,2010,11890,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2807.1
+KR906758,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11825,17-Apr-16,17-Apr-16,Ovis aries,-,RV2808.1
+KR906759,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11829,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2809.1
+KR906760,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2810.1
+KR906761,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11845,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2811.1
+KR906762,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2813.1
+KR906763,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2814.1
+KR906764,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Capra hircus,-,RV2815.1
+KR906765,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Morogoro region,2010,2010,2010,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2816.1
+KR906766,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Pemba island,2010,2010,2010,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2817.1
+KR906767,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2861.1
+KR906768,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11878,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2862.1
+KR906769,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2871.1
+KR906770,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2875.1
+KR906771,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2894.1
+KR906772,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2896.1
+KR906773,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2900.1
+KR906774,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11921,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2901.1
+KR906775,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11854,17-Apr-16,17-Apr-16,unknown,-,RV2902.1
+KR906776,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV2907.1
+KR906777,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,17-Apr-16,17-Apr-16,unknown,-,RV3091.1
+KR906778,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,17-Apr-16,17-Apr-16,unknown,-,RV3093.1
+KR906779,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,17-Apr-16,17-Apr-16,Bos taurus,-,RV3100.1
+KR906780,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3104.1
+KR906781,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,unknown,-,RV3107.1
+KR906782,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11919,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3111.1
+KR906783,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3117.1
+KR906784,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3125.1
+KR906785,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11922,17-Apr-16,17-Apr-16,unknown,-,RV3127.1
+KR906786,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Sus scrofa,-,RV3128.1
+KR906787,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Bos taurus,-,RV3131.1
+KR906788,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11919,17-Apr-16,17-Apr-16,Bos taurus,-,RV3132.1
+KR906789,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3133.1
+KR906790,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3140.1
+KR906791,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11874,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3149.1
+KR906792,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,17-Apr-16,17-Apr-16,Canis familiaris,-,RV3123.1
+KT006769,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,-,2013,2013,2013,11922,08-Sep-15,06-Sep-17,Canis familiaris,-,3944
+KT336432,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2012,2012,2012,11923,19-Aug-15,13-Oct-15,Canis lupus familiaris,26430028,55612
+KT336433,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZWE,Zimbabwe,-,1991,1991,1991,11923,19-Aug-15,13-Oct-15,Canis lupus familiaris,26430028,20034
+KT336434,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZWE,Zimbabwe,-,1992,1992,1992,11923,19-Aug-15,13-Oct-15,Canis lupus familiaris,26430028,21057
+KT336435,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZWE,Zimbabwe,-,1993,1993,1993,11923,19-Aug-15,13-Oct-15,Canis lupus familiaris,26430028,21467
+KT336436,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2012,2012,2012,11923,19-Aug-15,13-Oct-15,Canis lupus familiaris,26430028,33512
+KT336437,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2012,2012,2012,11923,19-Aug-15,13-Oct-15,Canis lupus familiaris,26430028,34312
+KT728348,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,Astrakhan region,2003,2003,2003,11873,11-Nov-15,11-Nov-15,Homo sapiens,-,Rus(Astrakhan)_8329H_2003
+KT728349,AL_Cosmopolitan_CA1,Cosmopolitan CA1,RUS,Russia,Astrakhan region,2003,2003,2003,11873,11-Nov-15,11-Nov-15,Homo sapiens,-,Rus(Astrakhan)_8330H_2003
+KX148101,AL_Cosmopolitan_AF4,Cosmopolitan AF4,EGY,Egypt,-,1979,1979,1979,11923,28-Nov-16,28-Nov-16,Homo sapiens,-,86092EGY
+KX148102,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,-,1991,1991,1991,11922,28-Nov-16,28-Nov-16,Canis familiaris,-,91026MEX
+KX148103,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,1981,1981,1981,11922,28-Nov-16,28-Nov-16,Homo sapiens,-,87021AFS
+KX148104,AL_Cosmopolitan_YUGCOW,Cosmopolitan YUGCOW,MNE,Montenegro,-,1978,1978,1978,11923,28-Nov-16,28-Nov-16,Bos taurus,-,86058YOU
+KX148110,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,-,1991,1991,1991,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,91014MEX
+KX148111,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,-,1991,1991,1991,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,91015MEX
+KX148112,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,-,1991,1991,1991,11802,28-Nov-16,28-Nov-16,Homo sapiens,-,91010MEX
+KX148113,AL_Cosmopolitan_CE,Cosmopolitan CE,DEU,Germany,-,1991,1991,1991,11802,28-Nov-16,28-Nov-16,Vulpes vulpes,-,92002GER
+KX148114,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1995,1995,1995,11802,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96104POL
+KX148115,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1996,1996,1996,11802,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96250POL
+KX148116,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1996,1996,1996,11802,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96256POL
+KX148117,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1997,1997,1997,11802,28-Nov-16,28-Nov-16,Vulpes vulpes,-,97046POL
+KX148118,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1994,1994,1994,11803,28-Nov-16,28-Nov-16,Canis familiaris,-,96077POL
+KX148119,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1993,1993,1993,11800,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96045POL
+KX148120,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1993,1993,1993,11800,28-Nov-16,28-Nov-16,Canis familiaris,-,96140POL
+KX148121,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,-,1993,1993,1993,11800,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96056POL
+KX148122,AL_Cosmopolitan_CE,Cosmopolitan CE,DEU,Germany,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,92012GER
+KX148123,AL_Cosmopolitan_CE,Cosmopolitan CE,DEU,Germany,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,92017GER
+KX148124,AL_Cosmopolitan_CE,Cosmopolitan CE,DEU,Germany,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,92010GER
+KX148125,AL_Cosmopolitan_WE,Cosmopolitan WE,BEL,Belgium,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,94033BEL
+KX148126,AL_Cosmopolitan_WE,Cosmopolitan WE,FRA,France,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96002FRA
+KX148127,AL_Cosmopolitan_WE,Cosmopolitan WE,FRA,France,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,91047FRA
+KX148128,AL_Cosmopolitan_WE,Cosmopolitan WE,FRA,France,-,1992,1992,1992,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,92044FRA
+KX148129,AL_Cosmopolitan_WE,Cosmopolitan WE,SVN,Slovenia,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,94091SLN
+KX148130,AL_Cosmopolitan_WE,Cosmopolitan WE,SVN,Slovenia,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,94096SLN
+KX148131,AL_Cosmopolitan_WE,Cosmopolitan WE,SVN,Slovenia,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,94086SLN
+KX148132,AL_Cosmopolitan_WE,Cosmopolitan WE,SVN,Slovenia,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,94094SLN
+KX148133,AL_Cosmopolitan_WE,Cosmopolitan WE,BIH,Bosnia and Herzegovina,-,1986,1986,1986,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,86111YOU
+KX148134,AL_Cosmopolitan_WE,Cosmopolitan WE,FRA,France,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,94029FRA
+KX148135,AL_Cosmopolitan_WE,Cosmopolitan WE,DEU,Germany,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,92001GER
+KX148136,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,1993,1993,1993,11800,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93083HON
+KX148137,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,1993,1993,1993,11800,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93089HON
+KX148138,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93091HON
+KX148139,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,1993,1993,1993,11800,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93093HON
+KX148140,AL_Cosmopolitan_EE,Cosmopolitan EE,SRB,Serbia,-,1986,1986,1986,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,86109YOU
+KX148141,AL_Cosmopolitan_EE,Cosmopolitan EE,POL,Poland,-,1992,1992,1992,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96135POL
+KX148142,AL_Cosmopolitan_EE,Cosmopolitan EE,POL,Poland,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96177POL
+KX148143,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,1993,1993,1993,11802,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93080HON
+KX148144,AL_Cosmopolitan_EE,Cosmopolitan EE,SVN,Slovenia,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,94099SLN
+KX148145,AL_Cosmopolitan_EE,Cosmopolitan EE,BIH,Bosnia and Herzegovina,-,1986,1986,1986,11801,28-Nov-16,28-Nov-16,Canis lupus,-,86054YOU
+KX148146,AL_Cosmopolitan_NEE,Cosmopolitan NEE,FIN,Finland,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93046FIN
+KX148147,AL_Cosmopolitan_NEE,Cosmopolitan NEE,FIN,Finland,-,1988,1988,1988,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,93048FIN
+KX148148,AL_Cosmopolitan_NEE,Cosmopolitan NEE,EST,Estonia,-,1992,1992,1992,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93038EST
+KX148149,AL_Cosmopolitan_NEE,Cosmopolitan NEE,EST,Estonia,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,93039EST
+KX148150,AL_Cosmopolitan_NEE,Cosmopolitan NEE,POL,Poland,-,1986,1986,1986,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,96026POL
+KX148151,AL_Cosmopolitan_NEE,Cosmopolitan NEE,POL,Poland,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96042POL
+KX148152,AL_Cosmopolitan_NEE,Cosmopolitan NEE,POL,Poland,-,1996,1996,1996,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,96142POL
+KX148153,AL_Cosmopolitan_NEE,Cosmopolitan NEE,POL,Poland,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,96097POL
+KX148154,AL_Cosmopolitan_NEE,Cosmopolitan NEE,POL,Poland,-,1997,1997,1997,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,97078POL
+KX148155,AL_Cosmopolitan_NEE,Cosmopolitan NEE,EST,Estonia,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93041EST
+KX148156,AL_Cosmopolitan_NEE,Cosmopolitan NEE,EST,Estonia,-,1991,1991,1991,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,93042EST
+KX148157,AL_Cosmopolitan_NEE,Cosmopolitan NEE,EST,Estonia,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,93043EST
+KX148158,AL_Cosmopolitan_NEE,Cosmopolitan NEE,EST,Estonia,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93105EST
+KX148159,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,-,1974,1974,1974,11801,28-Nov-16,28-Nov-16,Ovis aries,-,86082IRA
+KX148160,AL_Cosmopolitan_CA3,Cosmopolitan CA3,HUN,Hungary,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Homo sapiens,-,92015HON
+KX148161,AL_Cosmopolitan_YUGFOX,Cosmopolitan YUGFOX,SRB,Serbia,-,1972,1972,1972,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,86133SER
+KX148162,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,94002TUR
+KX148163,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,94016TUR
+KX148164,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,93100TUR
+KX148165,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1993,1993,1993,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,94009TUR
+KX148166,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,94001TUR
+KX148167,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,94005TUR
+KX148168,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,SAU,Saudi Arabia,-,1987,1987,1987,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,87006ARS
+KX148169,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,OMN,Oman,-,1990,1990,1990,11801,28-Nov-16,28-Nov-16,camel,-,91034OMA
+KX148170,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,OMN,Oman,-,1990,1990,1990,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,91035OMA
+KX148171,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ARE,United Arab Emirates,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,91024EAU
+KX148172,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,SAU,Saudi Arabia,-,1987,1987,1987,11801,28-Nov-16,28-Nov-16,Equus caballus,-,87007ARS
+KX148173,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,SAU,Saudi Arabia,-,1997,1997,1997,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,97139ARS
+KX148174,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,SAU,Saudi Arabia,-,1998,1998,1998,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,98001ARS
+KX148175,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,SAU,Saudi Arabia,-,1998,1998,1998,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,99004ARS
+KX148176,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,SAU,Saudi Arabia,-,2004,2004,2004,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,04034ARS
+KX148177,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,96317ISR
+KX148178,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,96306ISR
+KX148179,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,jackal,-,96314ISR
+KX148180,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93030ISR
+KX148181,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,96312ISR
+KX148182,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,96307ISR
+KX148183,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1993,1993,1993,11801,28-Nov-16,28-Nov-16,Vulpes vulpes,-,93031ISR
+KX148184,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,ISR,Israel,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Felis catus,-,96324ISR
+KX148185,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Canis lupus,-,96299IRA
+KX148186,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,-,1984,1984,1984,11801,28-Nov-16,28-Nov-16,Canis lupus,-,87002IRA
+KX148187,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,jackal,-,96320IRA
+KX148188,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,-,1991,1991,1991,11801,28-Nov-16,28-Nov-16,Canis lupus,-,93009IRA
+KX148189,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,-,1985,1985,1985,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,86081IRA
+KX148190,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,-,1976,1976,1976,11801,28-Nov-16,28-Nov-16,jackal,-,93008IRA
+KX148191,AL_Cosmopolitan_ME1b,Cosmopolitan ME1b,ISR,Israel,-,1993,1993,1993,11802,28-Nov-16,28-Nov-16,jackal,-,93032ISR
+KX148192,AL_Cosmopolitan_ME1b,Cosmopolitan ME1b,ISR,Israel,-,1993,1993,1993,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,93033ISR
+KX148193,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,MAR,Morocco,-,2008,2008,2008,11805,28-Nov-16,28-Nov-16,Canis familiaris,-,08342FRA
+KX148194,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,MAR,Morocco,-,1989,1989,1989,11805,28-Nov-16,28-Nov-16,Canis familiaris,-,89017MAR
+KX148195,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,MAR,Morocco,-,2004,2004,2004,11804,28-Nov-16,28-Nov-16,Canis familiaris,-,04031FRA
+KX148196,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,MAR,Morocco,-,1990,1990,1990,11804,28-Nov-16,28-Nov-16,Canis familiaris,-,90016MAR
+KX148197,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,DZA,Algeria,-,2015,2015,2015,11804,28-Nov-16,28-Nov-16,Canis familiaris,-,15006FRA
+KX148198,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,SOM,Somalia,-,1993,1993,1993,11804,28-Nov-16,28-Nov-16,Canis familiaris,-,93128SOM
+KX148199,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,SOM,Somalia,-,1993,1993,1993,11804,28-Nov-16,28-Nov-16,jackal,-,93006SOM
+KX148200,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,ETH,Ethiopia,-,1988,1988,1988,11807,28-Nov-16,28-Nov-16,Canis familiaris,-,88008ETH
+KX148201,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,NGA,Nigeria,-,1986,1986,1986,11805,28-Nov-16,28-Nov-16,Canis familiaris,-,86003BRE
+KX148202,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,GAB,Gabon,-,1995,1995,1995,11804,28-Nov-16,28-Nov-16,Canis familiaris,-,95049GAB
+KX148203,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,MOZ,Mozambique,-,1986,1986,1986,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,86031MOZ
+KX148204,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,NAM,Namibia,-,1992,1992,1992,11800,28-Nov-16,28-Nov-16,Canis familiaris,-,92030NAM
+KX148205,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,RWA,Rwanda,-,1994,1994,1994,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,94289RWA
+KX148206,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,1996,1996,1996,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,96013TAN
+KX148207,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,KEN,Kenya,-,2014,2014,2014,11801,28-Nov-16,28-Nov-16,Homo sapiens,-,14015ITA
+KX148208,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,CAF,Central African Republic,-,1992,1992,1992,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,92029CAR
+KX148209,AL_Cosmopolitan_AF1c,Cosmopolitan AF1c,MDG,Madagascar,-,2004,2004,2004,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,04033MAD
+KX148210,AL_Cosmopolitan_AF1c,Cosmopolitan AF1c,MDG,Madagascar,-,1998,1998,1998,11801,28-Nov-16,28-Nov-16,Homo sapiens,-,98002MAD
+KX148211,AL_Cosmopolitan_AF1c,Cosmopolitan AF1c,MDG,Madagascar,-,1986,1986,1986,11801,28-Nov-16,28-Nov-16,Canis familiaris,-,86046MAD
+KX148212,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,-,1993,1993,1993,11802,28-Nov-16,28-Nov-16,jackal,-,93019IRA
+KX148213,AL_Cosmopolitan_AM1,Cosmopolitan AM1,USA,United States,-,1982,1982,1982,11801,28-Nov-16,28-Nov-16,skunk,-,91001USA
+KX148214,AL_Cosmopolitan_AM3a,Cosmopolitan AM3a,BRA,Brazil,-,1995,1995,1995,11803,28-Nov-16,28-Nov-16,Canis familiaris,-,95023BRE
+KX148215,AL_Cosmopolitan_AM3a,Cosmopolitan AM3a,BRA,Brazil,-,1995,1995,1995,11803,28-Nov-16,28-Nov-16,Canis familiaris,-,95022BRE
+KX148216,AL_Cosmopolitan_AM3a,Cosmopolitan AM3a,BRA,Brazil,-,1986,1986,1986,11802,28-Nov-16,28-Nov-16,Canis familiaris,-,86001BRE
+KX148217,AL_Cosmopolitan_AM3b,Cosmopolitan AM3b,BRA,Brazil,-,1986,1986,1986,11804,28-Nov-16,28-Nov-16,Canis familiaris,-,86123BRE
+KX708499,AL_Cosmopolitan,Cosmopolitan,MEX,Mexico,Yucatan,2015,2015,2015,11794,22-Aug-17,22-Aug-17,Canis familiaris,28819692,2041MxYucgod15
+KX708500,AL_Cosmopolitan,Cosmopolitan,MEX,Mexico,Yucatan,2014,2014,2014,11794,22-Aug-17,22-Aug-17,Canis familiaris,28819692,3106MxYucdog14
+KX708501,AL_Cosmopolitan,Cosmopolitan,MEX,Mexico,Yucatan,2013,2013,2013,11794,22-Aug-17,22-Aug-17,Canis familiaris,28819692,2187MxYucdog13
+KX708502,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,Chiapas,2012,2012,2012,11793,22-Aug-17,22-Aug-17,Canis familiaris,28819692,5559MxChisdog12
+KX708503,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,Chiapas,2014,2014,2014,11793,22-Aug-17,22-Aug-17,Canis familiaris,28819692,2835MxChisdog14
+KX708504,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,MEX,Mexico,Yucatan,2008,2008,2008,11798,22-Aug-17,22-Aug-17,Canis familiaris,28819692,9084MxYucdog08
+KY210220,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11914,03-Dec-17,03-Dec-17,Capra hircus,-,rv2483
+KY210221,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2008,2008,2008,11912,03-Dec-17,03-Dec-17,Capra hircus,-,rv2485
+KY210222,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2009,2009,2009,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2489
+KY210223,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2007,2007,2007,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2497
+KY210224,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2010,2010,2010,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2786
+KY210225,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv2858
+KY210226,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2859
+KY210227,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2863
+KY210228,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11856,03-Dec-17,03-Dec-17,Capra hircus,-,rv2866
+KY210229,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2867
+KY210230,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv2868
+KY210231,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2870
+KY210232,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2873
+KY210233,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv2877
+KY210234,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2878
+KY210235,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2879
+KY210236,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Bos taurus,-,rv2880
+KY210237,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,03-Dec-17,03-Dec-17,Bos taurus,-,rv2881
+KY210238,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2882
+KY210239,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2883
+KY210240,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11884,03-Dec-17,03-Dec-17,Bos taurus,-,rv2884
+KY210241,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11905,03-Dec-17,03-Dec-17,Capra hircus,-,rv2885
+KY210242,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv2886
+KY210243,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2887
+KY210244,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11858,03-Dec-17,03-Dec-17,Canis familiaris,-,rv2888
+KY210245,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3047
+KY210246,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Ovis aries,-,rv3048
+KY210247,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3049
+KY210248,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3050
+KY210249,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3051
+KY210250,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3052
+KY210251,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3053
+KY210252,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3057
+KY210253,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3058
+KY210254,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3059
+KY210255,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3060
+KY210256,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3061
+KY210257,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3063
+KY210258,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3064
+KY210259,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11920,03-Dec-17,03-Dec-17,Felis catus,-,rv3066
+KY210260,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11897,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3067
+KY210261,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv3068
+KY210262,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv3070
+KY210263,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3071
+KY210264,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3072
+KY210265,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3073
+KY210266,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3074
+KY210267,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3075
+KY210268,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3078
+KY210269,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3079
+KY210270,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3080
+KY210271,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3082
+KY210272,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3084
+KY210273,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3085
+KY210274,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3086
+KY210275,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11914,03-Dec-17,03-Dec-17,Bos taurus,-,rv3087
+KY210276,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2013,2013,2013,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3088
+KY210277,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3090
+KY210278,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3092
+KY210279,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11903,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3094
+KY210280,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3096
+KY210281,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3097
+KY210282,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11869,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3098
+KY210283,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3099
+KY210284,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11914,03-Dec-17,03-Dec-17,Jackal,-,rv3101
+KY210285,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Capra hircus,-,rv3102
+KY210286,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2011,2011,2011,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3103
+KY210287,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11873,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3105
+KY210288,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11922,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3109
+KY210289,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3110
+KY210290,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3113
+KY210291,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Jackal,-,rv3114
+KY210292,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3115
+KY210293,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11915,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3119
+KY210294,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3121
+KY210295,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3122
+KY210296,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3124
+KY210297,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Ovis aries,-,rv3129
+KY210298,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Capra hircus,-,rv3130
+KY210299,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11914,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3134
+KY210300,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3135
+KY210301,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Bos taurus,-,rv3136
+KY210302,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11920,03-Dec-17,03-Dec-17,Capra hircus,-,rv3137
+KY210303,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3138
+KY210304,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3139
+KY210305,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Hyena,-,rv3145
+KY210306,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Civet,-,rv3146
+KY210307,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11923,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3150
+KY210308,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11875,03-Dec-17,03-Dec-17,Bos taurus,-,rv3151
+KY210309,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11906,03-Dec-17,03-Dec-17,not available,-,rv3152
+KY210310,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11891,03-Dec-17,03-Dec-17,Capra hircus,-,rv3153
+KY210311,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,Serengeti District,2012,2012,2012,11919,03-Dec-17,03-Dec-17,Canis familiaris,-,rv3154
+KY649620,AL_Cosmopolitan_CA1,Cosmopolitan CA1,-,-,-,-,-,2018,11884,07-Feb-18,07-Feb-18,Bos taurus,-,CNIM1701
+KY765901,AL_Cosmopolitan,Cosmopolitan,TJK,Tajikistan,-,2012,2012,2012,11922,03-May-17,03-May-17,Canis familiaris,-,Tajik FTA
+KY860583,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1999,1999,1999,11923,31-Jan-18,31-Jan-18,Canis familiaris,-,RV2975
+KY860584,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1999,1999,1999,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV1124
+KY860585,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV1126
+KY860586,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV1127
+KY860587,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV1128
+KY860588,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2004,2004,2004,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2976
+KY860589,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2006,2006,2006,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2977
+KY860590,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2007,2007,2007,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2984
+KY860591,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2008,2008,2008,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2979
+KY860592,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2009,2009,2009,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2980
+KY860593,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2010,2010,2010,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2981
+KY860594,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2012,2012,2012,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2982
+KY860595,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2012,2012,2012,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV2983
+KY860596,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2014,2014,2014,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV3162
+KY860597,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2014,2014,2014,11924,31-Jan-18,31-Jan-18,Canis familiaris,-,RV3163
+KY860598,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2014,2014,2014,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,-,sub5790
+KY860599,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2014,2014,2014,11924,31-Jan-18,31-Jan-18,Canis familiaris,-,sub5791
+KY860600,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2014,2014,2014,11925,31-Jan-18,31-Jan-18,Vulpes vulpes,-,sub5792
+KY860601,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2014,2014,2014,11925,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV3160
+KY860602,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2014,2014,2014,11924,31-Jan-18,31-Jan-18,Canis familiaris,-,RV3161
+KY860603,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2015,2015,2015,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV3166
+KY860604,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,TUR,Turkey,-,2000,2000,2000,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV1145
+KY860605,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV1144
+KY860606,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,-,RV1129
+KY860607,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Canis familiaris,-,RV1136
+KY860608,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Canis familiaris,-,RV1137
+KY860609,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Canis familiaris,-,RV1142
+KY860610,AL_Cosmopolitan_CA2,Cosmopolitan CA2,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Canis familiaris,-,RV1133
+KY860611,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,TUR,Turkey,-,2001,2001,2001,11923,31-Jan-18,31-Jan-18,Canis familiaris,-,RV1134
+KY860612,AL_Cosmopolitan_ME2,Cosmopolitan ME2,TUR,Turkey,-,1989,1989,1989,11923,31-Jan-18,31-Jan-18,Canis familiaris,-,RV201
+LC029889,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,UGA,Uganda,-,2009,2009,2009,11923,07-Apr-15,07-Apr-15,Felis catus,-,UGbv13
+LC325820,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2018,11927,14-Feb-18,14-Feb-18,-,-,CVS
+LN879480,AL_Cosmopolitan,Cosmopolitan,AZE,Azerbaijan,-,2002,2002,2002,11923,20-Jan-17,20-Jan-17,Canis lupus familiaris,27046474,5989/lib205/12
+LN879481,AL_Cosmopolitan_WE,Cosmopolitan WE,DEU,Germany,-,1998,1998,1998,11922,10-Mar-16,21-Apr-16,Vulpes vulpes,27046474,148/lib01041
+LT839616,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2017,11927,21-Jun-17,21-Jun-17,-,-,35009
+LT909526,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,13162
+LT909528,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,20520
+LT909529,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,-,-,-,-,-,2018,11927,29-Jan-18,29-Jan-18,-,-,13122
+LT909530,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2018,11925,29-Jan-18,29-Jan-18,-,-,13251
+LT909531,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,-,-,-,-,-,2018,11930,29-Jan-18,29-Jan-18,-,-,13177
+LT909532,AL_Cosmopolitan_NEE,Cosmopolitan NEE,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,12929
+LT909533,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,13044
+LT909534,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,13465
+LT909535,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,-,-,-,-,-,2018,11927,29-Jan-18,29-Jan-18,-,-,13123
+LT909536,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,13471
+LT909537,AL_Cosmopolitan_NEE,Cosmopolitan NEE,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,12951
+LT909538,AL_Cosmopolitan_NEE,Cosmopolitan NEE,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,12989
+LT909540,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,13043
+LT909542,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,-,-,-,-,-,2018,11931,29-Jan-18,29-Jan-18,-,-,13125
+LT909543,AL_Cosmopolitan,Cosmopolitan,-,-,-,-,-,2018,11925,29-Jan-18,29-Jan-18,-,-,13249
+LT909544,AL_Cosmopolitan_AM2a,Cosmopolitan AM2a,-,-,-,-,-,2018,11924,29-Jan-18,29-Jan-18,-,-,13212
+LT909546,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,-,-,-,-,-,2018,11926,29-Jan-18,29-Jan-18,-,-,13135
+LT909547,AL_Cosmopolitan_CE,Cosmopolitan CE,-,-,-,-,-,2018,11923,29-Jan-18,29-Jan-18,-,-,13284
+LT909551,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,-,-,-,-,-,2018,11927,29-Jan-18,29-Jan-18,-,-,13473
+MF172976,AL_Cosmopolitan_CA1,Cosmopolitan CA1,-,-,-,-,-,2018,11838,11-Feb-18,11-Feb-18,Bos taurus,-,CNIM1702
+MF197741,AL_Cosmopolitan_CA1,Cosmopolitan CA1,POL,Poland,Podlaskie voievodeship,2008,2008,2008,11802,17-May-18,17-May-18,Vulpes vulpes,-,1311200108POL
+MF197742,AL_Cosmopolitan_CE,Cosmopolitan CE,POL,Poland,Podlaskie voievodeship,2014,2014,2014,11802,17-May-18,17-May-18,Vulpes vulpes,-,2069200108POL
+MF197743,AL_Cosmopolitan_NEE,Cosmopolitan NEE,POL,Poland,Lesser Poland,2010,2010,2010,11801,17-May-18,17-May-18,Vulpes vulpes,-,1359120810POL
+MG458306,AL_Cosmopolitan_CE,Cosmopolitan CE,CZE,Czechia,-,-,-,2018,11924,31-Jan-18,31-Jan-18,Vulpes vulpes,29357361,RV860
+MG458309,AL_Cosmopolitan_YUGCOW,Cosmopolitan YUGCOW,SRB,Serbia,-,1978,1978,1978,11923,31-Jan-18,31-Jan-18,Canis familiaris,29357361,RV1185
+MG458310,AL_Cosmopolitan_WE,Cosmopolitan WE,SRB,Serbia,-,1986,1986,1986,11923,31-Jan-18,31-Jan-18,Bos taurus,29357361,RV1189
+MG458311,AL_Cosmopolitan_EE,Cosmopolitan EE,SRB,Serbia,-,1998,1998,1998,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,29357361,RV1196
+MG458312,AL_Cosmopolitan,Cosmopolitan,SRB,Serbia,-,1997,1997,1997,11923,31-Jan-18,31-Jan-18,Vulpes vulpes,29357361,RV1219
+MG458315,AL_Cosmopolitan_AF4,Cosmopolitan AF4,EGY,Egypt,-,1998,1998,1998,11923,31-Jan-18,31-Jan-18,Canis familiaris,29357361,RV2321
+MG458316,AL_Cosmopolitan_AF4,Cosmopolitan AF4,EGY,Egypt,-,1998,1998,1998,11923,31-Jan-18,31-Jan-18,Canis familiaris,29357361,RV2322
+MG458317,AL_Cosmopolitan_AF4,Cosmopolitan AF4,EGY,Egypt,-,1999,1999,1999,11923,31-Jan-18,31-Jan-18,Canis familiaris,29357361,RV2323
+MG458318,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2008,2008,2008,11918,31-Jan-18,31-Jan-18,Homo sapiens,29357361,RV2481
+MG458319,AL_Cosmopolitan,Cosmopolitan,GRD,Grenada,-,2012,2012,2012,11925,31-Jan-18,31-Jan-18,mongoose,29357361,RV2854
+MH267792,AL_Cosmopolitan_CA1,Cosmopolitan CA1,CHN,China,Inner Mongolia,2017,2017,2017,11884,30-May-18,30-May-18,Ovis aries,-,CNIM1703
+MK598338,AL_Cosmopolitan_CA3,Cosmopolitan CA3,HUN,Hungary,-,2006,2006,2006,11799,01-May-20,01-May-20,Vulpes vulpes,-,18537
+MK598339,AL_Cosmopolitan_CA3,Cosmopolitan CA3,HUN,Hungary,-,2007,2007,2007,11799,01-May-20,01-May-20,Vulpes vulpes,-,12408
+MK598340,AL_Cosmopolitan_CA3,Cosmopolitan CA3,HUN,Hungary,-,2007,2007,2007,11798,01-May-20,01-May-20,Vulpes vulpes,-,12496
+MK598341,AL_Cosmopolitan_CA3,Cosmopolitan CA3,HUN,Hungary,-,2008,2008,2008,11799,01-May-20,01-May-20,Vulpes vulpes,-,5247
+MK598342,AL_Cosmopolitan_CA3,Cosmopolitan CA3,HUN,Hungary,-,2009,2009,2009,11799,01-May-20,01-May-20,Vulpes vulpes,-,44190
+MK598343,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,2008,2008,2008,11798,01-May-20,01-May-20,Vulpes vulpes,-,18072
+MK598344,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,2009,2009,2009,11798,01-May-20,01-May-20,Vulpes vulpes,-,1545
+MK598345,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,2010,2010,2010,11798,01-May-20,01-May-20,Vulpes vulpes,-,2690
+MK598346,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2010,2010,2010,11798,01-May-20,01-May-20,Vulpes vulpes,-,893
+MK598347,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2016,2016,2016,11798,01-May-20,01-May-20,Vulpes vulpes,-,5666
+MK598348,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2017,2017,2017,11798,01-May-20,01-May-20,Vulpes vulpes,-,8656
+MK598349,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2017,2017,2017,11798,01-May-20,01-May-20,Capra hircus,-,1703171
+MK598350,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2017,2017,2017,11798,01-May-20,01-May-20,Capra hircus,-,1703172
+MK598351,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,21068
+MK598352,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,15582
+MK598353,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,24936
+MK598354,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,24951
+MK598355,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,16374
+MK598356,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,25611
+MK598357,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,25987
+MK598358,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,25992
+MK598359,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,26301
+MK598360,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,27089
+MK598361,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,29628
+MK598362,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Felis catus,-,30856
+MK598363,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,31168
+MK598364,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Felis catus,-,31183
+MK598365,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,755
+MK598366,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,1606
+MK598367,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,1608
+MK598368,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,1322
+MK598369,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,1816
+MK598370,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,4834
+MK598371,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,5695
+MK598372,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,6003
+MK598373,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,6917
+MK598374,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,10436
+MK598375,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,13961
+MK598376,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,16663
+MK598377,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,17182
+MK598378,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Capra hircus,-,42708
+MK598379,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Canis familiaris,-,46293
+MK598380,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,21541
+MK598381,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,22329
+MK598382,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,22934
+MK598383,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,23335
+MK598384,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,24956
+MK598385,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,26627
+MK598386,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,26631
+MK598387,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,26636
+MK598388,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,29504
+MK598389,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2013,2013,2013,11798,01-May-20,01-May-20,Vulpes vulpes,-,31167
+MK598390,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,deer,-,1801
+MK598391,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,9435
+MK598392,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,13070
+MK598393,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,14940
+MK598394,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,16367
+MK598395,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,33424
+MK598396,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,35313
+MK598397,AL_Cosmopolitan_NEE,Cosmopolitan NEE,HUN,Hungary,-,2014,2014,2014,11798,01-May-20,01-May-20,Vulpes vulpes,-,41108
+MK598398,AL_Cosmopolitan_EE,Cosmopolitan EE,HUN,Hungary,-,1996,1996,1996,11796,01-May-20,01-May-20,Felis catus,-,10244
+MK760667,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kerman, Bardsir",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,86-396
+MK760668,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Yazd, Khatam",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,86-422
+MK760669,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Salmas",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,86-433
+MK760670,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Naghadeh",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,86-458
+MK760671,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Bukan",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,86-482
+MK760672,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kerman, Shahr-e Babak",2008,2008,2008,11723,01-Oct-19,01-Oct-19,Ovis aries,31535448,86-486
+MK760673,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Lorestan, Borujerd",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,87-1
+MK760674,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Mahabad",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,87-123
+MK760675,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Khuzestan, Shoshtar",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,87-327
+MK760676,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Hamadan, Hamadan",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,87-375
+MK760677,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Tehran, Shahriyar",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,87-395
+MK760678,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kerman, Shahr-e Babak",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,87-421
+MK760679,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Hamadan, Asadabad",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,87-44
+MK760680,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Fars, Neyriz",2008,2008,2008,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,87-50
+MK760681,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qom, Salafghegan",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-1
+MK760682,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Kermanshah, Kermanshah",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-13
+MK760683,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Lorestan, Khorramabad",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-186
+MK760684,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Khuzestan, Shooshdanial",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-2
+MK760685,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Sarab",2009,2009,2009,11721,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-23
+MK760686,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Isfahan, Samiram",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-269
+MK760687,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kurdistan, Gharveh",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-27
+MK760688,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Chaharmahal and Bakhtiari, Lordegan",2009,2009,2009,11722,01-Oct-19,01-Oct-19,jackal,31535448,88-29
+MK760689,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Lorestan, Borujerd",2010,2010,2010,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,88-293
+MK760690,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Khuzestan, Gotvand",2010,2010,2010,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-331
+MK760691,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Fars, Farashband",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-35
+MK760692,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kerman, Kerman",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,88-58
+MK760693,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kurdistan, Sanandaj",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-62
+MK760694,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Bukan",2009,2009,2009,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,88-67
+MK760695,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Gilan, Masal",2011,2011,2011,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,89-A-51
+MK760696,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Markazi, Arak",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,91-104
+MK760697,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Markazi, Arak",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,91-105
+MK760698,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kermanshah, Songhor",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,91-108
+MK760699,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kurdistan, Bijar",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,91-111
+MK760700,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"Razavi Khorasan, Sabzevar",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,91-120
+MK760701,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qazvin, Qazvin",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,91-202
+MK760703,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qom, Qom",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,91-259
+MK760704,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qom, Qom",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,91-271
+MK760705,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Lorestan, Borujerd",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,91-288
+MK760706,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"North Khorasan, Jajrom",2012,2012,2012,11722,01-Oct-19,01-Oct-19,jackal,31535448,91-310
+MK760707,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"North Khorasan, Mado Smalghan",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,91-58
+MK760708,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qazvin, Takestan",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,91-86
+MK760709,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Mazandaran, Savadkooh",2012,2012,2012,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,91-A-57
+MK760710,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kermanshah, Kermanshah",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-107
+MK760711,AL_Cosmopolitan_ME2,Cosmopolitan ME2,IRN,Iran,"West Azarbaijan, Khoy",2013,2013,2013,11723,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-112
+MK760712,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"Razavi Khorasan, Bardeskan",2013,2013,2013,11722,01-Oct-19,01-Oct-19,jackal,31535448,92-134
+MK760713,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Heris",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-14
+MK760714,AL_Cosmopolitan_ME2,Cosmopolitan ME2,IRN,Iran,"West Azarbaijan, Chaldoran",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-144
+MK760715,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qazvin, Avaj",2013,2013,2013,11723,01-Oct-19,01-Oct-19,jackal,31535448,92-145
+MK760716,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Khoy",2013,2013,2013,11723,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-15
+MK760717,AL_Cosmopolitan_ME2,Cosmopolitan ME2,IRN,Iran,"Hamadan, Razan",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-151
+MK760718,AL_Cosmopolitan_ME2,Cosmopolitan ME2,IRN,Iran,"West Azarbaijan, Chaldoran",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-156
+MK760719,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Hormozgan, Hajiabad",2013,2013,2013,11722,01-Oct-19,01-Oct-19,jackal,31535448,92-184
+MK760720,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kurdistan, Saqqez",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,92-219
+MK760721,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Zanjan, Tarom",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-248
+MK760722,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Hamadan, Hamadan",2013,2013,2013,11723,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-27
+MK760723,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"North Khorasan, Faruj",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-287
+MK760724,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Takab",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,92-298
+MK760725,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Azarshahr",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-330
+MK760726,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kurdistan, Kamyaran",2013,2013,2013,11722,01-Oct-19,01-Oct-19,jackal,31535448,92-335
+MK760727,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Fars, Eqlid",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,92-343
+MK760728,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Fars, Abadeh",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-350
+MK760730,AL_Cosmopolitan_ME2,Cosmopolitan ME2,IRN,Iran,"East Azarbaijan, Heris",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-358
+MK760731,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"North Khorasan, Ashkhaneh",2014,2014,2014,11723,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-363
+MK760732,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Fars, Shiraz",2014,2014,2014,11723,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-374
+MK760733,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Alborz, Nazarabad",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-377
+MK760734,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"Razavi Khorasan, Sabzevar",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,92-39
+MK760736,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Poldasht",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-409
+MK760737,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Zanjan, Ijrud",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,92-41
+MK760738,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Hamadan, Hamadan",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-417
+MK760739,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Isfahan, Falavarjan",2013,2013,2013,11723,01-Oct-19,01-Oct-19,jackal,31535448,92-75
+MK760740,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Shahin dezh",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-79
+MK760741,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"West Azarbaijan, Mahabad",2013,2013,2013,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-81
+MK760742,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Ardabil, Khalkhal",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,92-A-45
+MK760743,AL_Cosmopolitan_ME2,Cosmopolitan ME2,IRN,Iran,"West Azarbaijan, Khoy",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-124
+MK760744,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"Goolestan, Gorgan",2014,2014,2014,11722,01-Oct-19,01-Oct-19,jackal,31535448,93-A-13
+MK760745,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Zanjan, Khodabandeh",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-143
+MK760746,AL_Cosmopolitan_ME2,Cosmopolitan ME2,IRN,Iran,"East Azarbaijan, Marand",2014,2014,2014,11723,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-166
+MK760747,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Khuzestan, Dezful",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,93-A-182
+MK760748,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Hamadan, Kabudarahang",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,93-A-2
+MK760749,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Mianeh",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-21
+MK760750,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Lorestan, Khorramabad",2014,2014,2014,11722,01-Oct-19,01-Oct-19,marten,31535448,93-A-211
+MK760751,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Jolfa",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-225
+MK760752,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Mianeh",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,93-A-241
+MK760753,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"North Khorasan, Bojnourd",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,93-A-246
+MK760754,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Kurdistan, Saqqez",2014,2014,2014,11723,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-27
+MK760755,AL_Cosmopolitan_CA1,Cosmopolitan CA1,IRN,Iran,"Semnan, Damghan",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-29
+MK760756,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Khuzestan, Ahvaz",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-305
+MK760757,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Kermanshah, Sarepol-e Zahab",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-311
+MK760758,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Markazi, Arak",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-337
+MK760759,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Ardabil, Khalkhal",2014,2014,2014,11723,01-Oct-19,01-Oct-19,Vulpes vulpes,31535448,93-A-40
+MK760760,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Khuzestan, Shoshtar",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-45
+MK760762,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"East Azarbaijan, Mianeh",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,93-A-53
+MK760763,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qom, Qom",2014,2014,2014,11722,01-Oct-19,01-Oct-19,jackal,31535448,93-A-71
+MK760764,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Isfahan, Isfahan",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-88
+MK760765,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Qom, Qom",2014,2014,2014,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,93-A-94
+MK760766,AL_Cosmopolitan_CA2,Cosmopolitan CA2,IRN,Iran,"Mazandaran, Behshahr",2015,2015,2015,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,94-A-29
+MK760767,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,IRN,Iran,"Gilan, Roodbar",2015,2015,2015,11722,01-Oct-19,01-Oct-19,Canis lupus,31535448,94-A-35
+MK760768,AL_Cosmopolitan_AF4,Cosmopolitan AF4,EGY,Egypt,"Berket El-Sabea, Menofiya",2007,2007,2007,11722,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,E15028
+MK760769,AL_Cosmopolitan_AF4,Cosmopolitan AF4,EGY,Egypt,"Wady El- Natroon, El Behira",2009,2009,2009,11723,01-Oct-19,01-Oct-19,donkey,31535448,E15031
+MK760770,AL_Cosmopolitan_AF4,Cosmopolitan AF4,EGY,Egypt,"Berket El-Sabea, Menofiya",2009,2009,2009,11725,01-Oct-19,01-Oct-19,Canis lupus familiaris,31535448,E15033
+MK981888,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,TUN,Tunisia,-,1993,1993,1993,11796,30-Jun-19,30-Jun-19,Canis familiaris,31220188,Ariana2
+MN534896,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,QAT,Qatar,-,2018,2018,2018,11874,19-Apr-20,19-Apr-20,camel,-,RABV_Qatar_camel
+MN534897,AL_Cosmopolitan_ME1a,Cosmopolitan ME1a,QAT,Qatar,-,2018,2018,2018,11874,19-Apr-20,19-Apr-20,Vulpes vulpes,-,RABV_Qatar_fox
+MN726802,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11552,25-Dec-19,25-Dec-19,-,-,RAB16033
+MN726803,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2018,2018,2018,11274,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD713
+MN726804,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11923,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SUB7087
+MN726805,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,KEN,Kenya,-,2017,2017,2017,11846,25-Dec-19,25-Dec-19,Ovis aries,-,20826361_field
+MN726807,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11462,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM024
+MN726808,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11806,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD622
+MN726809,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11545,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM015
+MN726810,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,KEN,Kenya,-,2015,2015,2015,11589,25-Dec-19,25-Dec-19,Homo sapiens,-,2011100179
+MN726811,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11341,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD711
+MN726812,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,KEN,Kenya,-,2017,2017,2017,11847,25-Dec-19,25-Dec-19,Canis familiaris,-,Z0826362
+MN726814,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,KEN,Kenya,-,2018,2018,2018,11846,25-Dec-19,25-Dec-19,feline,-,M009_field
+MN726815,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11869,25-Dec-19,25-Dec-19,Canis mesomelas,-,SD577
+MN726816,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,KEN,Kenya,-,2018,2018,2018,11598,25-Dec-19,25-Dec-19,Capra hircus,-,CR020_field
+MN726817,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11633,25-Dec-19,25-Dec-19,Bos taurus,-,SD620
+MN726818,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11869,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD601
+MN726819,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,KEN,Kenya,-,2013,2013,2013,11846,25-Dec-19,25-Dec-19,Homo sapiens,-,2010818843
+MN726820,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11819,25-Dec-19,25-Dec-19,Felis catus,-,SD683
+MN726821,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,KEN,Kenya,-,2018,2018,2018,11598,25-Dec-19,25-Dec-19,Bos taurus,-,B397_field
+MN726822,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2018,2018,2018,11341,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD714
+MN726823,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11341,25-Dec-19,25-Dec-19,-,-,SD706
+MN726824,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11632,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,RAB16031
+MN726825,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2015,2015,2015,11732,25-Dec-19,25-Dec-19,Canis mesomelas,-,SD577SG
+MN726826,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2016,2016,2016,11868,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,Rab16025
+MN726827,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11869,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM023
+MN726828,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11127,25-Dec-19,25-Dec-19,Capra hircus,-,PM019
+MN726829,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11517,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD693
+MN726830,AL_Cosmopolitan_AF1a,Cosmopolitan AF1a,KEN,Kenya,-,2018,2018,2018,11846,25-Dec-19,25-Dec-19,Bos taurus,-,Z0826752
+MN726831,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,KEN,Kenya,-,2013,2013,2013,11846,25-Dec-19,25-Dec-19,Bos taurus,-,Z08138851
+MN726832,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11341,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD709
+MN726833,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11821,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,SD641
+MN726835,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,TZA,Tanzania,-,2017,2017,2017,11559,25-Dec-19,25-Dec-19,Canis lupus familiaris,-,PM018
+MT454631,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2015,2015,2015,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,125/15
+MT454632,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2015,2015,2015,11902,09-Jul-20,09-Jul-20,Proteles cristata,-,155/15
+MT454633,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2015,2015,2015,11908,09-Jul-20,09-Jul-20,Proteles cristata,-,361/15
+MT454634,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2015,2015,2015,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,471/15
+MT454635,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2015,2015,2015,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,682/15
+MT454636,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2016,2016,2016,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,516/16
+MT454637,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2016,2016,2016,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,583/16
+MT454638,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2016,2016,2016,11923,09-Jul-20,09-Jul-20,Otocyon megalotis,-,631/16
+MT454639,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2016,2016,2016,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,635/16
+MT454640,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2016,2016,2016,11923,09-Jul-20,09-Jul-20,Otocyon megalotis,-,676/16
+MT454641,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2016,2016,2016,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,690/16
+MT454642,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2016,2016,2016,11923,09-Jul-20,09-Jul-20,Proteles cristata,-,725/16
+MT454643,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11922,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,269/17
+MT454644,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11923,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,368/17
+MT454645,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11922,09-Jul-20,09-Jul-20,Canis lupus familiaris,-,400/17
+MT454646,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11922,09-Jul-20,09-Jul-20,Canis mesomelas,-,454/17
+MT454647,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11922,09-Jul-20,09-Jul-20,Canis mesomelas,-,460/17
+MT454648,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11923,09-Jul-20,09-Jul-20,Canis mesomelas,-,466/17
+MT454649,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11922,09-Jul-20,09-Jul-20,Canis mesomelas,-,474/17
+MT454650,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11922,09-Jul-20,09-Jul-20,Otocyon megalotis,-,477/17
+MT454651,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11922,09-Jul-20,09-Jul-20,Canis mesomelas,-,480/17
+MT454652,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11923,09-Jul-20,09-Jul-20,Canis mesomelas,-,483/17
+MT454653,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11923,09-Jul-20,09-Jul-20,Canis mesomelas,-,502/17
+MT454654,AL_Cosmopolitan_AF1b,Cosmopolitan AF1b,ZAF,South Africa,-,2017,2017,2017,11923,09-Jul-20,09-Jul-20,Canis mesomelas,-,503/17
