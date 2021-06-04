@@ -125,7 +125,7 @@ lineage_assignment <- function(tree, min.support, max.support, alignment, metada
   
   nodes_diff <- nodes_5[(which(nodes_5[,3]!=0)),] # Get rid of the ones with no differences straight away 
   
-
+  
   #############################################
   #         OVERLAPPING TIPS REMOVAL          #
   #############################################
