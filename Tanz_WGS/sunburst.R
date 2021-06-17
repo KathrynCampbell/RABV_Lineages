@@ -9,6 +9,9 @@ library(TreeTools)
 library(ggtree)
 library(scales)
 library(RColorBrewer)
+library(rgdal)
+library(ggplot2)
+library(scatterpie)
 
 Sys.setenv("PATH" = "/Users/kathryncampbell/miniconda3/bin")
 
@@ -17,8 +20,13 @@ Sys.getenv("PATH")
 lineage_info<-read.csv("Tanz_WGS/Outputs/Tanz_WGS_lineage_info.csv")
 node_data<-read.csv("Tanz_WGS/Outputs/Tanz_WGS_node_data.csv")
 tree<-read.tree("Tanz_WGS/Trees/Tanz_WGS_aligned.fasta.contree")
-metadata<-read.csv("Tanz_WGS/Tanz_WGS_metadata.csv")
+metadata<-read.csv("Tanz_WGS/Tanz_WGS_metadata_outgroup.csv")
 sequence_data<-read.csv("Tanz_WGS/Outputs/Tanz_WGS_sequence_data.csv")
+
+shape_region<-readOGR("Tanz_WGS/TZ_Region_2012_pop.shp")
+shape_district<-readOGR("Tanz_WGS/TZ_District_2012_pop.shp")
+
+metadata<-metadata[-c(grep("Asian", metadata$assignment)),]
 
 previous<-data.frame(assignment = unique(metadata$alignment.name), parent = "Cosmopolitan", n_seqs = NA)
 previous$parent[1]<-""
@@ -79,7 +87,7 @@ new<-plot_ly(
   height = 850,
   marker = list(colors = list("#DE2D26", "#F27058", "#FCAC92", "#FEE0D2", "#756BB1", "#9894C6", 
                               "#BCBDDC", "#D5D5E8", "#EFEDF5", "#31A354", "#A1D99B", "#E5F5E0", 
-                              "#F0F0F0", "#FEE6CE", "#F7FBFF"))
+                              "#F0F0F0", "#FEE6CE"))
 )
 
 new
@@ -120,3 +128,121 @@ plot_tree
 ggsave("Tanz_WGS/Figures/figure_lineage_tree.png",
        plot = plot_tree,
        height = 25, width = 40)
+
+
+#' **Cleaning the data**
+#' Find which country names do not match between data and map file
+map_regions <- as.character(shape_region@data$Region_Nam)
+map_districts <- as.character(shape_district@data$District_N)
+areas <- unique(metadata$sequence.gb_place_sampled)
+no_match <- setdiff(areas, map_regions); message(length(no_match), " countries are mis-matched: \n", paste0(no_match, collapse="\n"))
+
+metadata$sequence.gb_place_sampled<-gsub("region|Region|District|district|island", "", metadata$sequence.gb_place_sampled)
+metadata$sequence.gb_place_sampled<-gsub(" ", "", metadata$sequence.gb_place_sampled)
+metadata$sequence.gb_place_sampled[grepl("DaresSalaam", metadata$sequence.gb_place_sampled)] <- "Dar es Salaam"
+metadata$sequence.gb_place_sampled[grepl("Chakechake", metadata$sequence.gb_place_sampled)] <- "Pemba"
+metadata$sequence.gb_place_sampled[grepl("KusiniUnguja", metadata$sequence.gb_place_sampled)] <- "Kusini Unguja"
+
+#' How many entries are there for the remaining mis-matches?
+areas <- unique(metadata$sequence.gb_place_sampled)
+no_match <- setdiff(areas, map_regions); message(length(no_match), " countries are mis-matched: \n", paste0(no_match, collapse="\n"))
+
+no_match <- setdiff(no_match, map_districts); message(length(no_match), " countries are mis-matched: \n", paste0(no_match, collapse="\n"))
+#Serengeti at district level
+#Kusini Unguja at district level, region tab
+
+shape_region@data[grep("Pemba", shape_region@data$Region_Nam),]
+#Pemba 2 regions; maybe average to get middle?
+
+areas <- unique(metadata$sequence.gb_place_sampled)
+#' ** Tabulating the data**
+areas_table<-table(metadata$sequence.gb_place_sampled); areas_table
+length(areas_table)
+
+sequence_data<-sequence_data[-c(which(is.na(sequence_data$cluster))),]
+
+lineage_table <- data.frame(matrix(ncol = (length(unique(sequence_data$cluster))+1), nrow = length(areas)))
+x <- c("area", unique(sequence_data$cluster))
+colnames(lineage_table) <- x
+
+lineage_table$area<-areas
+
+for (i in 1:length(areas)) {
+  area_place<-which(lineage_table$area == areas[i])
+  lineages<-unique(sequence_data$cluster[which(sequence_data$ID %in% metadata$sequence.sequenceID[which(metadata$sequence.gb_place_sampled == areas[i])])])
+  for (j in 1:length(lineages)) {
+    area_lineage<-which(colnames(lineage_table) == lineages[j])
+    lineage_table[area_place, area_lineage]<-length(which((sequence_data$cluster[which(sequence_data$ID %in% 
+                                                                                         metadata$sequence.sequenceID[which(metadata$sequence.gb_place_sampled == areas[i])])]) == lineages[j]))
+  }
+}
+
+lineage_table[is.na(lineage_table)] <- 0
+
+lineage_table$LAT<-NA
+lineage_table$LON<-NA
+
+lineage_table<-lineage_table[-c(which(lineage_table$area == "-")),]
+
+lineage_table_problems<-lineage_table[grep("Serengeti|Chake Chake|Pemba|Kusini Unguja", lineage_table$area),]
+lineage_table<-lineage_table[-c(grep("Serengeti|Chake Chake|Pemba|Kusini Unguja", lineage_table$area)),]
+
+for (i in 1:length(lineage_table$area)) {
+  lineage_table$LAT[i]<-shape_region@polygons[which(shape_region@data$Region_Nam == lineage_table$area[i])][[1]]@labpt[2]
+  lineage_table$LON[i]<-shape_region@polygons[which(shape_region@data$Region_Nam == lineage_table$area[i])][[1]]@labpt[1]
+}
+
+for (i in 1) {
+  lineage_table_problems$LAT[i]<-shape_district@polygons[which(shape_district@data$District_N == lineage_table_problems$area[i])][[1]]@labpt[2]
+  lineage_table_problems$LON[i]<-shape_district@polygons[which(shape_district@data$District_N == lineage_table_problems$area[i])][[1]]@labpt[1]
+}
+
+lineage_table_problems$LAT[3]<-shape_district@polygons[which(shape_district@data$Region_Nam == lineage_table_problems$area[3])][[1]]@labpt[2]
+lineage_table_problems$LON[3]<-shape_district@polygons[which(shape_district@data$Region_Nam == lineage_table_problems$area[3])][[1]]@labpt[1]
+
+lineage_table_problems$LAT[2]<-mean(c(
+  shape_region@polygons[[grep(lineage_table_problems$area[2], shape_region@data$Region_Nam)[1]]]@labpt[2], 
+  shape_region@polygons[[grep(lineage_table_problems$area[2], shape_region@data$Region_Nam)[2]]]@labpt[2]
+))
+
+lineage_table_problems$LON[2]<-mean(c(
+  shape_region@polygons[[grep(lineage_table_problems$area[2], shape_region@data$Region_Nam)[1]]]@labpt[1], 
+  shape_region@polygons[[grep(lineage_table_problems$area[2], shape_region@data$Region_Nam)[2]]]@labpt[1]
+))
+
+lineage_table<-rbind(lineage_table, lineage_table_problems)
+
+plot<-
+  ggplot() +
+  geom_polygon(data = shape_region, aes( x = long, y = lat, group = group), fill="#69b3a2", color="white") +
+  theme_void() 
+
+lineage_table <- with(lineage_table, lineage_table[abs(LON) < 150 & abs(LAT) < 70,])
+n <- nrow(lineage_table)
+lineage_table$region <- factor(1:n)
+lineage_table$radius<-NA
+for (i in 1:length(lineage_table$area)) {
+  lineage_table$radius[i]<-sum(lineage_table[i,2:15])
+}
+
+lineage_table$radius
+lineage_table$radius[which(lineage_table$radius %in% 5:10)]<-3
+lineage_table$radius[which(lineage_table$radius > 10)]<-4
+
+lineage_table$radius<-lineage_table$radius/6
+
+colour_table<-data.frame(lineage = colnames(lineage_table[2:15]), colour = NA)
+colour_table$lineage<-gsub("Cosmopolitan ", "", colour_table$lineage)
+
+for (i in 1:length(colour_table$lineage)) {
+  colour_table$colour[i]<-lineage_info$colour[which(lineage_info$cluster == colour_table$lineage[i])]
+}
+
+plot_world<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=radius),
+                                   data=lineage_table, cols=c(colnames(lineage_table)[2:15]), color=NA, alpha=.8)+ 
+  theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))
+
+plot_world
+
+ggsave("Tanz_WGS/Figures/pie_map.png", plot = plot_world, width = 25, height = 20)
+
