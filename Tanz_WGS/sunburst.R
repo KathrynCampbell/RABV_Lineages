@@ -19,12 +19,17 @@ Sys.getenv("PATH")
 
 lineage_info<-read.csv("Tanz_WGS/Outputs/Tanz_WGS_lineage_info.csv")
 node_data<-read.csv("Tanz_WGS/Outputs/Tanz_WGS_node_data.csv")
+outgroup<-read.tree("Tanz_WGS/Trees/Tanz_outgroup_aligned.fasta.contree")
 tree<-read.tree("Tanz_WGS/Trees/Tanz_WGS_aligned.fasta.contree")
 metadata<-read.csv("Tanz_WGS/Tanz_WGS_metadata_outgroup.csv")
 sequence_data<-read.csv("Tanz_WGS/Outputs/Tanz_WGS_sequence_data.csv")
 
-shape_region<-readOGR("Tanz_WGS/TZ_Region_2012_pop.shp")
-shape_district<-readOGR("Tanz_WGS/TZ_District_2012_pop.shp")
+shape_region<-readOGR("Tanz_WGS/Shapefiles/TZ_Region_2012_pop_incUnguja.shp")
+shape_district<-readOGR("Tanz_WGS/Shapefiles/TZ_District_2012_pop.shp")
+
+outgroup<-reroot(outgroup, getMRCA(
+  outgroup, tip = which(outgroup$tip.label %in% metadata$sequence.sequenceID[(
+    grep("Asian", metadata$assignment))])))
 
 metadata<-metadata[-c(grep("Asian", metadata$assignment)),]
 
@@ -87,7 +92,7 @@ new<-plot_ly(
   height = 850,
   marker = list(colors = list("#DE2D26", "#F27058", "#FCAC92", "#FEE0D2", "#756BB1", "#9894C6", 
                               "#BCBDDC", "#D5D5E8", "#EFEDF5", "#31A354", "#A1D99B", "#E5F5E0", 
-                              "#F0F0F0", "#FEE6CE"))
+                              "#F0F0F0", "#FEE6CE", "#F7FBFF"))
 )
 
 new
@@ -98,9 +103,9 @@ new
 # Better resolution to just save from plot window
 
 # Plot a nice figure to save
-plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
+plot_tree<-ggtree(outgroup, colour = "grey50", ladderize = T) %<+% sequence_data +
   geom_tippoint(aes(color=cluster), size=3)  +
-  ggtitle("Cosmo N Lineage Tree")+
+  ggtitle("Tanzania WGS Lineage Tree")+
   theme(plot.title = element_text(size = 40, face = "bold"))+ 
   scale_color_manual(values=c(lineage_info$colour))
 
@@ -108,7 +113,13 @@ plot_tree
 
 lineage_info$node<-NA
 
+sequence_data$cluster<-gsub("Cosmopolitan ", "", sequence_data$cluster)
 node_data$cluster<-gsub("Cosmopolitan ", "", node_data$cluster)
+
+for (i in 1:length(node_data$cluster)) {
+  node_data$Node[i]<-getMRCA(outgroup, tip = which(outgroup$tip.label %in% metadata$sequence.sequenceID[
+    which(sequence_data$cluster == node_data$cluster[i])]))
+}
 
 for (i in 1:length(lineage_info$cluster)) {
   lineage_info$node[i]<-node_data$Node[which(node_data$cluster == lineage_info$cluster[i])]
@@ -240,7 +251,7 @@ for (i in 1:length(colour_table$lineage)) {
 
 plot_world<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=radius),
                                    data=lineage_table, cols=c(colnames(lineage_table)[2:15]), color=NA, alpha=.8)+ 
-  theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))
+  theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+ coord_equal(ratio=1)
 
 plot_world
 
