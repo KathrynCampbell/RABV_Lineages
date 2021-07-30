@@ -20,6 +20,9 @@ library(mapproj)
 library("rnaturalearth")
 library(rnaturalearthdata)
 library(scatterpie)
+library(phytools)
+library(phangorn)
+
 
 Sys.setenv("PATH" = "/Users/kathryncampbell/miniconda3/bin")
 
@@ -28,8 +31,20 @@ Sys.getenv("PATH")
 lineage_info<-read.csv("Cosmo_N_all/Outputs/Cosmo_N_all_lineage_info.csv")
 node_data<-read.csv("Cosmo_N_all/Outputs/Cosmo_N_all_node_data.csv")
 tree<-read.tree("Cosmo_N_all/Trees/Cosmo_N_all_aligned.fasta.contree")
+outgroup<-read.tree("Cosmo_N_all/Trees/Cosmo_N_all_outgroup_aligned.fasta.contree")
+outgroup_meta<-read.csv("Cosmo_WGS/Cosmo_WGS_metadata_outgroup.csv")
 metadata<-read.csv("Cosmo_N_all/Cosmo_N_all_metadata.csv")
 sequence_data<-read.csv("Cosmo_N_all/Outputs/Cosmo_N_all_sequence_data.csv")
+
+metadata<-metadata[which(metadata$ID %in% sequence_data$ID),]
+
+metadata<-rbind(metadata, outgroup_meta[grep("Asian", outgroup_meta$assignment),])
+
+outgroup<-reroot(outgroup, getMRCA(
+  outgroup, tip = which(outgroup$tip.label %in% metadata$ID[(
+    grep("Asian", metadata$assignment))])))
+
+metadata<-metadata[-c(grep("Asian", metadata$assignment)),]
 
 previous<-data.frame(assignment = unique(metadata$alignment.name), parent = "Cosmopolitan", n_seqs = NA)
 previous$parent[1]<-""
@@ -122,11 +137,13 @@ new
 # Better resolution to just save from plot window
 
 # Plot a nice figure to save
-plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
+plot_tree<-ggtree(outgroup, colour = "grey50", ladderize = T) %<+% sequence_data +
   geom_tippoint(aes(color=cluster), size=3)  +
-  ggtitle("Cosmo WGS Lineage Tree")+
+  ggtitle("Cosmo N Lineage Tree")+
   theme(plot.title = element_text(size = 40, face = "bold"))+ 
-  scale_color_manual(values=c(lineage_info$colour))
+  scale_color_manual(values=c(lineage_info$colour)) + 
+  geom_tiplab(align=T, aes(color = cluster)) +
+  theme(legend.position = "none")
 
 plot_tree
 
@@ -142,14 +159,14 @@ for (i in 1:length(lineage_info$cluster)) {
 group0<-which(lineage_info$group == 0)
 
 for (i in 1:length(group0)) {
-  plot_tree<-
+  collapse_tree<-
     collapse(plot_tree, lineage_info$node[group0[i]], 'max', fill=lineage_info$colour[group0[i]], alpha=1)
 }
 
 
-plot_tree<-plot_tree+theme(legend.position = "none")
+collapse_tree<-plot_tree+theme(legend.position = "none")
 
-plot_tree
+collapse_tree
 
 ggsave("Cosmo_N_all/Figures/figure_lineage_tree.png",
        plot = plot_tree,
@@ -251,12 +268,26 @@ for (i in 1:length(colour_table$lineage)) {
 plot_world<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=radius),
                                    data=lineage_table, cols=c(colnames(lineage_table)[2:138]), color=NA, alpha=.8)+ 
   theme(legend.position = "none") +scale_fill_manual(values = c(colour_table$colour))+
-  coord_sf(xlim = c(-155, 155), ylim = c(-50, 70))
+  coord_sf(xlim = c(-155, 155), ylim = c(-50, 70)) +
+  theme(panel.grid.major = element_blank())+
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank())
 
 plot_zoom<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=(radius/2)),
                                   data=lineage_table, cols=c(colnames(lineage_table)[2:138]), color=NA, alpha=.8)+ 
   theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+
-  coord_sf(xlim = c(-15,55), ylim = c(-30,62))
+  coord_sf(xlim = c(-15,55), ylim = c(-50,62))+
+  theme(panel.grid.major = element_blank())+
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank())
 
 plot_world
 plot_zoom

@@ -12,6 +12,8 @@ library(RColorBrewer)
 library(rgdal)
 library(ggplot2)
 library(scatterpie)
+library(phytools)
+library(phangorn)
 
 Sys.setenv("PATH" = "/Users/kathryncampbell/miniconda3/bin")
 
@@ -30,6 +32,10 @@ shape_district<-readOGR("Tanz_WGS/Shapefiles/TZ_District_2012_pop.shp")
 outgroup<-reroot(outgroup, getMRCA(
   outgroup, tip = which(outgroup$tip.label %in% metadata$sequence.sequenceID[(
     grep("Asian", metadata$assignment))])))
+
+metadata$sequence.sequenceID[grep("Asian", metadata$assignment)]
+
+outgroup<-tree_subset(outgroup, "KR906752", levels_back = 2)
 
 metadata<-metadata[-c(grep("Asian", metadata$assignment)),]
 
@@ -111,6 +117,8 @@ plot_tree<-ggtree(outgroup, colour = "grey50", ladderize = T) %<+% sequence_data
 
 plot_tree
 
+lineage_info<-lineage_info[-c(which(is.na(lineage_info$cluster))),]
+
 lineage_info$node<-NA
 
 sequence_data$cluster<-gsub("Cosmopolitan ", "", sequence_data$cluster)
@@ -120,6 +128,11 @@ for (i in 1:length(node_data$cluster)) {
   node_data$Node[i]<-getMRCA(outgroup, tip = which(outgroup$tip.label %in% metadata$sequence.sequenceID[
     which(sequence_data$cluster == node_data$cluster[i])]))
 }
+
+node_data$overlaps <- NA 
+for (i in 1:length(node_data$Node)) {
+  node_data$overlaps[i] <- length(which((allDescendants(outgroup)[[(node_data[i,1])]]) %in% node_data[,1]))
+} 
 
 for (i in 1:length(lineage_info$cluster)) {
   lineage_info$node[i]<-node_data$Node[which(node_data$cluster == lineage_info$cluster[i])]
@@ -223,9 +236,14 @@ lineage_table_problems$LON[2]<-mean(c(
 
 lineage_table<-rbind(lineage_table, lineage_table_problems)
 
+islands<-shape_region
+islands@polygons<-shape_region@polygons[grep("Pemba|Unguja", shape_region@data$Region_Nam)]
+shape_region@polygons<-shape_region@polygons[-c(grep("Pemba|Unguja", shape_region@data$Region_Nam))]
+
 plot<-
   ggplot() +
   geom_polygon(data = shape_region, aes( x = long, y = lat, group = group), fill="#69b3a2", color="white") +
+  geom_polygon(data = islands, aes(x = long, y = lat, group = group), fill = "#69b3a2") +
   theme_void() 
 
 lineage_table <- with(lineage_table, lineage_table[abs(LON) < 150 & abs(LAT) < 70,])
@@ -255,5 +273,5 @@ plot_world<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=radius),
 
 plot_world
 
-ggsave("Tanz_WGS/Figures/pie_map.png", plot = plot_world, width = 25, height = 20)
+ggsave("Tanz_WGS/Figures/pie_map.png", plot = plot_world)
 

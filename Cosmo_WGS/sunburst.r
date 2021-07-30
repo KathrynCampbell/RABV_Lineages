@@ -19,6 +19,8 @@ library(mapproj)
 library("rnaturalearth")
 library(rnaturalearthdata)
 library(scatterpie)
+library(phytools)
+library(phangorn)
 
 Sys.setenv("PATH" = "/Users/kathryncampbell/miniconda3/bin")
 
@@ -27,8 +29,19 @@ Sys.getenv("PATH")
 lineage_info<-read.csv("Cosmo_WGS/Outputs/Cosmo_WGS_lineage_info.csv")
 node_data<-read.csv("Cosmo_WGS/Outputs/Cosmo_WGS_node_data.csv")
 tree<-read.tree("Cosmo_WGS/Trees/Cosmo_WGS_aligned.fasta.contree")
-metadata<-read.csv("Cosmo_WGS/Cosmo_WGS_metadata.csv")
+outgroup<-read.tree("Cosmo_WGS/Trees/Cosmo_WGS_outgroup_aligned.fasta.contree")
+metadata<-read.csv("Cosmo_WGS/Cosmo_WGS_metadata_outgroup.csv")
 sequence_data<-read.csv("Cosmo_WGS/Outputs/Cosmo_WGS_sequence_data.csv")
+
+outgroup<-reroot(outgroup, getMRCA(
+  outgroup, tip = which(outgroup$tip.label %in% metadata$ID[(
+    grep("Asian", metadata$assignment))])))
+
+plot(outgroup)
+
+outgroup<-tree_subset(outgroup, 662, levels_back = 0)
+
+metadata<-metadata[-c(grep("Asian", metadata$assignment)),]
 
 previous<-data.frame(assignment = unique(metadata$alignment.name), parent = "Cosmopolitan", n_seqs = NA)
 previous$parent[1]<-""
@@ -110,17 +123,30 @@ new
 # Better resolution to just save from plot window
 
 # Plot a nice figure to save
-plot_tree<-ggtree(tree, colour = "grey50", ladderize = T) %<+% sequence_data +
+plot_tree<-ggtree(outgroup, colour = "grey50", ladderize = T) %<+% sequence_data +
   geom_tippoint(aes(color=cluster), size=3)  +
   ggtitle("Cosmo WGS Lineage Tree")+
   theme(plot.title = element_text(size = 40, face = "bold"))+ 
-  scale_color_manual(values=c(lineage_info$colour))
+  scale_color_manual(values=c(lineage_info$colour))+ 
+  geom_tiplab(align=T, aes(color = cluster)) +
+  theme(legend.position = "none")
 
 plot_tree
 
 lineage_info$node<-NA
 
+sequence_data$cluster<-gsub("Cosmopolitan ", "", sequence_data$cluster)
 node_data$cluster<-gsub("Cosmopolitan ", "", node_data$cluster)
+
+for (i in 1:length(node_data$cluster)) {
+  node_data$Node[i]<-getMRCA(outgroup, tip = which(outgroup$tip.label %in% metadata$ID[
+    which(sequence_data$cluster == node_data$cluster[i])]))
+}
+
+node_data$overlaps <- NA 
+for (i in 1:length(node_data$Node)) {
+  node_data$overlaps[i] <- length(which((allDescendants(outgroup)[[(node_data[i,1])]]) %in% node_data[,1]))
+} 
 
 for (i in 1:length(lineage_info$cluster)) {
   lineage_info$node[i]<-node_data$Node[which(node_data$cluster == lineage_info$cluster[i])]
@@ -130,11 +156,13 @@ for (i in 1:length(lineage_info$cluster)) {
 group0<-which(lineage_info$group == 0)
 
 for (i in 1:length(group0)) {
-  plot_tree<-
+  collapse_tree<-
     collapse(plot_tree, lineage_info$node[group0[i]], 'max', fill=lineage_info$colour[group0[i]], alpha=1)
 }
 
-plot_tree<-plot_tree + theme(legend.position = "none")
+collapse_tree<-collapse_tree + theme(legend.position = "none")
+
+collapse_tree
 
 ggsave("Cosmo_WGS/Figures/figure_lineage_tree.png",
        plot = plot_tree,
@@ -228,12 +256,26 @@ for (i in 1:length(colour_table$lineage)) {
 plot_world<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=radius),
                        data=lineage_table, cols=c(colnames(lineage_table)[2:74]), color=NA, alpha=.8)+ 
   theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+
-  coord_sf(xlim = c(-155, 155), ylim = c(-50, 70))
+  coord_sf(xlim = c(-155, 155), ylim = c(-50, 70))+
+  theme(panel.grid.major = element_blank())+
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank())
 
 plot_zoom<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=(radius/2)),
                              data=lineage_table, cols=c(colnames(lineage_table)[2:74]), color=NA, alpha=.8)+ 
   theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+
-  coord_sf(xlim = c(-15,55), ylim = c(-30,62))
+  coord_sf(xlim = c(-15,55), ylim = c(-50,62))+
+  theme(panel.grid.major = element_blank())+
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank())
 
 plot_world
 plot_zoom
