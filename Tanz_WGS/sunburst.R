@@ -26,12 +26,16 @@ tree<-read.tree("Tanz_WGS/Trees/Tanz_WGS_aligned.fasta.contree")
 metadata<-read.csv("Tanz_WGS/Tanz_WGS_metadata_outgroup.csv")
 sequence_data<-read.csv("Tanz_WGS/Outputs/Tanz_WGS_sequence_data.csv")
 
+names(node_data)<-c("Node", "n_tips", "cluster")
+
 shape_region<-readOGR("Tanz_WGS/Shapefiles/TZ_Region_2012_pop_incUnguja.shp")
 shape_district<-readOGR("Tanz_WGS/Shapefiles/TZ_District_2012_pop.shp")
 
 outgroup<-reroot(outgroup, getMRCA(
   outgroup, tip = which(outgroup$tip.label %in% metadata$sequence.sequenceID[(
     grep("Asian", metadata$assignment))])))
+
+
 
 metadata$sequence.sequenceID[grep("Asian", metadata$assignment)]
 
@@ -50,10 +54,7 @@ previous$assignment<-gsub("Cosmopolitan_", "", previous$assignment)
 node_data$parent<-NA
 node_data$parent[1]<-""
 
-for (i in 2:length(node_data$Node)) {
-  parent<-node_data$cluster[which(node_data$Node %in% ancestor(tree, node_data$Node[i]))]
-  node_data$parent[i]<-parent[length(parent)]
-}
+node_data$parent[15]<-node_data$cluster[14]
 
 lineage_info$parent<-NA
 
@@ -64,9 +65,9 @@ for (i in 1:length(lineage_info$cluster)) {
 
 lineage_info$colour<-NA
 
-Colours<-c("Reds","Purples","Greens","Greys","Oranges")
+Colours<-c("Purples","Greens","Reds","Greys","Oranges", "BuGn")
 
-clades<-c("AF1b_A","AF1b_B","AF1b_C","AF1b_D","AF1b_E")
+clades<-c("AF1b_A","AF1b_B","AF1b_C","AF1b_E","AF1b_F", "AF1b_G")
 
 lineage<-lineage_info$cluster[-c(grep("_", lineage_info$cluster))]
 cols<-brewer.pal(9, "Blues")
@@ -96,9 +97,9 @@ new<-plot_ly(
   type = "sunburst",
   width = 1000,
   height = 850,
-  marker = list(colors = list("#DE2D26", "#F27058", "#FCAC92", "#FEE0D2", "#756BB1", "#9894C6", 
-                              "#BCBDDC", "#D5D5E8", "#EFEDF5", "#31A354", "#A1D99B", "#E5F5E0", 
-                              "#F0F0F0", "#FEE6CE", "#F7FBFF"))
+  marker = list(colors = list("#756BB1", "#918BC2", "#ADACD3", "#C6C6E1", "#DAD9EB", "#EFEDF5", 
+                              "#31A354", "#A1D99B", "#E5F5E0", "#DE2D26", "#FEE0D2", "#636363", 
+                              "#F0F0F0", "#E6550D", "#FEE6CE", "#E5F5F9"))
 )
 
 new
@@ -111,47 +112,21 @@ new
 # Plot a nice figure to save
 plot_tree<-ggtree(outgroup, colour = "grey50", ladderize = T) %<+% sequence_data +
   geom_tippoint(aes(color=cluster), size=3)  +
-  ggtitle("Tanzania WGS Lineage Tree")+
   theme(plot.title = element_text(size = 40, face = "bold"))+ 
-  scale_color_manual(values=c(lineage_info$colour))
+  scale_color_manual(values=c(lineage_info$colour)) + 
+  theme(legend.position = "none")
+
+genotype<-data.frame(lineage = sequence_data$cluster)
+rownames(genotype)<-sequence_data$ID
+
+plot_tree<-gheatmap(plot_tree, genotype, offset=-0, width=.1, font.size=3, color = NA, 
+                    colnames_angle=-45, hjust=0) +
+  scale_fill_manual(values=c(lineage_info$colour), name="lineage")+ 
+  theme(legend.position = "none")
 
 plot_tree
-
-lineage_info<-lineage_info[-c(which(is.na(lineage_info$cluster))),]
-
-lineage_info$node<-NA
-
-sequence_data$cluster<-gsub("Cosmopolitan ", "", sequence_data$cluster)
-node_data$cluster<-gsub("Cosmopolitan ", "", node_data$cluster)
-
-for (i in 1:length(node_data$cluster)) {
-  node_data$Node[i]<-getMRCA(outgroup, tip = which(outgroup$tip.label %in% metadata$sequence.sequenceID[
-    which(sequence_data$cluster == node_data$cluster[i])]))
-}
-
-node_data$overlaps <- NA 
-for (i in 1:length(node_data$Node)) {
-  node_data$overlaps[i] <- length(which((allDescendants(outgroup)[[(node_data[i,1])]]) %in% node_data[,1]))
-} 
-
-for (i in 1:length(lineage_info$cluster)) {
-  lineage_info$node[i]<-node_data$Node[which(node_data$cluster == lineage_info$cluster[i])]
-  lineage_info$group[i]<-node_data$overlaps[which(node_data$cluster == lineage_info$cluster[i])]
-}
-
-group0<-which(lineage_info$group == 0)
-
-for (i in 1:length(group0)) {
-  plot_tree<-
-    collapse(plot_tree, lineage_info$node[group0[i]], 'max', fill=lineage_info$colour[group0[i]], alpha=1)
-}
-
-plot_tree<-plot_tree + theme(legend.position = "none")
-plot_tree
-
 ggsave("Tanz_WGS/Figures/figure_lineage_tree.png",
-       plot = plot_tree,
-       height = 25, width = 40)
+       plot = plot_tree)
 
 
 #' **Cleaning the data**
@@ -182,8 +157,6 @@ areas <- unique(metadata$sequence.gb_place_sampled)
 #' ** Tabulating the data**
 areas_table<-table(metadata$sequence.gb_place_sampled); areas_table
 length(areas_table)
-
-sequence_data<-sequence_data[-c(which(is.na(sequence_data$cluster))),]
 
 lineage_table <- data.frame(matrix(ncol = (length(unique(sequence_data$cluster))+1), nrow = length(areas)))
 x <- c("area", unique(sequence_data$cluster))
@@ -242,9 +215,9 @@ shape_region@polygons<-shape_region@polygons[-c(grep("Pemba|Unguja", shape_regio
 
 plot<-
   ggplot() +
-  geom_polygon(data = shape_region, aes( x = long, y = lat, group = group), fill="#69b3a2", color="white") +
-  geom_polygon(data = islands, aes(x = long, y = lat, group = group), fill = "#69b3a2") +
-  theme_void() 
+  geom_polygon(data = shape_region, aes( x = long, y = lat, group = group), fill="grey", color="white") +
+  geom_polygon(data = islands, aes(x = long, y = lat, group = group), fill = "grey", color = "white") +
+  theme_bw() 
 
 lineage_table <- with(lineage_table, lineage_table[abs(LON) < 150 & abs(LAT) < 70,])
 n <- nrow(lineage_table)
@@ -255,7 +228,8 @@ for (i in 1:length(lineage_table$area)) {
 }
 
 lineage_table$radius
-lineage_table$radius[which(lineage_table$radius %in% 5:10)]<-3
+lineage_table$radius[which(lineage_table$radius %in% 1:5)]<-2
+lineage_table$radius[which(lineage_table$radius %in% 6:10)]<-3
 lineage_table$radius[which(lineage_table$radius > 10)]<-4
 
 lineage_table$radius<-lineage_table$radius/6
@@ -268,8 +242,14 @@ for (i in 1:length(colour_table$lineage)) {
 }
 
 plot_world<-plot + geom_scatterpie(aes(x=LON, y=LAT, group=region, r=radius),
-                                   data=lineage_table, cols=c(colnames(lineage_table)[2:15]), color=NA, alpha=.8)+ 
-  theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+ coord_equal(ratio=1)
+                                   data=lineage_table, cols=c(colnames(lineage_table)[2:15]), color=NA)+ 
+  theme(legend.position = "none") + scale_fill_manual(values = c(colour_table$colour))+ coord_equal(ratio=1)+
+  theme(panel.grid.major = element_blank())+
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank())
 
 plot_world
 

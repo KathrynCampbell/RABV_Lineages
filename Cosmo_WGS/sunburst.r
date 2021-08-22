@@ -125,44 +125,19 @@ new
 # Plot a nice figure to save
 plot_tree<-ggtree(outgroup, colour = "grey50", ladderize = T) %<+% sequence_data +
   geom_tippoint(aes(color=cluster), size=3)  +
-  ggtitle("Cosmo WGS Lineage Tree")+
   theme(plot.title = element_text(size = 40, face = "bold"))+ 
-  scale_color_manual(values=c(lineage_info$colour))+ 
-  geom_tiplab(align=T, aes(color = cluster)) +
+  scale_color_manual(values=c(lineage_info$colour)) + 
+  theme(legend.position = "none")
+
+genotype<-data.frame(lineage = sequence_data$cluster)
+rownames(genotype)<-sequence_data$ID
+
+plot_tree<-gheatmap(plot_tree, genotype, offset=-0.01, width=.1, font.size=3, color = NA, 
+                    colnames_angle=-45, hjust=0) +
+  scale_fill_manual(values=c(lineage_info$colour), name="lineage")+ 
   theme(legend.position = "none")
 
 plot_tree
-
-lineage_info$node<-NA
-
-sequence_data$cluster<-gsub("Cosmopolitan ", "", sequence_data$cluster)
-node_data$cluster<-gsub("Cosmopolitan ", "", node_data$cluster)
-
-for (i in 1:length(node_data$cluster)) {
-  node_data$Node[i]<-getMRCA(outgroup, tip = which(outgroup$tip.label %in% metadata$ID[
-    which(sequence_data$cluster == node_data$cluster[i])]))
-}
-
-node_data$overlaps <- NA 
-for (i in 1:length(node_data$Node)) {
-  node_data$overlaps[i] <- length(which((allDescendants(outgroup)[[(node_data[i,1])]]) %in% node_data[,1]))
-} 
-
-for (i in 1:length(lineage_info$cluster)) {
-  lineage_info$node[i]<-node_data$Node[which(node_data$cluster == lineage_info$cluster[i])]
-  lineage_info$group[i]<-node_data$overlaps[which(node_data$cluster == lineage_info$cluster[i])]
-}
-
-group0<-which(lineage_info$group == 0)
-
-for (i in 1:length(group0)) {
-  collapse_tree<-
-    collapse(plot_tree, lineage_info$node[group0[i]], 'max', fill=lineage_info$colour[group0[i]], alpha=1)
-}
-
-collapse_tree<-collapse_tree + theme(legend.position = "none")
-
-collapse_tree
 
 ggsave("Cosmo_WGS/Figures/figure_lineage_tree.png",
        plot = plot_tree,
@@ -281,3 +256,6 @@ plot_world
 plot_zoom
 ggsave("Cosmo_WGS/Figures/pie_map.png", plot = plot_world, width = 45, height = 20)
 ggsave("Cosmo_WGS/Figures/pie_map_zoom.png", plot = plot_zoom)
+write.csv(lineage_table, "Cosmo_WGS/Outputs/country_plot.csv", row.names = F, col.names = F)
+write.csv(colour_table, "Cosmo_WGS/Outputs/colours.csv", row.names = F, col.names = F)
+

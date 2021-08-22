@@ -1,16 +1,17 @@
-"cluster","country","year_first","year_last","max_distance","mean_distance","n_seqs"
-"Cosmopolitan AF1b_A1","c(""Morogoro region"", ""Serengeti District"")",2009,2017,0.0749660035,0.0185395606155656,7
-"Cosmopolitan AF1b_A1.1","c(""Arusha Region"", ""Mtwara region"", ""Pemba island"", ""Serengeti District"")",2003,2011,0.0749660035,0.018550807838938,4
-"Cosmopolitan AF1b_A1.1.1","Pwani region",2010,2018,0.0749660035,0.019319120935751,2
-"Cosmopolitan AF1b_A1.1.2","c(""Arusha Region"", ""Chake chake"", ""Dar es Salaam"", ""Iringa region"", ""Kusini Unguja"", ""Lindi region"", ""Morogoro region"", ""Pemba island"", ""Serengeti District"")",1996,2017,0.0749660035,0.0193348658581577,37
-"Cosmopolitan AF1b_B1","Serengeti District",2004,2012,0.0749660035,0.0217338299871107,11
-"Cosmopolitan AF1b_B1.1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,0.0749660035,0.0225583715558157,7
-"Cosmopolitan AF1b_B1.1.1","character(0)",2017,2018,0.0749660035,0.0222741755020209,3
-"Cosmopolitan AF1b_B1.2","Serengeti District",2010,2013,0.069040432,0.01751334772735,21
-"Cosmopolitan AF1b_B1.3","Serengeti District",2011,2017,0.0749660035,0.0222474389478049,28
-"Cosmopolitan AF1b_C1","Serengeti District",2012,2013,0.0749660035,0.022345500072223,2
-"Cosmopolitan AF1b_C1.1","Serengeti District",2011,2012,0.0733721907,0.0179204506880604,5
-"Cosmopolitan AF1b_C1.1.1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,0.0660634895,0.0168666199354355,35
-"Cosmopolitan AF1b_D1","c(""Dar es Salaam"", ""Morogoro region"", ""Serengeti District"")",2010,2012,0.0659835602,0.0182738721714286,14
-"Cosmopolitan AF1b_E1","Serengeti District",2010,2013,0.0662351325,0.0189742184988547,23
-NA,NA,NA,NA,NA,NA,6
+"cluster","country","year_first","year_last","n_seqs"
+"Cosmopolitan AF1b_A1","c(""Chake chake"", ""Kusini Unguja"")",2010,2011,2
+"Cosmopolitan AF1b_A1.1","c(""Morogoro region"", ""Pemba island"")",2008,2010,6
+"Cosmopolitan AF1b_A1.1.1","Serengeti District",2011,2013,2
+"Cosmopolitan AF1b_A1.2","c(""Dar es Salaam"", ""Iringa region"", ""Lindi region"")",2010,2011,4
+"Cosmopolitan AF1b_A1.3","c(""Arusha Region"", ""Dar es Salaam"", ""Iringa region"", ""Morogoro region"", ""Serengeti District"")",1996,2017,37
+"Cosmopolitan AF1b_A1.3.1","Serengeti District",2010,2013,24
+"Cosmopolitan AF1b_B1","Pwani region",2010,2018,2
+"Cosmopolitan AF1b_B1.1","Serengeti District",2008,2012,8
+"Cosmopolitan AF1b_B1.1.1","Serengeti District",2004,2012,3
+"Cosmopolitan AF1b_C1","c(""Arusha Region"", ""Morogoro region"", ""Mtwara region"", ""Pemba island"", ""Serengeti District"")",2003,2011,6
+"Cosmopolitan AF1b_C1.1","c(""Lindi region"", ""Pemba island"", ""Serengeti District"")",2009,2017,10
+"Cosmopolitan AF1b_E1","c(""Morogoro region"", ""Serengeti District"")",2010,2018,10
+"Cosmopolitan AF1b_E1.1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,42
+"Cosmopolitan AF1b_F1","character(0)",2015,2017,10
+"Cosmopolitan AF1b_F1.1","Serengeti District",2011,2015,15
+"Cosmopolitan AF1b_G1","Serengeti District",2010,2013,21
