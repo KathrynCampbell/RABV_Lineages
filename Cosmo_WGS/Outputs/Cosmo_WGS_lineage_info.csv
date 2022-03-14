@@ -1,74 +1,52 @@
-"cluster","country","year_first","year_last","max_distance","mean_distance","n_seqs"
-"A1","China",1931,2006,0.175403075,0.0751945508962618,3
-"A1.1","Russia",2008,2014,0.175403075,0.0751934465280526,2
-"A1.1.1","c(""Gabon"", ""Grenada"", ""Nigeria"")",1986,2018,0.175403075,0.0751992699583662,4
-"B1","c(""Montenegro"", ""Serbia"")",1978,1978,0.1752370256,0.0721741696586018,2
-"B1.1","c(""Germany"", ""Serbia"")",1972,1997,0.1629454408,0.0743837565727704,3
-"B1.1.1","c(""Hungary"", ""Russia"")",1991,2009,0.1629454408,0.0743551878130892,7
-"B1.2","Israel",1993,1993,0.1659420427,0.0646311970430718,2
-"C1","Madagascar",1986,2004,0.1620092402,0.0679852025557535,3
-"Cosmopolitan AF1a_A1","c(""Algeria"", ""Morocco"", ""Tunisia"")",1989,2018,0.1608689877,0.072769620220107,10
-"Cosmopolitan AF1a_A1.1","c(""Ethiopia"", ""Kenya"", ""Somalia"")",1988,2018,0.1620092402,0.0670212957708652,11
-"Cosmopolitan AF1b_A1","c(""Central African Republic"", ""Tanzania"", ""Zimbabwe"")",1991,2011,0.1608689877,0.0725161074285038,4
-"Cosmopolitan AF1b_A1.1","c(""Rwanda"", ""Tanzania"")",1994,2010,0.1620092402,0.0666066941834421,7
-"Cosmopolitan AF1b_A1.1.1","c(""Tanzania"", ""Uganda"")",2009,2018,0.1608689877,0.072147898885659,4
-"Cosmopolitan AF1b_A1.2","c(""South Africa"", ""Tanzania"", ""Zimbabwe"")",1981,2017,0.1620025621,0.0647151931873818,7
-"Cosmopolitan AF1b_A1.2.1","c(""Mozambique"", ""South Africa"", ""Zimbabwe"")",1986,2012,0.1608689877,0.0721221967672138,5
-"Cosmopolitan AF1b_A1.3","c(""Kenya"", ""Tanzania"")",1996,2018,0.1643793997,0.0643064503633781,44
-"Cosmopolitan AF1b_A1.3.1","Tanzania",2010,2013,0.1752370256,0.113234471969547,24
-"Cosmopolitan AF1b_A1.4","c(""Namibia"", ""South Africa"")",1992,2017,0.1608689877,0.0719958407859238,17
-"Cosmopolitan AF1b_B1","Tanzania",2010,2018,0.175403075,0.0956366973730598,2
-"Cosmopolitan AF1b_B1.1","Tanzania",2008,2012,0.1643793997,0.0643063944983077,8
-"Cosmopolitan AF1b_B1.1.1","Tanzania",2004,2012,0.1620025621,0.0646113828696213,3
-"Cosmopolitan AF1b_C1","Tanzania",2003,2011,0.1752370256,0.112058541560432,6
-"Cosmopolitan AF1b_C1.1","Tanzania",2009,2017,0.175403075,0.0968504520307569,10
-"Cosmopolitan AF1b_D1","South Africa",2012,2015,0.1620025621,0.0645252535434568,2
-"Cosmopolitan AF1b_D1.1","South Africa",2015,2017,0.1752370256,0.118164483847097,10
-"Cosmopolitan AF1b_E1","Tanzania",2010,2018,0.1588604704,0.075041684441359,10
-"Cosmopolitan AF1b_E1.1","Tanzania",2010,2013,0.1586913772,0.0639594685273575,42
-"Cosmopolitan AF1b_F1","Tanzania",2015,2017,0.1620025621,0.0643715730611043,10
-"Cosmopolitan AF1b_F1.1","Tanzania",2011,2015,0.172609144,0.116685402302234,15
-"Cosmopolitan AF1b_G1","Tanzania",2010,2013,0.1588604704,0.0739191716310317,21
-"Cosmopolitan AM2a_A1","Mexico",1991,2018,0.1564946451,0.074309068823,10
-"Cosmopolitan CA1_A1","c(""China"", ""Poland"", ""Russia"")",2008,2018,0.1586913772,0.0639461630805185,12
-"Cosmopolitan CA1_A1.1","Russia",2003,2003,0.1597842427,0.0643186665644035,2
-"Cosmopolitan CA1_A1.1.1","Iran",1974,2014,0.1620025621,0.064390097443531,11
-"Cosmopolitan CA2_A1","Iran",1993,2015,0.1571216557,0.0743848096454667,2
-"Cosmopolitan CA2_A1.1","c(""Iraq"", ""Russia"", ""Turkey"")",2001,2010,0.1586913772,0.0634349326033785,3
-"Cosmopolitan CA2_A1.1.1","Iran",2008,2014,0.1597842427,0.0639214626443437,10
-"Cosmopolitan CE_A1","c(""Czechia"", ""Germany"", ""Poland"")",1991,2018,0.1571216557,0.0744560213902604,15
-"Cosmopolitan EE_A1","c(""Bosnia and Herzegovina"", ""Hungary"", ""Slovenia"")",1986,1996,0.1604355073,0.0758065180041245,4
-"Cosmopolitan EE_A1.1","c(""Hungary"", ""Poland"", ""Serbia"")",1986,2010,0.1748212286,0.110059463724885,11
-"Cosmopolitan ME1a_A1","Turkey",2001,2001,0.1583148199,0.0635744529509704,2
-"Cosmopolitan ME1a_A1.1","Iran",1976,2013,0.1630275922,0.0642488611094256,8
-"Cosmopolitan ME1a_A1.1.1","Iran",2008,2018,0.1588163921,0.0634824222184273,3
-"Cosmopolitan ME1a_A1.1.2","c(""Oman"", ""Qatar"", ""Saudi Arabia"", ""United Arab Emirates"")",1987,2018,0.172609144,0.121620621103205,13
-"Cosmopolitan ME1a_A1.1.3","Iran",1984,2014,0.1556763646,0.0736990811458974,13
-"Cosmopolitan ME1a_A1.1.4","c(""Israel"", ""Turkey"")",1993,2001,0.156776867,0.0715613616519882,10
-"Cosmopolitan ME1a_B1","Iran",2008,2014,0.1608689877,0.0725472735322892,3
-"Cosmopolitan ME1a_B1.1","Iran",2009,2014,0.1629454408,0.0753866991768552,4
-"Cosmopolitan ME1a_B1.1.1","Iran",1996,2014,0.1748212286,0.110900640472791,4
-"Cosmopolitan ME1a_C1","Iran",2009,2014,0.175403075,0.1153059129232,8
-"Cosmopolitan ME1a_C1.1","Iran",2008,2014,0.161661581,0.0808554841361538,7
-"Cosmopolitan ME1a_C1.1.1","Iran",2008,2014,0.1583148199,0.0633981368724895,11
-"Cosmopolitan ME1a_C1.2","Iran",2009,2015,0.1612812304,0.0671701134338564,15
-"Cosmopolitan ME2_A1","Turkey",1993,2001,0.1659420427,0.0656100972412663,7
-"Cosmopolitan ME2_A1.1","c(""Iran"", ""Turkey"")",1989,2014,0.1630275922,0.0643601408596224,8
-"Cosmopolitan ME2_A1.1.1","Turkey",2001,2001,0.1643793997,0.0644226679481846,2
-"Cosmopolitan ME2_B1","Turkey",1999,2015,0.1597842427,0.0640405476100549,9
-"Cosmopolitan ME2_B1.1","Turkey",2009,2010,0.1585747431,0.063739763165457,2
-"Cosmopolitan ME2_B1.1.1","Turkey",2006,2014,0.1589812689,0.0637905773162249,10
-"Cosmopolitan NEE_A1","Estonia",1991,1993,0.158489243,0.063533633089972,4
-"Cosmopolitan NEE_A1.1","Poland",1996,1997,0.1620025621,0.0645570845090769,4
-"Cosmopolitan NEE_A1.1.1","c(""Hungary"", ""Poland"")",2010,2017,0.1620092402,0.069162185970284,6
-"Cosmopolitan NEE_A1.1.2","c(""Estonia"", ""Finland"", ""Poland"", ""Russia"")",1986,2018,0.1600554985,0.0713958735702154,10
-"Cosmopolitan NEE_B1","Hungary",2013,2013,0.172609144,0.121627774812492,2
-"Cosmopolitan NEE_B1.1","Hungary",2013,2014,0.1571216557,0.0755453818874154,28
-"Cosmopolitan NEE_B1.2","Hungary",2013,2014,0.1524197152,0.0817633811197738,17
-"Cosmopolitan WE_A1","c(""Belgium"", ""Bosnia and Herzegovina"", ""France"", ""Germany"", ""Serbia"", ""Slovenia"")",1986,1998,0.1541904036,0.0732733712997846,13
-"Cosmopolitan_A1","c(""China"", ""Ethiopia"", ""United States"")",1948,2018,0.1564946451,0.0744770369919692,14
-"D1","United States",1982,2012,0.156776867,0.0716721080383883,4
-"D1.1","c(""Egypt"", ""Israel"", ""Mexico"", ""United States"")",1950,2015,0.1562235476,0.072368000931348,13
-"D1.1.1","United States",2009,2009,0.1608689877,0.0732239689848923,2
-"D1.1.2","c(""Brazil"", ""United States"")",1986,2018,0.1629454408,0.0746028140308461,11
-"E1","c(""Azerbaijan"", ""Tajikistan"")",2002,2012,0.1604355073,0.0751955727157902,2
+"lineage","country","year_first","year_last","n_seqs"
+"A1","c(""China"", ""Gabon"", ""Grenada"", ""Nigeria"", ""Russia"")",1931,2018,9
+"A1.1","c(""Montenegro"", ""Serbia"")",1978,1978,2
+"A1.1.1","c(""Germany"", ""Serbia"")",1972,1997,3
+"A1.1.2","c(""Iran"", ""Israel"", ""Turkey"")",1976,2013,12
+"A1.2","c(""Central African Republic"", ""Madagascar"", ""Tanzania"", ""Zimbabwe"")",1986,2011,7
+"A1.2.1","c(""South Africa"", ""Tanzania"", ""Zimbabwe"")",1981,2017,7
+"A1.2.2","c(""Kenya"", ""Tanzania"")",1996,2018,44
+"A1.2.3","c(""Namibia"", ""South Africa"")",1992,2017,17
+"A1.3","c(""Egypt"", ""Israel"", ""Mexico"", ""United States"")",1950,2015,17
+"A1.3.1","c(""China"", ""Ethiopia"", ""United States"")",1948,2018,16
+"A1.3.2","c(""Brazil"", ""United States"")",1986,2018,11
+"B1","c(""Hungary"", ""Russia"")",1991,2009,7
+"B1.1","c(""Azerbaijan"", ""China"", ""Poland"", ""Russia"", ""Tajikistan"")",2002,2018,14
+"C1","c(""Mozambique"", ""South Africa"", ""Zimbabwe"")",1986,2012,5
+"C1.1","South Africa",2012,2017,12
+"Cosmopolitan AF1a_A1","c(""Algeria"", ""Morocco"", ""Tunisia"")",1989,2018,10
+"Cosmopolitan AF1a_A1.1","c(""Ethiopia"", ""Kenya"", ""Somalia"")",1988,2018,11
+"Cosmopolitan AF1b_A1","c(""Rwanda"", ""Tanzania"")",1994,2010,7
+"Cosmopolitan AF1b_A1.1","c(""Tanzania"", ""Uganda"")",2009,2018,4
+"Cosmopolitan AF1b_A1.1.1","Tanzania",2008,2018,10
+"Cosmopolitan AF1b_A1.1.2","Tanzania",2003,2011,6
+"Cosmopolitan AF1b_B1","Tanzania",2004,2012,3
+"Cosmopolitan AF1b_B1.1","Tanzania",2010,2018,10
+"Cosmopolitan AF1b_B1.1.1","Tanzania",2010,2013,42
+"Cosmopolitan AF1b_B1.2","Tanzania",2011,2017,25
+"Cosmopolitan AF1b_B1.3","Tanzania",2010,2013,21
+"Cosmopolitan AF1b_C1","Tanzania",2009,2017,10
+"Cosmopolitan AM2a_A1","Mexico",1991,2018,10
+"Cosmopolitan CA1_A1","c(""Iran"", ""Russia"")",1974,2014,13
+"Cosmopolitan CA2_A1","c(""Iran"", ""Iraq"", ""Russia"", ""Turkey"")",1993,2015,15
+"Cosmopolitan CE_A1","c(""Czechia"", ""Germany"", ""Poland"")",1991,2018,15
+"Cosmopolitan EE_A1","c(""Bosnia and Herzegovina"", ""Hungary"", ""Poland"", ""Serbia"", ""Slovenia"")",1986,2010,15
+"Cosmopolitan ME1a_A1","Iran",1996,2018,22
+"Cosmopolitan ME1a_A1.1","Iran",2008,2014,7
+"Cosmopolitan ME1a_A1.1.1","Iran",2008,2014,11
+"Cosmopolitan ME1a_A1.2","Iran",2009,2015,15
+"Cosmopolitan ME2_A1","Turkey",1993,2001,7
+"Cosmopolitan ME2_A1.1","c(""Iran"", ""Turkey"")",1989,2014,8
+"Cosmopolitan ME2_A1.1.1","Turkey",1999,2015,11
+"Cosmopolitan ME2_B1","Turkey",2006,2014,12
+"Cosmopolitan NEE_A1","c(""Estonia"", ""Poland"")",1991,1997,8
+"Cosmopolitan NEE_A1.1","c(""Hungary"", ""Poland"")",2010,2017,6
+"Cosmopolitan NEE_A1.1.1","Hungary",2013,2013,2
+"Cosmopolitan NEE_A1.2","c(""Estonia"", ""Finland"", ""Poland"", ""Russia"")",1986,2018,10
+"Cosmopolitan NEE_B1","Hungary",2013,2014,28
+"Cosmopolitan NEE_C1","Hungary",2013,2014,17
+"Cosmopolitan WE_A1","c(""Belgium"", ""Bosnia and Herzegovina"", ""France"", ""Germany"", ""Serbia"", ""Slovenia"")",1986,1998,13
+"D1","c(""Oman"", ""Qatar"", ""Saudi Arabia"", ""United Arab Emirates"")",1987,2018,13
+"E1","Iran",1984,2014,13
+"F1","c(""Israel"", ""Turkey"")",1993,2001,10
+"G1","Tanzania",2010,2013,24

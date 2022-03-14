@@ -1,17 +1,16 @@
 "cluster","country","year_first","year_last","n_seqs"
-"Cosmopolitan AF1b_A1","c(""Chake chake"", ""Kusini Unguja"")",2010,2011,2
-"Cosmopolitan AF1b_A1.1","c(""Morogoro region"", ""Pemba island"")",2008,2010,6
-"Cosmopolitan AF1b_A1.1.1","Serengeti District",2011,2013,2
-"Cosmopolitan AF1b_A1.2","c(""Dar es Salaam"", ""Iringa region"", ""Lindi region"")",2010,2011,4
-"Cosmopolitan AF1b_A1.3","c(""Arusha Region"", ""Dar es Salaam"", ""Iringa region"", ""Morogoro region"", ""Serengeti District"")",1996,2017,37
-"Cosmopolitan AF1b_A1.3.1","Serengeti District",2010,2013,24
-"Cosmopolitan AF1b_B1","Pwani region",2010,2018,2
-"Cosmopolitan AF1b_B1.1","Serengeti District",2008,2012,8
-"Cosmopolitan AF1b_B1.1.1","Serengeti District",2004,2012,3
-"Cosmopolitan AF1b_C1","c(""Arusha Region"", ""Morogoro region"", ""Mtwara region"", ""Pemba island"", ""Serengeti District"")",2003,2011,6
-"Cosmopolitan AF1b_C1.1","c(""Lindi region"", ""Pemba island"", ""Serengeti District"")",2009,2017,10
-"Cosmopolitan AF1b_E1","c(""Morogoro region"", ""Serengeti District"")",2010,2018,10
-"Cosmopolitan AF1b_E1.1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,42
-"Cosmopolitan AF1b_F1","character(0)",2015,2017,10
-"Cosmopolitan AF1b_F1.1","Serengeti District",2011,2015,15
-"Cosmopolitan AF1b_G1","Serengeti District",2010,2013,21
+"A1.2","c(""Chake chake"", ""Kusini Unguja"")",2010,2017,3
+"A1.2.1","c(""Dar es Salaam"", ""Iringa region"", ""Lindi region"")",2010,2011,4
+"A1.2.2","c(""Arusha Region"", ""Bariadi"", ""Dar es Salaam"", ""Iringa region"", ""Loliondo"", ""Loliondo Game Control Area"", ""Morogoro region"", ""Musoma"", ""Ngorongoro"", ""Serengeti"", ""Serengeti District"")",1996,2017,46
+"AF1b_A1","c(""Morogoro region"", ""Ngorongoro"", ""Pemba island"", ""Serengeti"", ""Serengeti National Park"", ""Tarangire"", ""Tarime"")",1994,2017,13
+"AF1b_A1.1","Serengeti District",2011,2013,2
+"AF1b_A1.1.1","c(""Pwani region"", ""Serengeti District"")",2008,2018,11
+"AF1b_A1.1.2","c(""Arusha Region"", ""Morogoro region"", ""Mtwara region"", ""Pemba island"", ""Serengeti District"")",2003,2011,6
+"AF1b_B1","Serengeti District",2004,2012,3
+"AF1b_B1.1","c(""Morogoro region"", ""Serengeti District"")",2010,2018,10
+"AF1b_B1.1.1","c(""Morogoro region"", ""Serengeti District"")",2010,2013,42
+"AF1b_B1.2","Serengeti District",2011,2017,25
+"AF1b_B1.3","Serengeti District",2010,2013,21
+"AF1b_C1","c(""Lindi region"", ""Pemba island"", ""Serengeti District"")",2009,2017,10
+"G1","Serengeti District",2010,2013,24
+"K1","c(""Serengeti"", ""Serengeti National Park"")",1997,1999,4
